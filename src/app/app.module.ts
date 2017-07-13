@@ -7,12 +7,17 @@ import {
   AlertModule,
   TabsModule,
 } from 'ngx-bootstrap';
-import { GetParamsComponent } from './pages/get-params/get-params.component';
+
+import {
+  TopComponent,
+  GetParamsComponent,
+} from './pages';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetParamsComponent,
+    TopComponent,
   ],
   imports: [
     AppRoutingModule,

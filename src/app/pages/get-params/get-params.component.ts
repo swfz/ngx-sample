@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router,ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-get-params',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetParamsComponent implements OnInit {
 
-  constructor() { }
+  private queryParams: any;
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
+  ) {
+  }
 
   ngOnInit() {
+    this._activatedRoute.queryParams.subscribe(
+      params => {
+        console.log('queryParams: ',params);
+        this.queryParams = params;
+      }
+    );
   }
 
 }
