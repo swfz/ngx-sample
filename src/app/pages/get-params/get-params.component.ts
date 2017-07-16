@@ -9,6 +9,8 @@ import {Router,ActivatedRoute} from "@angular/router";
 export class GetParamsComponent implements OnInit {
 
   private queryParams: any;
+  private count: number = 0;
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router
@@ -16,11 +18,15 @@ export class GetParamsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._activatedRoute.queryParams.subscribe(
-      params => {
-        console.log('queryParams: ',params);
-        this.queryParams = params;
-      }
+    this.queryParams = this._activatedRoute.snapshot.queryParams;
+    this.count = parseInt(this.queryParams.count) || 0;
+  }
+
+  countUp(){
+    this.count = this.count + 1;
+    this._router.navigate(
+      [this._activatedRoute.routeConfig.path],
+      {queryParams: {count: this.count}}
     );
   }
 
