@@ -11,13 +11,20 @@ import {
 import {
   TopComponent,
   GetParamsComponent,
+  RxjsComponent,
+  FormatFocusoutComponent
 } from './pages';
+import { NumberInputPipe } from './pipes/number-input.pipe';
+import { NumberInputDirective } from './directives/number-input.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetParamsComponent,
     TopComponent,
+    RxjsComponent,
+    NumberInputDirective,
+    FormatFocusoutComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -25,7 +32,9 @@ import {
     AlertModule.forRoot(),
     TabsModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    NumberInputPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
