@@ -1,0 +1,17 @@
+<form #f="ngForm">
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"
+           name="name"
+           id="name"
+           [(ngModel)]="model.name"
+           class="form-control"
+           required
+           #nameInput>
+  </div>
+  <button type="submit">Submit</button>
+
+  {{nameInput|json}}
+  {{nameInput.className|json}}
+</form>

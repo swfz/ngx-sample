@@ -6,12 +6,14 @@ import {
   TopComponent,
   RxjsComponent,
   FormatFocusoutComponent,
+  ValidationComponent,
 } from "./pages";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
   { path: 'rxjs', component: RxjsComponent },
   { path: 'focus', component: FormatFocusoutComponent },
+  { path: 'validation', component: ValidationComponent },
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

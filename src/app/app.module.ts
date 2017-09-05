@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app.routing.module";
+import { FormsModule } from '@angular/forms';
 
 import {
   AlertModule,
@@ -16,6 +17,7 @@ import {
 } from './pages';
 import { NumberInputPipe } from './pipes/number-input.pipe';
 import { NumberInputDirective } from './directives/number-input.directive';
+import { ValidationComponent } from './pages/validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { NumberInputDirective } from './directives/number-input.directive';
     RxjsComponent,
     NumberInputDirective,
     FormatFocusoutComponent,
+    ValidationComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     AlertModule.forRoot(),
     TabsModule.forRoot()
   ],
