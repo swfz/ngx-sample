@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class ValidationComponent implements OnInit {
 
   constructor() { }
-  public model: any = {name: ''};
+  public model: any = {};
 
   ngOnInit() {
   }
 
 
   public onSubmit(e){
+    console.log(this.model);
     console.log(e);
 
   }
