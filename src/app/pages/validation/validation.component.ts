@@ -14,9 +14,8 @@ export class ValidationComponent implements OnInit {
   }
 
 
-  public onSubmit(e){
+  public onSubmit(){
     console.log(this.model);
-    console.log(e);
 
   }
 }

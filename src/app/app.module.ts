@@ -19,6 +19,7 @@ import { NumberInputPipe } from './pipes/number-input.pipe';
 import { NumberInputDirective } from './directives/number-input.directive';
 import { ValidationComponent } from './pages/validation/validation.component';
 import { NameValidatorDirective } from './validators/name-validator.directive';
+import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NameValidatorDirective } from './validators/name-validator.directive';
     FormatFocusoutComponent,
     ValidationComponent,
     NameValidatorDirective,
+    MultiFieldValidatorDirective,
   ],
   imports: [
     AppRoutingModule,

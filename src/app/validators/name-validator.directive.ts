@@ -11,7 +11,6 @@ export class NameValidatorDirective implements Validator {
 
   @Input() banName: string;
   validate(control: AbstractControl): {[key: string]: any}{
-    console.log(control);
     return (this.banName == control.value) ? {banName: {value: control.value}} : null;
   }
 }
