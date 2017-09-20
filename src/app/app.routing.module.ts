@@ -7,6 +7,7 @@ import {
   RxjsComponent,
   FormatFocusoutComponent,
   ValidationComponent,
+  RecursiveTemplateComponent,
 } from "./pages";
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'rxjs', component: RxjsComponent },
   { path: 'focus', component: FormatFocusoutComponent },
   { path: 'validation', component: ValidationComponent },
+  { path: 'recursive', component: RecursiveTemplateComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

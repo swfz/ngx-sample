@@ -20,6 +20,7 @@ import { NumberInputDirective } from './directives/number-input.directive';
 import { ValidationComponent } from './pages/validation/validation.component';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
+import { RecursiveTemplateComponent } from './pages/recursive-template/recursive-template.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MultiFieldValidatorDirective } from './validators/multi-field-validator
     ValidationComponent,
     NameValidatorDirective,
     MultiFieldValidatorDirective,
+    RecursiveTemplateComponent,
   ],
   imports: [
     AppRoutingModule,
