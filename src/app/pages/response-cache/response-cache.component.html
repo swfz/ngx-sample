@@ -1,15 +1,29 @@
-<button type="button"
-        (click)="getHeroes()"
-        class="btn btn-sm btn-primary">
-  GetHeroes
-</button>
+<div>
+  <button type="button"
+          (click)="getHeroes()"
+          class="btn btn-sm btn-primary">
+    GetHeroes
+  </button>
+  <ng-container *ngIf="heroes">
+    <div *ngFor="let hero of heroes">
+      {{hero?.id}}
+      {{hero?.name}}
+    </div>
+    {{heroes|json}}
+  </ng-container>
+</div>
+<div>
+  <button type="button"
+          (click)="getHeroes2()"
+          class="btn btn-sm btn-primary">
+    GetHeroes2
+  </button>
 
-<ng-container *ngIf="heroes">
-  <div *ngFor="let hero of heroes">
-    {{hero?.id}}
-    {{hero?.name}}
-  </div>
-
-  {{heroes|json}}
-</ng-container>
-
+  <ng-container *ngIf="heroes2">
+    <div *ngFor="let hero of heroes2">
+      {{hero?.id}}
+      {{hero?.name}}
+    </div>
+    {{heroes|json}}
+  </ng-container>
+</div>

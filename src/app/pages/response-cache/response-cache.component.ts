@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CacheService} from "../../services/cache.service";
+import {CacheService, IHero} from "../../services/cache.service";
 
 @Component({
   selector: 'app-response-cache',
@@ -9,14 +9,16 @@ import {CacheService} from "../../services/cache.service";
 export class ResponseCacheComponent {
 
   public heroes: any;
+  public heroes2: any;
 
   constructor(
     private cacheService: CacheService,
   ) { }
 
   public getHeroes(){
-    this.heroes = this.cacheService.getHeroes().subscribe(
+    this.cacheService.getHeroes().subscribe(
       result => {
+        console.log(result);
         this.heroes = result
       },
       error => {
@@ -25,4 +27,15 @@ export class ResponseCacheComponent {
     );
   }
 
+  public getHeroes2(){
+    this.cacheService.getHeroes().subscribe(
+      result => {
+        console.log(result);
+        this.heroes2 = result
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }
