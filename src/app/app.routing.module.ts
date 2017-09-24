@@ -8,6 +8,7 @@ import {
   FormatFocusoutComponent,
   ValidationComponent,
   RecursiveTemplateComponent,
+  ResponseCacheComponent,
 } from "./pages";
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'focus', component: FormatFocusoutComponent },
   { path: 'validation', component: ValidationComponent },
   { path: 'recursive', component: RecursiveTemplateComponent},
+  { path: 'cache', component: ResponseCacheComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

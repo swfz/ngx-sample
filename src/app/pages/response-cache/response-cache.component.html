@@ -1,0 +1,15 @@
+<button type="button"
+        (click)="getHeroes()"
+        class="btn btn-sm btn-primary">
+  GetHeroes
+</button>
+
+<ng-container *ngIf="heroes">
+  <div *ngFor="let hero of heroes">
+    {{hero?.id}}
+    {{hero?.name}}
+  </div>
+
+  {{heroes|json}}
+</ng-container>
+
