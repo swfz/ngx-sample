@@ -4,6 +4,14 @@
     <a routerLink="/queryparams">
       GetParameterの取得
     </a>
+    <a routerLink="/queryparams" [queryParams]="{count: 100}">
+      (パラメータ付き)
+    </a>
+  </li>
+  <li>
+    <a routerLink="/rxjs" routerLinkActive="active">
+      rxjs実験
+    </a>
   </li>
   <li>
     <a routerLink="/focus">
