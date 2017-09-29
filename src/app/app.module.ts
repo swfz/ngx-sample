@@ -25,6 +25,8 @@ import { NumberInputDirective } from './directives/number-input.directive';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
 import {CacheService} from "./services/cache.service";
+import { SlideComponent } from './pages/slide/slide.component';
+import { MomentRangeComponent } from './pages/moment-range/moment-range.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {CacheService} from "./services/cache.service";
     MultiFieldValidatorDirective,
     RecursiveTemplateComponent,
     ResponseCacheComponent,
+    SlideComponent,
+    MomentRangeComponent,
   ],
   imports: [
     AppRoutingModule,

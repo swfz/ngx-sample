@@ -9,7 +9,9 @@ import {
   ValidationComponent,
   RecursiveTemplateComponent,
   ResponseCacheComponent,
+  MomentRangeComponent,
 } from "./pages";
+import {SlideComponent} from "./pages/slide/slide.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
   { path: 'validation', component: ValidationComponent },
   { path: 'recursive', component: RecursiveTemplateComponent},
   { path: 'cache', component: ResponseCacheComponent},
+  { path: 'momentrange', component: MomentRangeComponent},
+  { path: 'slide', component: SlideComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
