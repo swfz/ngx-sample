@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import * as r from 'reveal.js';
 
 @Component({
@@ -6,7 +6,7 @@ import * as r from 'reveal.js';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent implements AfterViewInit {
 
   reveal: any;
   constructor(
@@ -14,7 +14,7 @@ export class SlideComponent implements OnInit {
     this.reveal = r.Reveal;
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     console.log(r);
     // this.reveal.initialize({
     //   controls: true,
@@ -34,6 +34,11 @@ export class SlideComponent implements OnInit {
       slideNumber: true,
       transition: true,
       help: true,
+      dependencies: [
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.min.js', condition: function() { return !document.body.classList; } },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      ]
     });
   }
 
