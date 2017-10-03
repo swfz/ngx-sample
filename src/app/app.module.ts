@@ -43,6 +43,7 @@ import { MomentRangeComponent } from './pages/moment-range/moment-range.componen
     ResponseCacheComponent,
     SlideComponent,
     MomentRangeComponent,
+    NumberInputPipe,
   ],
   imports: [
     AppRoutingModule,

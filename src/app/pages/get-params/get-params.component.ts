@@ -9,7 +9,7 @@ import {Router,ActivatedRoute} from "@angular/router";
 export class GetParamsComponent implements OnInit {
 
   private queryParams: any;
-  private count: number = 0;
+  public count: number = 0;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
