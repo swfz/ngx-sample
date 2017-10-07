@@ -1,0 +1,11 @@
+<custom-selector [(ngModel)]="rate"
+                 #custom="ngModel"
+                 [max]="10">
+</custom-selector>
+
+<div>
+  touched: {{custom.touched}}
+</div>
+<div>
+  parent component: {{rate}}
+</div>

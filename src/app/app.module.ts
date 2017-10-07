@@ -27,6 +27,9 @@ import { MultiFieldValidatorDirective } from './validators/multi-field-validator
 import {CacheService} from "./services/cache.service";
 import { SlideComponent } from './pages/slide/slide.component';
 import { MomentRangeComponent } from './pages/moment-range/moment-range.component';
+import { TileSelectorComponent } from './components/tile-selector/tile-selector.component';
+import { CustomSelectorComponent } from './components/custom-selector/custom-selector.component';
+import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { MomentRangeComponent } from './pages/moment-range/moment-range.componen
     SlideComponent,
     MomentRangeComponent,
     NumberInputPipe,
+    TileSelectorComponent,
+    CustomSelectorComponent,
+    CustomComponentComponent,
   ],
   imports: [
     AppRoutingModule,

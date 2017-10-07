@@ -1,0 +1,10 @@
+<ng-container *ngFor="let rate of ranges; let i = index;">
+  <span (click)="setRate(rate + 1)">
+    <i [ngClass]="i < value ?['fa','fa-star'] : ['fa', 'fa-star-o']"></i>
+  </span>
+</ng-container>
+
+
+<div>
+  custom component: {{value}}
+</div>

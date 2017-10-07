@@ -12,6 +12,7 @@ import {
   MomentRangeComponent,
 } from "./pages";
 import {SlideComponent} from "./pages/slide/slide.component";
+import {CustomComponentComponent} from "./pages/custom-component/custom-component.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'cache', component: ResponseCacheComponent},
   { path: 'momentrange', component: MomentRangeComponent},
   { path: 'slide', component: SlideComponent},
+  { path: 'custom', component: CustomComponentComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
