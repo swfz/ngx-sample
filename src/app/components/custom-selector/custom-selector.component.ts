@@ -29,21 +29,14 @@ export class CustomSelectorComponent implements OnInit , ControlValueAccessor {
     this.ranges = Array.from(Array(this.max).keys());
   }
   writeValue(value: any): void {
-
-    console.log("write value");
-    console.log(value);
     this.value = value;
   }
 
   registerOnChange(fn: (_: any) => {} ): void {
-    console.log("register on changed");
-    console.log(fn);
     this._onChange = fn;
   }
 
   registerOnTouched(fn: () => {} ): void {
-    console.log("register on touched");
-    console.log(fn);
     this._onTouched = fn;
   }
 

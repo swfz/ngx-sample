@@ -30,6 +30,7 @@ import { MomentRangeComponent } from './pages/moment-range/moment-range.componen
 import { TileSelectorComponent } from './components/tile-selector/tile-selector.component';
 import { CustomSelectorComponent } from './components/custom-selector/custom-selector.component';
 import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
+import { TableInputComponent } from './components/table-input/table-input.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CustomComponentComponent } from './pages/custom-component/custom-compon
     TileSelectorComponent,
     CustomSelectorComponent,
     CustomComponentComponent,
+    TableInputComponent,
   ],
   imports: [
     AppRoutingModule,

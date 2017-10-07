@@ -9,3 +9,16 @@
 <div>
   parent component: {{rate}}
 </div>
+<br>
+<br>
+<br>
+<br>
+
+<table-input [(ngModel)]="timetable"
+             [rowLabels]="tableRowLabels"
+             [colLabels]="tableColLabels"
+             [rows]="4"
+             [cols]="4">
+</table-input>
+
+{{timetable|json}}
