@@ -1,0 +1,30 @@
+<ag-grid-angular #groupingGrid
+                 style="height: 100%"
+                 [gridOptions]="gridOptions"
+                 [rowData]="gridRows"
+                 enableSorting
+                 enableFilter
+                 suppressMenuHide
+                 class="ag-dark">
+  <ag-grid-column [headerName]="'アカウントID'"
+                  [field]="'accountId'"
+                  [width]="130"
+                  [filter]="'text'">
+  </ag-grid-column>
+  <ag-grid-column [headerName]="'アカウント名'"
+                  [field]="'name'"
+                  [width]="130"
+                  [filter]="'text'">
+  </ag-grid-column>
+  <ag-grid-column [headerName]="'カテゴリ'"
+                  [field]="'category'"
+                  [width]="130"
+                  [filter]="'text'">
+  </ag-grid-column>
+  <ag-grid-column [headerName]="'スコア'"
+                  [field]="'score'"
+                  [width]="130"
+                  [filter]="'number'">
+  </ag-grid-column>
+</ag-grid-angular>
+

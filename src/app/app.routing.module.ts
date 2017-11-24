@@ -13,6 +13,7 @@ import {
 } from "./pages";
 import {SlideComponent} from "./pages/slide/slide.component";
 import {CustomComponentComponent} from "./pages/custom-component/custom-component.component";
+import {GroupingGridComponent} from "./pages/grouping-grid/grouping-grid.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'momentrange', component: MomentRangeComponent},
   { path: 'slide', component: SlideComponent},
   { path: 'custom', component: CustomComponentComponent},
+  { path: 'grid/group', component: GroupingGridComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

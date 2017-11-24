@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app.routing.module";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AgGridModule } from 'ag-grid-angular/main';
 
 import {
   AlertModule,
@@ -24,13 +25,14 @@ import { NumberInputPipe } from './pipes/number-input.pipe';
 import { NumberInputDirective } from './directives/number-input.directive';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
-import {CacheService} from "./services/cache.service";
+import { CacheService } from './services/cache.service';
 import { SlideComponent } from './pages/slide/slide.component';
 import { MomentRangeComponent } from './pages/moment-range/moment-range.component';
 import { TileSelectorComponent } from './components/tile-selector/tile-selector.component';
 import { CustomSelectorComponent } from './components/custom-selector/custom-selector.component';
 import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
-import { TableInputComponent } from './components/table-input/table-input.component';
+import {TableInputModule} from './components/table-input/table-input.module';
+import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
 
 @NgModule({
   declarations: [
@@ -51,15 +53,17 @@ import { TableInputComponent } from './components/table-input/table-input.compon
     TileSelectorComponent,
     CustomSelectorComponent,
     CustomComponentComponent,
-    TableInputComponent,
+    GroupingGridComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,
+    TableInputModule,
     AlertModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    AgGridModule.withComponents([]),
   ],
   providers: [
     NumberInputPipe,

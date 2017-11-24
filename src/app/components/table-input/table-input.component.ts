@@ -1,7 +1,7 @@
 import {Component, OnInit, forwardRef, Input} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from "@angular/forms";
 
-export const TABLE_INPUT_CONTROL_VALUE_ACCESSOR = {
+export const TABLE_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => TableInputComponent),
   multi: true,
