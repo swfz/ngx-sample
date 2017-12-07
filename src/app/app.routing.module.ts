@@ -14,6 +14,7 @@ import {
 import {SlideComponent} from "./pages/slide/slide.component";
 import {CustomComponentComponent} from "./pages/custom-component/custom-component.component";
 import {GroupingGridComponent} from "./pages/grouping-grid/grouping-grid.component";
+import {ViewchildrenComponent} from "./pages/viewchildren/viewchildren.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'slide', component: SlideComponent},
   { path: 'custom', component: CustomComponentComponent},
   { path: 'grid/group', component: GroupingGridComponent},
+  { path: 'viewchildren', component: ViewchildrenComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

@@ -9,6 +9,7 @@ import { AgGridModule } from 'ag-grid-angular/main';
 import {
   AlertModule,
   TabsModule,
+  PopoverModule,
 } from 'ngx-bootstrap';
 
 import {
@@ -33,6 +34,7 @@ import { CustomSelectorComponent } from './components/custom-selector/custom-sel
 import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
 import {TableInputModule} from './components/table-input/table-input.module';
 import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
+import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.compo
     CustomSelectorComponent,
     CustomComponentComponent,
     GroupingGridComponent,
+    ViewchildrenComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -63,6 +66,7 @@ import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.compo
     TableInputModule,
     AlertModule.forRoot(),
     TabsModule.forRoot(),
+    PopoverModule.forRoot(),
     AgGridModule.withComponents([]),
   ],
   providers: [
