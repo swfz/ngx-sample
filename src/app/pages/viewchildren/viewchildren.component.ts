@@ -1,38 +1,44 @@
-import { Component, OnInit, ViewChildren, QueryList, AfterViewChecked, AfterViewInit } from '@angular/core';
-import {PopoverDirective} from 'ngx-bootstrap';
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  AfterViewChecked,
+  AfterViewInit
+} from '@angular/core';
+import { PopoverDirective } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-viewchildren',
   templateUrl: './viewchildren.component.html',
   styleUrls: ['./viewchildren.component.scss']
 })
-export class ViewchildrenComponent implements OnInit, AfterViewChecked, AfterViewInit {
-
-  constructor() { }
+export class ViewchildrenComponent
+  implements OnInit, AfterViewChecked, AfterViewInit {
+  constructor() {}
 
   @ViewChildren(PopoverDirective) childPopover: QueryList<PopoverDirective>;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  ngAfterViewChecked(){
+  ngAfterViewChecked() {
     this.childPopover.forEach(element => {
-      console.log("viewChecked");
+      console.log('viewChecked');
       // console.log(element);
     });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     console.log(this.childPopover);
   }
 
-  allOpen(){
+  allOpen() {
     this.childPopover.forEach(element => {
       element.show();
     });
   }
 
-  allHide(){
+  allHide() {
     this.childPopover.forEach(element => {
       element.hide();
     });
