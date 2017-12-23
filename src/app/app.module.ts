@@ -35,6 +35,7 @@ import { CustomComponentComponent } from './pages/custom-component/custom-compon
 import {TableInputModule} from './components/table-input/table-input.module';
 import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
 import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
+import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.compone
     CustomComponentComponent,
     GroupingGridComponent,
     ViewchildrenComponent,
+    PinnedRowComponent,
   ],
   imports: [
     AppRoutingModule,

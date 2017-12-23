@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {GridOptions} from 'ag-grid';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { GridOptions } from 'ag-grid';
 
 export interface IReportRow {
   accountId: number;
@@ -11,19 +11,23 @@ export interface IReportRow {
 }
 
 @Component({
-  selector: 'app-grouping-grid',
-  templateUrl: './grouping-grid.component.html',
-  styleUrls: ['./grouping-grid.component.scss']
+  selector: 'app-pinned-row',
+  templateUrl: './pinned-row.component.html',
+  styleUrls: ['./pinned-row.component.scss']
 })
-export class GroupingGridComponent implements OnInit {
-
+export class PinnedRowComponent implements OnInit, AfterViewInit {
   public gridOptions: GridOptions = {};
-  public gridRows: any;
+  public gridRows: IReportRow[];
+  public pinnedTopRowData: any = [{}];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.gridRows = this.getDummyGridRows();
+  }
+
+  ngAfterViewInit() {
+    this.gridOptions.api.setPinnedTopRowData(this.getDummyPinnedTopRowData());
   }
 
   private getDummyGridRows() {
@@ -43,5 +47,17 @@ export class GroupingGridComponent implements OnInit {
           rate: Math.round(s2 / s1 * 100) / 100
         };
       });
+  }
+
+  private getDummyPinnedTopRowData() {
+    return [
+      {
+        accountId: 6,
+        name: 'Total',
+        category: 'Total',
+        score: 5550,
+        rate: 0.0983
+      }
+    ];
   }
 }
