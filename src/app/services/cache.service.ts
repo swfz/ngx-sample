@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { catchError, shareReplay} from 'rxjs/operators';
 
 export interface IHero {
   id: number;
@@ -9,42 +10,36 @@ export interface IHero {
 
 @Injectable()
 export class CacheService {
-  public options: RequestOptions;
+  public options: any;
   private _heroes: Observable<IHero>;
 
-  constructor(private http: Http) {
-    const headers = new Headers({
+  constructor(private http: HttpClient) {
+    const headers = {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'
       // 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
       // 'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Requested-With,X-Requested-By,X-Api-Key'
-    });
-    this.options = new RequestOptions({
+    };
+    this.options = {
       headers: headers
-    });
+    };
   }
 
   getHeroes() {
     // let apiUrl = 'http://192.168.30.14:3000/heroes';
-    const apiUrl =
-      'https://dhzjel6242.execute-api.ap-southeast-1.amazonaws.com/Prod/helloworld';
+    // const apiUrl =
+      // 'https://dhzjel6242.execute-api.ap-southeast-1.amazonaws.com/Prod/helloworld';
 
+    const apiUrl = 'http://192.168.30.14:8001/heroes';
     if (!this._heroes) {
       this._heroes = this.http
-        .get(apiUrl, this.options)
-        .map(this.extractData)
-        .shareReplay()
-        .catch(this.handleError);
+        .get(apiUrl, this.options).pipe(
+          shareReplay(),
+          catchError(this.handleError)
+        )
     }
 
     return this._heroes;
-  }
-
-  extractData(res: Response) {
-    if (res.status < 200 || res.status > 300) {
-      throw new Error(`Bad Response Status: ${res.status}`);
-    }
-    return res.json();
   }
 
   handleError(error: any) {

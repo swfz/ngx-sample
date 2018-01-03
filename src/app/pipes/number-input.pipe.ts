@@ -5,13 +5,11 @@ import { DecimalPipe } from '@angular/common';
   name: 'numberInput'
 })
 export class NumberInputPipe implements PipeTransform {
-
-
   transform(value: any, digits?: string): string {
-    return new DecimalPipe('ja').transform(value,digits);
+    return new DecimalPipe('en').transform(value, digits);
   }
 
   parse(value: string): string {
-    return value.replace(/,/g,'');
+    return value.replace(/,/g, '');
   }
 }

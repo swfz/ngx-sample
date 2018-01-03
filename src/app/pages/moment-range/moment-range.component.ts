@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import Moment from 'moment';
+import * as m from 'moment';
 import { extendMoment } from 'moment-range';
-const moment = extendMoment(Moment);
+const moment = extendMoment(m);
 
 @Component({
   selector: 'app-moment-range',

@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from "./app.routing.module";
+import { AppRoutingModule } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { AgGridModule } from 'ag-grid-angular/main';
 
 import {
@@ -64,8 +64,8 @@ import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     TableInputModule,
+    HttpClientModule,
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
