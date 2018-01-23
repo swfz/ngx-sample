@@ -38,4 +38,15 @@ export class ResponseCacheComponent {
       }
     );
   }
+
+  public getHero(id: number) {
+    this.cacheService.getHero(id).subscribe(
+      hero => {
+        console.log(hero);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
 }

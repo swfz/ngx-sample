@@ -27,3 +27,14 @@
     {{heroes|json}}
   </ng-container>
 </div>
+
+
+<ng-container *ngFor="let n of [1,2,3]">
+  <button type="button"
+          (click)="getHero(n)"
+          class="btn btn-sm btn-success">
+    Get Hero(id: {{n}})
+  </button>
+</ng-container>
+
+
