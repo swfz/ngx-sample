@@ -27,6 +27,7 @@ import { NumberInputDirective } from './directives/number-input.directive';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
 import { CacheService } from './services/cache.service';
+import { PollingService } from './services/polling.service';
 import { SlideComponent } from './pages/slide/slide.component';
 import { MomentRangeComponent } from './pages/moment-range/moment-range.component';
 import { TileSelectorComponent } from './components/tile-selector/tile-selector.component';
@@ -36,6 +37,7 @@ import {TableInputModule} from './components/table-input/table-input.module';
 import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
 import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
 import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
+import { PollingJobComponent } from './pages/polling-job/polling-job.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
     GroupingGridComponent,
     ViewchildrenComponent,
     PinnedRowComponent,
+    PollingJobComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -74,6 +77,7 @@ import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
   providers: [
     NumberInputPipe,
     CacheService,
+    PollingService
   ],
   bootstrap: [AppComponent]
 })

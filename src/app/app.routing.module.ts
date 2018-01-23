@@ -16,6 +16,7 @@ import {CustomComponentComponent} from "./pages/custom-component/custom-componen
 import {GroupingGridComponent} from "./pages/grouping-grid/grouping-grid.component";
 import {ViewchildrenComponent} from "./pages/viewchildren/viewchildren.component";
 import {PinnedRowComponent} from "./pages/pinned-row/pinned-row.component";
+import {PollingJobComponent} from "./pages/polling-job/polling-job.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'validation', component: ValidationComponent },
   { path: 'recursive', component: RecursiveTemplateComponent},
   { path: 'cache', component: ResponseCacheComponent},
+  { path: 'polling', component: PollingJobComponent},
   { path: 'momentrange', component: MomentRangeComponent},
   { path: 'slide', component: SlideComponent},
   { path: 'custom', component: CustomComponentComponent},
