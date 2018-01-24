@@ -8,6 +8,8 @@ import {PollingService} from "../../services/polling.service";
 })
 export class PollingJobComponent implements OnInit {
 
+  public status: any;
+
   constructor(
     public pollingService: PollingService
   ) { }
@@ -15,7 +17,17 @@ export class PollingJobComponent implements OnInit {
   ngOnInit() {
   }
 
-  polling(){
-    this.pollingService.getFile();
+  download(){
+    this.pollingService.download().subscribe(
+      status => {
+        this.status = status;
+      },
+      err => {
+        this.status = 'fail';
+      },
+      () => {
+        this.status = 'done';
+      }
+    );
   }
 }

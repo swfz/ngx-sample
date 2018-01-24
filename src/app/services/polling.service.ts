@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { map, switchMap, concatMap, takeWhile } from 'rxjs/operators';
+import { tap, map, switchMap, concatMap, takeWhile } from 'rxjs/operators';
 
 @Injectable()
 export class PollingService {
   private httpResponses: any;
+  private job: any;
   public log: string;
+
   constructor() {}
 
   private initialize() {
     this.log = '';
+
+    this.job = {
+      id: '6e1bbc60-a142-4eea-8170-52128b7a3e79'
+    };
     this.httpResponses = [
       { status: 'progress' },
       { status: 'progress' },
@@ -18,11 +24,32 @@ export class PollingService {
     ];
   }
 
-  private getFileStatus(): Observable<any> {
+  download() {
+    this.initialize();
+    return this.kickJob().pipe(concatMap(job => this.polling(job.id)));
+  }
+
+  private kickJob(): Observable<any> {
+    // 本来はサーバへ通信
+    return Observable.of(this.job);
+  }
+
+  private getStatus(id): Observable<any> {
+    // 本来はサーバへ通信
     return Observable.of(this.httpResponses.shift());
   }
 
-  private convertResponse(res) {
+  private polling(id: string): Observable<any> {
+    return Observable.interval(2000).pipe(
+      concatMap(() => this.getStatus(id)),
+      concatMap(this.convertResponse),
+      takeWhile(this.inProgress),
+      tap(this.downloadFile),
+      concatMap(this.throwStatus)
+    );
+  }
+
+  private convertResponse(res): Observable<any> {
     if (res.url) {
       return Observable.of(Object.assign(res, { status: 'progress' }), {
         status: 'done'
@@ -31,38 +58,20 @@ export class PollingService {
     return Observable.of(res);
   }
 
-  private isProgress(res) {
+  private inProgress(res) {
     return res.status === 'progress';
   }
 
-  getFile() {
-    this.initialize();
-    Observable.interval(1000)
-      .pipe(
-        concatMap(() => this.getFileStatus()),
-        concatMap(this.convertResponse),
-        takeWhile(this.isProgress)
-      )
-      .subscribe(
-        res => {
-          this.logging('waiting...');
-          this.logging(JSON.stringify(res));
-          if (res['url']) {
-            this.downloadFile(res.url);
-          }
-        },
-        err => {
-          console.log(err);
-        },
-        () => {
-          this.logging('complete');
-        }
-      );
+  private throwStatus(res): Observable<any> {
+    console.log(res);
+    return Observable.of(res.status);
   }
 
-  private downloadFile(url) {
-    this.logging('download now');
-    this.logging(url);
+  private downloadFile(res) {
+    if (res['url']) {
+      // location.href = res.url;
+      console.log('download now!');
+    }
   }
 
   private logging(log: string) {

@@ -1,7 +1,17 @@
 
-<button class="btn btn-sm btn-default" (click)="polling()">
+<button class="btn btn-sm btn-default" (click)="download()">
   Request
 </button>
+
+<alert type="info" *ngIf="status == 'progress'">
+  waiting...
+</alert>
+<alert type="success" *ngIf="status == 'done'">
+  success!!
+</alert>
+<alert type="danger" *ngIf="status == 'fail'">
+  fail
+</alert>
 
 <pre>
   {{pollingService.log }}
