@@ -43,13 +43,14 @@ export class PollingService {
     return Observable.interval(2000).pipe(
       concatMap(() => this.getStatus(id)),
       concatMap(this.convertResponse),
-      takeWhile(this.inProgress),
       tap(this.downloadFile),
-      concatMap(this.throwStatus)
+      takeWhile(this.inProgress),
+      map(res => res.status)
     );
   }
 
   private convertResponse(res): Observable<any> {
+    console.log(res);
     if (res.url) {
       return Observable.of(Object.assign(res, { status: 'progress' }), {
         status: 'done'
@@ -60,11 +61,6 @@ export class PollingService {
 
   private inProgress(res) {
     return res.status === 'progress';
-  }
-
-  private throwStatus(res): Observable<any> {
-    console.log(res);
-    return Observable.of(res.status);
   }
 
   private downloadFile(res) {
