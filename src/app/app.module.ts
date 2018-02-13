@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular/main';
+import {ChartModule} from 'primeng/chart';
 
 import {
   AlertModule,
@@ -38,6 +39,7 @@ import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.compo
 import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
 import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
 import { PollingJobComponent } from './pages/polling-job/polling-job.component';
+import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { PollingJobComponent } from './pages/polling-job/polling-job.component';
     ViewchildrenComponent,
     PinnedRowComponent,
     PollingJobComponent,
+    ChartjsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -73,6 +76,7 @@ import { PollingJobComponent } from './pages/polling-job/polling-job.component';
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     AgGridModule.withComponents([]),
+    ChartModule
   ],
   providers: [
     NumberInputPipe,

@@ -17,6 +17,7 @@ import {GroupingGridComponent} from "./pages/grouping-grid/grouping-grid.compone
 import {ViewchildrenComponent} from "./pages/viewchildren/viewchildren.component";
 import {PinnedRowComponent} from "./pages/pinned-row/pinned-row.component";
 import {PollingJobComponent} from "./pages/polling-job/polling-job.component";
+import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'grid/group', component: GroupingGridComponent},
   { path: 'grid/pinned', component: PinnedRowComponent},
   { path: 'viewchildren', component: ViewchildrenComponent},
+  { path: 'chartjs', component: ChartjsComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
