@@ -18,6 +18,7 @@ import {ViewchildrenComponent} from "./pages/viewchildren/viewchildren.component
 import {PinnedRowComponent} from "./pages/pinned-row/pinned-row.component";
 import {PollingJobComponent} from "./pages/polling-job/polling-job.component";
 import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
+import {AgGridFlexBoxComponent} from "./pages/ag-grid-flex-box/ag-grid-flex-box.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'custom', component: CustomComponentComponent},
   { path: 'grid/group', component: GroupingGridComponent},
   { path: 'grid/pinned', component: PinnedRowComponent},
+  { path: 'grid/flex', component: AgGridFlexBoxComponent},
   { path: 'viewchildren', component: ViewchildrenComponent},
   { path: 'chartjs', component: ChartjsComponent},
   { path: '', component: TopComponent },

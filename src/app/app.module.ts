@@ -11,6 +11,7 @@ import {
   AlertModule,
   TabsModule,
   PopoverModule,
+  CollapseModule
 } from 'ngx-bootstrap';
 
 import {
@@ -40,6 +41,7 @@ import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.compone
 import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
 import { PollingJobComponent } from './pages/polling-job/polling-job.component';
 import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
+import { AgGridFlexBoxComponent } from './pages/ag-grid-flex-box/ag-grid-flex-box.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
     PinnedRowComponent,
     PollingJobComponent,
     ChartjsComponent,
+    AgGridFlexBoxComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -75,6 +78,7 @@ import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
+    CollapseModule.forRoot(),
     AgGridModule.withComponents([]),
     ChartModule
   ],

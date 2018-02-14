@@ -1,0 +1,22 @@
+.flex-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-self: auto;
+  height: calc(100% - 50px);
+  margin: 0;
+}
+
+.submenu1 {
+}
+
+.submenu2 {
+}
+
+.grid {
+  //display: flex;
+  flex: 1;
+  //flex-direction: column;
+}
+
