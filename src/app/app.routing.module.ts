@@ -19,6 +19,8 @@ import {PinnedRowComponent} from "./pages/pinned-row/pinned-row.component";
 import {PollingJobComponent} from "./pages/polling-job/polling-job.component";
 import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
 import {AgGridFlexBoxComponent} from "./pages/ag-grid-flex-box/ag-grid-flex-box.component";
+import {GoogleOauthComponent} from "./pages/google-oauth/google-oauth.component";
+import {StructualDirectiveComponent} from "app/pages/structual-directive/structual-directive.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -36,6 +38,8 @@ const appRoutes: Routes = [
   { path: 'grid/flex', component: AgGridFlexBoxComponent},
   { path: 'viewchildren', component: ViewchildrenComponent},
   { path: 'chartjs', component: ChartjsComponent},
+  { path: 'google', component: GoogleOauthComponent},
+  { path: 'structual_directive', component: StructualDirectiveComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];

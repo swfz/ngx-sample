@@ -1,0 +1,16 @@
+
+<!--<h1>-->
+  <!--単純に*ngForにハッシュを渡す-->
+<!--</h1>-->
+
+<!--<div *ngFor="let item of hash">-->
+  <!--{{item}}-->
+<!--</div>-->
+
+<h5>カスタムディレクティブ</h5>
+<button type="button" (click)="changeHash()">
+  Change
+</button>
+<div *appHashKeys="let key of hash">
+  <div>key: {{key}} , value: {{hash[key]}}</div>
+</div>
