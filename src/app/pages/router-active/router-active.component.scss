@@ -1,0 +1,25 @@
+.container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 600px 1fr 0px;
+  grid-template-rows: auto;
+}
+
+.side-navi {
+  grid-column-start: 1;
+  background-color: #CCCCCC;
+}
+
+.side-navi > ul > li {
+  list-style: none;
+}
+
+.is-active {
+  color: #CC3333;
+  font-weight: bold;
+}
+
+.content {
+  grid-column-start: 2;
+}
+

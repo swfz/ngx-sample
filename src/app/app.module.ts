@@ -45,6 +45,8 @@ import { AgGridFlexBoxComponent } from './pages/ag-grid-flex-box/ag-grid-flex-bo
 import { GoogleOauthComponent } from './pages/google-oauth/google-oauth.component';
 import { StructualDirectiveComponent } from './pages/structual-directive/structual-directive.component';
 import { HashKeysDirective } from './directives/hash-keys.directive';
+import { RouterActiveComponent } from './pages/router-active/router-active.component';
+import { RouterPathActiveDirective } from './directives/router-path-active.directive';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { HashKeysDirective } from './directives/hash-keys.directive';
     GoogleOauthComponent,
     StructualDirectiveComponent,
     HashKeysDirective,
+    RouterActiveComponent,
+    RouterPathActiveDirective,
   ],
   imports: [
     AppRoutingModule,

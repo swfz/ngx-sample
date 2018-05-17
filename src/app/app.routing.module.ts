@@ -21,9 +21,13 @@ import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
 import {AgGridFlexBoxComponent} from "./pages/ag-grid-flex-box/ag-grid-flex-box.component";
 import {GoogleOauthComponent} from "./pages/google-oauth/google-oauth.component";
 import {StructualDirectiveComponent} from "app/pages/structual-directive/structual-directive.component";
+import {RouterActiveComponent} from "./pages/router-active/router-active.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
+  { path: 'routerlink', component: RouterActiveComponent },
+  { path: 'routerlink/hoge', component: RouterActiveComponent },
+  { path: 'routerlink/fuga', component: RouterActiveComponent },
   { path: 'rxjs', component: RxjsComponent },
   { path: 'focus', component: FormatFocusoutComponent },
   { path: 'validation', component: ValidationComponent },
