@@ -45,14 +45,14 @@ export class RxjsComponent implements OnInit {
     this.interval$.pipe(
       withLatestFrom(this.inputTexts$),
       pairwise(),
-      filter(this.lastChanged),
+      filter(this.silenceValue),
       distinctUntilChanged(this.distinct)
     ).subscribe(p => {
       console.log(p);
     });
   }
 
-  lastChanged(v){
+  silenceValue(v){
     // 落ち着いたかどうかをチェック
     // このフィルタを通る = 入力がintervalの分だけないということ
     return v[0][1].value == v[1][1].value;
