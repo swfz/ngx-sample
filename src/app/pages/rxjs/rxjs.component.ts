@@ -1,9 +1,14 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {Subject, Observable} from "rxjs";
-import {bufferTime, distinctUntilChanged, filter, pairwise} from "rxjs/operators";
+import {bufferTime, distinctUntilChanged, filter, last, pairwise, withLatestFrom} from 'rxjs/operators';
+import {interval} from 'rxjs/observable/interval';
 
 export interface IEvent {
   type: string;
+}
+
+export interface IInputText {
+  value: string;
 }
 @Component({
   selector: 'app-rxjs',
@@ -15,7 +20,8 @@ export class RxjsComponent implements OnInit {
   public aaa: Observable<number> = new Subject;
 
   private events$: Subject<IEvent>;
-  private inputTexts$: Subject<string>;
+  private inputTexts$: Subject<IInputText>;
+  private interval$: Observable<any>;
   constructor(
   ) { }
 
@@ -29,17 +35,32 @@ export class RxjsComponent implements OnInit {
       distinctUntilChanged((a: IEvent, b: IEvent) => a.type === b.type),
       bufferTime(5000),
       ).subscribe(events => {
-        console.log(events);
+        // console.log(events);
       });
 
-    this.inputTexts$ = new Subject<string>();
+    this.inputTexts$ = new Subject<IInputText>();
 
-    this.inputTexts$.pipe(
+    this.interval$ = interval(3000);
+
+    this.interval$.pipe(
+      withLatestFrom(this.inputTexts$),
       pairwise(),
-      // filter(p => p[0] === p[1])
+      filter(this.lastChanged),
+      distinctUntilChanged(this.distinct)
     ).subscribe(p => {
       console.log(p);
     });
+  }
+
+  lastChanged(v){
+    // 落ち着いたかどうかをチェック
+    // このフィルタを通る = 入力がintervalの分だけないということ
+    return v[0][1].value == v[1][1].value;
+  }
+
+  // ずっと同じものが流れないようにする
+  distinct(a, b) {
+    return a[1][1].value === b[1][1].value;
   }
 
   @ViewChild('input') text;
@@ -93,10 +114,10 @@ export class RxjsComponent implements OnInit {
     this.events$.next({type: type});
   }
 
-  keyUpEvent(e) {
+  onInputEvent(e) {
     // console.log(e);
     // console.log(e.target.value);
-    this.inputTexts$.next(e.target.value);
+    this.inputTexts$.next({value: e.target.value});
   }
 
 
