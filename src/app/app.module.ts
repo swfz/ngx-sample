@@ -24,6 +24,7 @@ import {
   ResponseCacheComponent,
 } from './pages';
 
+import { PivotGroupingGridComponent } from './pages/pivot-grouping-grid/pivot-grouping-grid.component';
 import { NumberInputPipe } from './pipes/number-input.pipe';
 import { NumberInputDirective } from './directives/number-input.directive';
 import { NameValidatorDirective } from './validators/name-validator.directive';
@@ -47,6 +48,7 @@ import { StructualDirectiveComponent } from './pages/structual-directive/structu
 import { HashKeysDirective } from './directives/hash-keys.directive';
 import { RouterActiveComponent } from './pages/router-active/router-active.component';
 import { RouterPathActiveDirective } from './directives/router-path-active.directive';
+import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { RouterPathActiveDirective } from './directives/router-path-active.direc
     MultiFieldValidatorDirective,
     RecursiveTemplateComponent,
     ResponseCacheComponent,
+    PivotGroupingGridComponent,
     SlideComponent,
     MomentRangeComponent,
     NumberInputPipe,
@@ -78,6 +81,7 @@ import { RouterPathActiveDirective } from './directives/router-path-active.direc
     HashKeysDirective,
     RouterActiveComponent,
     RouterPathActiveDirective,
+    MarbleDiagramComponent,
   ],
   imports: [
     AppRoutingModule,
