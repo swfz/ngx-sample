@@ -11,7 +11,7 @@ import {
   ResponseCacheComponent,
   MomentRangeComponent,
 } from "./pages";
-import {PivotGroupingGridComponent} from "./pages/pivot-grouping-grid/pivot-grouping-grid.component";
+// import {PivotGroupingGridComponent} from "./pages/pivot-grouping-grid/pivot-grouping-grid.component";
 import {SlideComponent} from "./pages/slide/slide.component";
 import {CustomComponentComponent} from "./pages/custom-component/custom-component.component";
 import {GroupingGridComponent} from "./pages/grouping-grid/grouping-grid.component";
@@ -20,10 +20,11 @@ import {PinnedRowComponent} from "./pages/pinned-row/pinned-row.component";
 import {PollingJobComponent} from "./pages/polling-job/polling-job.component";
 import {ChartjsComponent} from "./pages/chartjs/chartjs.component";
 import {AgGridFlexBoxComponent} from "./pages/ag-grid-flex-box/ag-grid-flex-box.component";
-import {GoogleOauthComponent} from "./pages/google-oauth/google-oauth.component";
+// import {GoogleOauthComponent} from "./pages/google-oauth/google-oauth.component";
 import {StructualDirectiveComponent} from "app/pages/structual-directive/structual-directive.component";
 import {RouterActiveComponent} from "./pages/router-active/router-active.component";
-import {MarbleDiagramComponent} from "./pages/marble-diagram/marble-diagram.component";
+import {AgGridReactiveColumndefComponent} from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
+// import {MarbleDiagramComponent} from "./pages/marble-diagram/marble-diagram.component";
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -42,12 +43,13 @@ const appRoutes: Routes = [
   { path: 'grid/group', component: GroupingGridComponent},
   { path: 'grid/pinned', component: PinnedRowComponent},
   { path: 'grid/flex', component: AgGridFlexBoxComponent},
-  { path: 'grid/pivot', component: PivotGroupingGridComponent},
+  // { path: 'grid/pivot', component: PivotGroupingGridComponent},
   { path: 'viewchildren', component: ViewchildrenComponent},
   { path: 'chartjs', component: ChartjsComponent},
-  { path: 'google', component: GoogleOauthComponent},
+  // { path: 'google', component: GoogleOauthComponent},
   { path: 'structual_directive', component: StructualDirectiveComponent},
-  { path: 'marble_diagram', component: MarbleDiagramComponent},
+  // { path: 'marble_diagram', component: MarbleDiagramComponent},
+  { path: 'grid/reactive', component: AgGridReactiveColumndefComponent},
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
