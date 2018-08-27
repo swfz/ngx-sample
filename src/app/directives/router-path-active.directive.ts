@@ -19,7 +19,7 @@ import {
   RouterLinkWithHref,
   UrlSegment,
 } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[routerPathActive]'

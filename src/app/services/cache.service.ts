@@ -1,5 +1,6 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
 
@@ -11,7 +12,7 @@ export interface IHero {
 @Injectable()
 export class CacheService {
   public options: any;
-  private _heroes: Observable<IHero>;
+  private _heroes: Observable<any>;
   private _hero: any;
 
   constructor(private http: HttpClient) {
@@ -58,6 +59,6 @@ export class CacheService {
   handleError(error: any) {
     console.log(error);
     const errMsg = error.message || 'Server Error';
-    return Observable.throw(errMsg);
+    return observableThrowError(errMsg);
   }
 }

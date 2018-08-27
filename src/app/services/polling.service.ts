@@ -1,5 +1,6 @@
+
+import {interval as observableInterval, of as observableOf,  Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { tap, map, switchMap, concatMap, takeWhile } from 'rxjs/operators';
 
 @Injectable()
@@ -31,16 +32,16 @@ export class PollingService {
 
   private kickJob(): Observable<any> {
     // 本来はサーバへ通信
-    return Observable.of(this.job);
+    return observableOf(this.job);
   }
 
   private getStatus(id): Observable<any> {
     // 本来はサーバへ通信
-    return Observable.of(this.httpResponses.shift());
+    return observableOf(this.httpResponses.shift());
   }
 
   private polling(id: string): Observable<any> {
-    return Observable.interval(2000).pipe(
+    return observableInterval(2000).pipe(
       concatMap(() => this.getStatus(id)),
       concatMap(this.convertResponse),
       tap(this.downloadFile),
@@ -52,11 +53,11 @@ export class PollingService {
   private convertResponse(res): Observable<any> {
     console.log(res);
     if (res.url) {
-      return Observable.of(Object.assign(res, { status: 'progress' }), {
+      return observableOf(Object.assign(res, { status: 'progress' }), {
         status: 'done'
       });
     }
-    return Observable.of(res);
+    return observableOf(res);
   }
 
   private inProgress(res) {

@@ -1,7 +1,7 @@
+
+import {defer as observableDefer, range as observableRange, from as observableFrom, Subject, Observable, interval} from 'rxjs';
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
-import {Subject, Observable} from "rxjs";
 import {bufferTime, distinctUntilChanged, filter, last, pairwise, withLatestFrom} from 'rxjs/operators';
-import {interval} from 'rxjs/observable/interval';
 
 export interface IEvent {
   type: string;
@@ -70,7 +70,7 @@ export class RxjsComponent implements OnInit {
   }
 
   from(){
-    Observable.from([1,2,3])
+    observableFrom([1,2,3])
       .subscribe(
         value => console.log(`value: ${value}`),
         error => console.log(`error ${error}`),
@@ -79,7 +79,7 @@ export class RxjsComponent implements OnInit {
   }
 
   range(){
-    Observable.range(0, 10)
+    observableRange(0, 10)
       .subscribe(
         value => console.log(`value: ${value}`),
         error => console.log(`error ${error}`),
@@ -88,11 +88,11 @@ export class RxjsComponent implements OnInit {
   }
 
   defer(){
-    Observable.defer(
+    observableDefer(
       () => {
         this.sleep(5000);
         console.log("defer called");
-        return Observable.from('1');
+        return observableFrom('1');
       }
     ).subscribe(
         value => console.log(`value: ${value}`),
@@ -102,7 +102,7 @@ export class RxjsComponent implements OnInit {
   }
 
   interval(){
-    Observable.interval(3000)
+    interval(3000)
       .subscribe(
         value => console.log(`value: ${value}`),
         error => console.log(`error ${error}`),
