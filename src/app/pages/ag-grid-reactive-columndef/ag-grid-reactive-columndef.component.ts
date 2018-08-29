@@ -18,6 +18,11 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   ngOnInit() {
     this.columnDefs = [
       {
+        headerName: 'スペース',
+        field: 'empty',
+        width: 100
+      },
+      {
         headerName: '開始日',
         field: 'startDate',
         width: 120,
