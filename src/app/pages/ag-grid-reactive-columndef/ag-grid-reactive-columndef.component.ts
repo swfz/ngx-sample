@@ -20,6 +20,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
       {
         headerName: 'スペース',
         field: 'empty',
+        cellRenderer: this.linkRenderer,
         width: 100
       },
       {
@@ -39,6 +40,10 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         startDate: '2018-08-02',
       }
     ];
+  }
+
+  private linkRenderer(params){
+    return `<a href="/grid/flex">リンク</a>`
   }
 
   valueChanged(e){
