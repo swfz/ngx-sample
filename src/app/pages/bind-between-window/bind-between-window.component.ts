@@ -28,6 +28,11 @@ export class BindBetweenWindowComponent implements OnInit {
     this.w.document.body.appendChild(inputTextNode);
   }
 
+  openComponentWindow(): void {
+    this.w = window.open('/validation', '_blank', 'toolbar=0,width=300,height=200');
+    console.log(this.w);
+  }
+
   closeWindow(): void {
     this.w.close();
   }
