@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./structual-directive.component.scss']
 })
 export class StructualDirectiveComponent implements OnInit {
-
   public hash: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.hash = {
@@ -19,10 +18,9 @@ export class StructualDirectiveComponent implements OnInit {
   }
 
   public changeHash() {
-    this.hash = Object.keys(this.hash).reduce((acc,cur) => {
+    this.hash = Object.keys(this.hash).reduce((acc, cur) => {
       acc[cur] = `${this.hash[cur]}_`;
       return acc;
-    },{})
-
+    }, {});
   }
 }

@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chartjs.component.scss']
 })
 export class ChartjsComponent implements OnInit {
-
   public data: any;
   public options: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.data = {
@@ -23,7 +22,7 @@ export class ChartjsComponent implements OnInit {
         {
           label: 'Second Dataset',
           borderColor: '#99ff33',
-          data: [ 80, 81, 56, 55, 40, 65, 59]
+          data: [80, 81, 56, 55, 40, 65, 59]
         },
         {
           label: 'Third Dataset',

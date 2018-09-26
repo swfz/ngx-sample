@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PollingService} from "../../services/polling.service";
+import { PollingService } from '../../services/polling.service';
 
 @Component({
   selector: 'app-polling-job',
@@ -7,17 +7,13 @@ import {PollingService} from "../../services/polling.service";
   styleUrls: ['./polling-job.component.scss']
 })
 export class PollingJobComponent implements OnInit {
-
   public status: any;
 
-  constructor(
-    public pollingService: PollingService
-  ) { }
+  constructor(public pollingService: PollingService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  download(){
+  download() {
     this.pollingService.download().subscribe(
       status => {
         this.status = status;

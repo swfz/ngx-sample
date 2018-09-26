@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridOptions } from 'ag-grid';
-import {AgGridCellEditorDatepickerComponent} from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
+import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 
 @Component({
   selector: 'app-ag-grid-reactive-columndef',
@@ -13,7 +13,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   public rowData: any;
   public columnDefs: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.columnDefs = [
@@ -29,24 +29,24 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         width: 120,
         editable: true,
         cellEditorFramework: AgGridCellEditorDatepickerComponent
-      },
+      }
     ];
 
     this.rowData = [
       {
-        startDate: '2018-08-01',
+        startDate: '2018-08-01'
       },
       {
-        startDate: '2018-08-02',
+        startDate: '2018-08-02'
       }
     ];
   }
 
-  private linkRenderer(params){
-    return `<a href="/grid/flex">リンク</a>`
+  private linkRenderer(params) {
+    return `<a href="/grid/flex">リンク</a>`;
   }
 
-  valueChanged(e){
+  valueChanged(e) {
     console.log(e);
   }
 

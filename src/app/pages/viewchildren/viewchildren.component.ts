@@ -17,7 +17,8 @@ export class ViewchildrenComponent
   implements OnInit, AfterViewChecked, AfterViewInit {
   constructor() {}
 
-  @ViewChildren(PopoverDirective) childPopover: QueryList<PopoverDirective>;
+  @ViewChildren(PopoverDirective)
+  childPopover: QueryList<PopoverDirective>;
 
   ngOnInit() {}
 

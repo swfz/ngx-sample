@@ -1,5 +1,9 @@
-
-import {interval as observableInterval, of as observableOf,  Observable, Subject } from 'rxjs';
+import {
+  interval as observableInterval,
+  of as observableOf,
+  Observable,
+  Subject
+} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap, map, switchMap, concatMap, takeWhile } from 'rxjs/operators';
 

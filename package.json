@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "packagr": "ng-packagr -p ng-package.json",
     "ghpages": "ng build --prod --aot --base-href '/ngx-sample/' && ngh --dir dist/",
+    "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
     "e2e": "ng e2e"
   },
   "private": false,
@@ -36,7 +37,6 @@
     "license-webpack-plugin": "^1.1.1",
     "ngx-bootstrap": "^3.0.1",
     "node-sass": "^4.8.3",
-    "prettier": "^1.9.2",
     "primeng": "^5.2.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.0.0-rc.0",
@@ -66,6 +66,7 @@
     "moment": "^2.20.1",
     "moment-range": "^3.0.3",
     "ng-packagr": "^1.4.1",
+    "prettier": "^1.14.3",
     "protractor": "~5.1.2",
     "reveal.js": "^3.5.0",
     "rxjs-tslint": "^0.1.5",

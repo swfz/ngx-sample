@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-marble-diagram',
@@ -6,15 +6,14 @@ import {Component, OnInit, ViewChild, ViewChildren} from '@angular/core';
   styleUrls: ['./marble-diagram.component.scss']
 })
 export class MarbleDiagramComponent implements OnInit {
-
   private isDragging: boolean = false;
   private beforeX: number = 0;
-  constructor() { }
+  constructor() {}
 
-  @ViewChild('value') value;
+  @ViewChild('value')
+  value;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onMouseDown(event) {
     // console.log('mouseDown');
@@ -33,11 +32,12 @@ export class MarbleDiagramComponent implements OnInit {
     const x = this.beforeX - event.clientX;
     // console.log('mouseMove');
     // console.log(event);
-    if(this.isDragging ){
+    if (this.isDragging) {
       // console.log(this.value.nativeElement.offsetLeft - x);
       // this.value.nativeElement.style.left = this.value.nativeElement.offsetX - x + 'px';
       // console.log(this.value.nativeElement);
-      this.value.nativeElement.style['margin-left'] = this.value.nativeElement.offsetLeft - x + 'px';
+      this.value.nativeElement.style['margin-left'] =
+        this.value.nativeElement.offsetLeft - x + 'px';
     }
     this.beforeX = event.clientX;
     // this.updateElement(event);
@@ -50,12 +50,12 @@ export class MarbleDiagramComponent implements OnInit {
     this.isDragging = false;
   }
 
-  private updateElement(e){
+  private updateElement(e) {
     // console.log(this.value.nativeElement);
-    if(this.isDragging ){
+    if (this.isDragging) {
       console.log('moving');
       console.log(e);
-      this.value.nativeElement.style.left =  + 'px';
+      this.value.nativeElement.style.left = +'px';
     }
   }
 }

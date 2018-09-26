@@ -44,7 +44,7 @@ export class PinnedRowComponent implements OnInit, AfterViewInit {
           category: categories[Math.floor(Math.random() * categories.length)],
           score1: s1,
           score2: s2,
-          rate: Math.round(s2 / s1 * 100) / 100
+          rate: Math.round((s2 / s1) * 100) / 100
         };
       });
   }

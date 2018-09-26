@@ -8,9 +8,8 @@ describe('AgGridReactiveColumndefComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AgGridReactiveColumndefComponent ]
-    })
-    .compileComponents();
+      declarations: [AgGridReactiveColumndefComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

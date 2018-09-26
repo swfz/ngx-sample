@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recursive-template.component.scss']
 })
 export class RecursiveTemplateComponent implements OnInit {
-
   public stats: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.stats = [
@@ -21,7 +20,7 @@ export class RecursiveTemplateComponent implements OnInit {
             id: 2,
             name: 'A002',
             depth: 1,
-            children:[
+            children: [
               {
                 id: 3,
                 name: 'A003',
@@ -45,7 +44,7 @@ export class RecursiveTemplateComponent implements OnInit {
             id: 6,
             name: 'B002',
             depth: 1,
-            children:[
+            children: [
               {
                 id: 7,
                 name: 'B003',
@@ -57,5 +56,4 @@ export class RecursiveTemplateComponent implements OnInit {
       }
     ];
   }
-
 }

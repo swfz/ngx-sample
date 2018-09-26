@@ -13,7 +13,8 @@ import {
 export class HashKeysDirective implements OnChanges {
   // let item of itemsで ${selector}Ofというinputが渡ってくる
   // これがハッシュ
-  @Input() appHashKeysOf: any;
+  @Input()
+  appHashKeysOf: any;
 
   constructor(
     // ディレクティブを定義したコンテナ

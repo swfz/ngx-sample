@@ -10,8 +10,7 @@ const moment = extendMoment(m);
   styleUrls: ['./moment-range.component.scss']
 })
 export class MomentRangeComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   public range1: any;
   public range2: any;
@@ -26,15 +25,20 @@ export class MomentRangeComponent implements OnInit {
     );
     this.range2 = moment().range(
       moment().startOf('day'),
-      moment().add(1, 'day').endOf('day')
+      moment()
+        .add(1, 'day')
+        .endOf('day')
     );
     this.range3 = moment().range(
-      moment().add(3, 'day').startOf('day'),
-      moment().add(5, 'day').endOf('day')
+      moment()
+        .add(3, 'day')
+        .startOf('day'),
+      moment()
+        .add(5, 'day')
+        .endOf('day')
     );
 
     this.isOverlap1and2 = this.range1.overlaps(this.range2);
     this.isOverlap2and3 = this.range2.overlaps(this.range3);
   }
-
 }

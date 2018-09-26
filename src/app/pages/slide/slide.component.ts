@@ -7,10 +7,8 @@ import * as r from 'reveal.js';
   styleUrls: ['./slide.component.scss']
 })
 export class SlideComponent implements AfterViewInit {
-
   reveal: any;
-  constructor(
-  ) {
+  constructor() {
     this.reveal = r.Reveal;
   }
 
@@ -35,11 +33,28 @@ export class SlideComponent implements AfterViewInit {
       transition: true,
       help: true,
       dependencies: [
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.min.js', condition: function() { return !document.body.classList; } },
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        {
+          src:
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.min.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src:
+            'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src:
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }
       ]
     });
   }
-
 }

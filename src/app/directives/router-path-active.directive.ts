@@ -1,4 +1,3 @@
-
 import {
   AfterContentInit,
   ContentChildren,
@@ -17,7 +16,7 @@ import {
   RouterEvent,
   RouterLink,
   RouterLinkWithHref,
-  UrlSegment,
+  UrlSegment
 } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -39,7 +38,7 @@ export class RouterPathActiveDirective
   constructor(
     private router: Router,
     private element: ElementRef,
-    private renderer: Renderer2,
+    private renderer: Renderer2
   ) {
     this.subscription = router.events.subscribe((s: RouterEvent) => {
       if (s instanceof NavigationEnd) {
@@ -73,7 +72,7 @@ export class RouterPathActiveDirective
     Promise.resolve().then(() => {
       const urlSegments = this.router['currentUrlTree']['root']['children'][
         'primary'
-        ]['segments'];
+      ]['segments'];
       const hasActiveLinks = this.hasActiveLinks(urlSegments);
 
       if (this.isActive !== hasActiveLinks) {

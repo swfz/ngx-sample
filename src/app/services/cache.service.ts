@@ -1,5 +1,4 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
@@ -36,9 +35,10 @@ export class CacheService {
 
     const apiUrl = 'http://192.168.30.14:8001/heroes';
     if (!this._heroes) {
-      this._heroes = this.http
-        .get(apiUrl, this.options)
-        .pipe(shareReplay(), catchError(this.handleError));
+      this._heroes = this.http.get(apiUrl, this.options).pipe(
+        shareReplay(),
+        catchError(this.handleError)
+      );
     }
 
     return this._heroes;
@@ -48,9 +48,10 @@ export class CacheService {
     const apiUrl = 'http://192.168.30.14:8001/heroes/' + id;
 
     if (!this._hero[id]) {
-      this._hero[id] = this.http
-        .get(apiUrl, this.options)
-        .pipe(shareReplay(), catchError(this.handleError));
+      this._hero[id] = this.http.get(apiUrl, this.options).pipe(
+        shareReplay(),
+        catchError(this.handleError)
+      );
     }
 
     return this._hero[id];

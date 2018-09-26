@@ -8,9 +8,8 @@ describe('BindBetweenWindowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BindBetweenWindowComponent ]
-    })
-    .compileComponents();
+      declarations: [BindBetweenWindowComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-router-active',
@@ -7,13 +7,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./router-active.component.scss']
 })
 export class RouterActiveComponent implements OnInit {
-
   public piyoId: number;
   public currentPath: string;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.piyoId = 0;

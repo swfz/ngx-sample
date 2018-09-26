@@ -8,9 +8,8 @@ describe('StructualDirectiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StructualDirectiveComponent ]
-    })
-    .compileComponents();
+      declarations: [StructualDirectiveComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
