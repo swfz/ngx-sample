@@ -51,6 +51,7 @@ import { RouterPathActiveDirective } from './directives/router-path-active.direc
 import {AgGridCellEditorDatepickerComponent} from './components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import {AgGridReactiveColumndefComponent} from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
 import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.component';
+import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.co
     RouterPathActiveDirective,
     MarbleDiagramComponent,
     AgGridCellEditorDatepickerComponent,
-    AgGridReactiveColumndefComponent
+    AgGridReactiveColumndefComponent,
+    BindBetweenWindowComponent
   ],
   imports: [
     AppRoutingModule,
