@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@angular/core';
+import {ChildWindowComponent} from '../child-window/child-window.component';
 
 @Component({
   selector: 'app-bind-between-window',
@@ -9,9 +10,18 @@ export class BindBetweenWindowComponent implements OnInit {
   private w: Window;
   public inputText: string;
 
-  constructor() {}
+  private hash: {[key: string]: string};
 
-  ngOnInit() {}
+  private childComponentRef: any;
+
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
+
+  ngOnInit() {
+    this.hash = {value: ''};
+  }
 
   openWindow(): void {
     this.w = window.open('', '_blank', 'toolbar=0,width=300,height=200');
@@ -29,8 +39,18 @@ export class BindBetweenWindowComponent implements OnInit {
   }
 
   openComponentWindow(): void {
-    this.w = window.open('/validation', '_blank', 'toolbar=0,width=300,height=200');
+    this.w = window.open('', '_blank', 'toolbar=0,width=300,height=200');
     console.log(this.w);
+    console.log(this.w.document.body);
+
+    const factory = this.componentFactoryResolver.resolveComponentFactory(ChildWindowComponent);
+    this.childComponentRef = this.viewContainerRef.createComponent(factory);
+    this.childComponentRef.instance.hash = this.hash;
+  }
+
+  onChangeText(event: string){
+    // console.log(event);
+    this.hash.value = event;
   }
 
   closeWindow(): void {
