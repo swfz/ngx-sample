@@ -10,6 +10,8 @@ export class ResponseCacheComponent {
   public heroes: any;
   public heroes2: any;
 
+  public users: any;
+
   constructor(private cacheService: CacheService) {}
 
   public getHeroes() {
@@ -40,6 +42,48 @@ export class ResponseCacheComponent {
     this.cacheService.getHero(id).subscribe(
       hero => {
         console.log(hero);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  public getUsers() {
+    this.cacheService.getUsers().subscribe(
+      users => {
+        console.log(users);
+        this.users = users;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  public getUsers2() {
+    this.cacheService.getUsers().subscribe(
+      users => {
+        console.log(users);
+        this.users = users;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+
+  public getUsersWithParams() {
+    this.cacheService.getUserWithParams(
+      {
+        hoge: 1,
+        fuga: 'piyo'
+      }
+    ).subscribe(
+      users => {
+        console.log(users);
+        this.users = users;
       },
       error => {
         console.log(error);

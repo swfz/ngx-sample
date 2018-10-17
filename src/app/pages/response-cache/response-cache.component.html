@@ -38,3 +38,19 @@
 </ng-container>
 
 
+<br>
+<button type="button" (click)="getUsers()" class="btn btn-sm btn-primary">
+  Users
+</button>
+<button type="button" (click)="getUsers2()" class="btn btn-sm btn-primary">
+  Users2
+</button>
+
+<button type="button" (click)="getUsersWithParams()" class="btn btn-sm btn-primary">
+  UsersWithParams
+</button>
+
+<ng-container *ngFor="let user of users">
+  <hr>
+  {{user|json}}
+</ng-container>
