@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChildWindowComponent } from './child-window.component';
+import { ToPromiseComponent } from './to-promise.component';
 
-describe('ChildWindowComponent', () => {
-  let component: ChildWindowComponent;
-  let fixture: ComponentFixture<ChildWindowComponent>;
+describe('ToPromiseComponent', () => {
+  let component: ToPromiseComponent;
+  let fixture: ComponentFixture<ToPromiseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ChildWindowComponent]
+      declarations: [ToPromiseComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChildWindowComponent);
+    fixture = TestBed.createComponent(ToPromiseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

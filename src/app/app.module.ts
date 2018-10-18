@@ -53,7 +53,8 @@ import { AgGridCellEditorDatepickerComponent } from './components/ag-grid-cell-e
 import { AgGridReactiveColumndefComponent } from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
 import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.component';
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
-import {ChildWindowComponent} from './pages/child-window/child-window.component';
+import { ChildWindowComponent } from './pages/child-window/child-window.component';
+import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import {ChildWindowComponent} from './pages/child-window/child-window.component'
     AgGridCellEditorDatepickerComponent,
     AgGridReactiveColumndefComponent,
     BindBetweenWindowComponent,
-    ChildWindowComponent
+    ChildWindowComponent,
+    ToPromiseComponent
   ],
   imports: [
     AppRoutingModule,

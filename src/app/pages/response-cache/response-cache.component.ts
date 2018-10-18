@@ -73,21 +73,20 @@ export class ResponseCacheComponent {
     );
   }
 
-
   public getUsersWithParams() {
-    this.cacheService.getUserWithParams(
-      {
+    this.cacheService
+      .getUserWithParams({
         hoge: 1,
         fuga: 'piyo'
-      }
-    ).subscribe(
-      users => {
-        console.log(users);
-        this.users = users;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      })
+      .subscribe(
+        users => {
+          console.log(users);
+          this.users = users;
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 }

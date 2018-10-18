@@ -26,7 +26,8 @@ import { RouterActiveComponent } from './pages/router-active/router-active.compo
 import { AgGridReactiveColumndefComponent } from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
 // import {MarbleDiagramComponent} from "./pages/marble-diagram/marble-diagram.component";
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
-import {ChildWindowComponent} from './pages/child-window/child-window.component';
+import { ChildWindowComponent } from './pages/child-window/child-window.component';
+import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
   { path: 'grid/reactive', component: AgGridReactiveColumndefComponent },
   { path: 'window', component: BindBetweenWindowComponent },
   { path: 'child-window', component: ChildWindowComponent },
+  { path: 'to-promise', component: ToPromiseComponent },
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
