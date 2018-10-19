@@ -9,8 +9,6 @@ import { ApiSampleService, User } from '../../services/api-sample.service';
 export class ToPromiseComponent implements OnInit {
   users = this.apiSampleService.users$;
   albums = this.apiSampleService.albums$;
-  // photos = this.apiSampleService.photoSource$;
-  photos = this.apiSampleService.photos$;
 
   constructor(private apiSampleService: ApiSampleService) {}
 
@@ -21,13 +19,6 @@ export class ToPromiseComponent implements OnInit {
   }
 
   viewAlbum(user: User) {
-    console.log(user);
     this.apiSampleService.fetchAlbums(user);
-    this.albums.subscribe(albums => {
-      console.log(albums.length);
-      // albums.forEach(album => {
-      //   this.apiSampleService.fetchPhotos(album);
-      // })
-    });
   }
 }
