@@ -14,3 +14,16 @@
 <div *appHashKeys="let key of hash">
   <div>key: {{key}} , value: {{hash[key]}}</div>
 </div>
+
+
+<h5>テンプレートでarrow functionを実行</h5>
+
+<div *ngFor="let n of [1,2,3,4]; let last = last; let sum='ngForOf.reduce((a,b) => a + b, 0)'">
+  <div>{{n}}</div>
+  <div *ngIf="last">Sum: {{sum}}</div>
+</div>
+
+<div *ngFor="let n of ['a','b','c','d']; let last = last; let str='ngForOf.join(\':\')'">
+  <div>{{n}}</div>
+  <div *ngIf="last">Joined: {{str}}</div>
+</div>
