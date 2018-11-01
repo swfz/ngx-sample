@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpParamsOptions } from '../../../node_modules/@angular/common/http/src/params';
-import {concatMap, scan, tap} from 'rxjs/operators';
+import { concatMap, scan, tap } from 'rxjs/operators';
 
 export class User {
   id: number;
@@ -55,7 +55,8 @@ export class ApiSampleService {
     const albums = await this.http
       .get<Album[]>(apiUrl, {
         params: new HttpParams(<HttpParamsOptions>{ fromObject: condition })
-      }).toPromise();
+      })
+      .toPromise();
 
     this.fetchPhotos(albums);
   }
@@ -69,15 +70,17 @@ export class ApiSampleService {
 
   private appendPhotos(album: Album) {
     const apiUrl = 'https://jsonplaceholder.typicode.com/photos';
-    const condition = {albumId: album.id.toString()};
+    const condition = { albumId: album.id.toString() };
     return this.http
       .get<Photo[]>(apiUrl, {
-        params: new HttpParams(<HttpParamsOptions>{fromObject: condition})
-      }).pipe(
+        params: new HttpParams(<HttpParamsOptions>{ fromObject: condition })
+      })
+      .pipe(
         concatMap(photos => {
-           album.photos = photos;
-           return of(album);
+          album.photos = photos;
+          return of(album);
         })
-      ).toPromise();
+      )
+      .toPromise();
   }
 }

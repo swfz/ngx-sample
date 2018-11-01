@@ -16,6 +16,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    this.gridOptions = <GridOptions>{};
     this.columnDefs = [
       {
         headerName: 'スペース',
@@ -29,21 +30,39 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         width: 120,
         editable: true,
         cellEditorFramework: AgGridCellEditorDatepickerComponent
+      },
+      {
+        headerName: 'check',
+        field: 'check',
+        width: 120,
+        cellRenderer: this.checkRenderer
       }
     ];
 
     this.rowData = [
       {
-        startDate: '2018-08-01'
+        startDate: '2018-08-01',
+        check: { hoge: true, fuga: false, piyo: true }
       },
       {
-        startDate: '2018-08-02'
+        startDate: '2018-08-02',
+        check: { hoge: false, fuga: false, piyo: true }
       }
     ];
   }
 
+  private checkRenderer(params) {
+    const value = params.value;
+    return Object.keys(params.value)
+      .map(_ => {
+        const iconClass = value[_] ? 'check-square-o' : 'square-o';
+        return `<i class="fa fa-${iconClass}"></i>`;
+      })
+      .join('');
+  }
+
   private linkRenderer(params) {
-    return `<a href="/grid/flex">リンク</a>`;
+    return `<a [routerLink]="['grid','felx']">リンク</a>`;
   }
 
   valueChanged(e) {
@@ -52,5 +71,21 @@ export class AgGridReactiveColumndefComponent implements OnInit {
 
   editted(e) {
     console.log(e);
+  }
+
+  downloadCsv() {
+    const params = {
+      fileName: 'sample.csv',
+      processCellCallback: params => {
+        if (params.column.colDef.field === 'check') {
+          return Object.keys(params.value)
+            .map(_ => `${_}: ${params.value[_]}`)
+            .join(',');
+        } else {
+          return params.value;
+        }
+      }
+    };
+    this.gridOptions.api.exportDataAsCsv(params);
   }
 }
