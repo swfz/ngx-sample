@@ -2,22 +2,25 @@
   <form #f="ngForm" (submit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text"
-             name="name"
-             id="name"
-             [(ngModel)]="model.name"
-             class="form-control"
-             nameValidator
-             banName="aaa"
-             #name="ngModel"
-             required>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        [(ngModel)]="model.name"
+        class="form-control"
+        nameValidator
+        banName="aaa"
+        #name="ngModel"
+        required
+      />
 
-      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-        <div *ngIf="name.errors.required">
-          Name is required
-        </div>
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="name.errors.required">Name is required</div>
         <div *ngIf="name.errors.banName">
-          {{name.errors.banName.value}} was Ban!
+          {{ name.errors.banName.value }} was Ban!
         </div>
       </div>
     </div>
@@ -25,12 +28,14 @@
     <div class="form-group">
       <label for="type">Type</label>
 
-      <select name="type"
-              id="type"
-              class="form-control"
-              #type="ngModel"
-              required
-              [(ngModel)]="model.type">
+      <select
+        name="type"
+        id="type"
+        class="form-control"
+        #type="ngModel"
+        required
+        [(ngModel)]="model.type"
+      >
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
@@ -39,31 +44,34 @@
 
     <div class="form-group">
       <label for="price">Price</label>
-      <input type="text"
-             name="price"
-             id="price"
-             [(ngModel)]="model.price"
-             class="form-control"
-             #price="ngModel"
-             fctl="formControl"
-             multiFieldValidator="fctl"
-             pattern="\d+"
-             required>
-      <div *ngIf="price.invalid && (price.dirty || price.touched)"  class="alert alert-danger">
-        <div *ngIf="price.errors.required">
-          Price is required
-        </div>
-        <div *ngIf="price.errors.price">
-          {{price.errors.price.value}}
-        </div>
-        <div *ngIf="price.errors.pettern">
-          Price must be number
-        </div>
+      <input
+        type="text"
+        name="price"
+        id="price"
+        [(ngModel)]="model.price"
+        class="form-control"
+        #price="ngModel"
+        fctl="formControl"
+        multiFieldValidator="fctl"
+        pattern="\d+"
+        required
+      />
+      <div
+        *ngIf="price.invalid && (price.dirty || price.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="price.errors.required">Price is required</div>
+        <div *ngIf="price.errors.price">{{ price.errors.price.value }}</div>
+        <div *ngIf="price.errors.pettern">Price must be number</div>
       </div>
     </div>
 
-    <button type="submit" [disabled]="!f.form.valid" class="btn btn-sm btn-primary">Submit</button>
-
+    <button
+      type="submit"
+      [disabled]="!f.form.valid"
+      class="btn btn-sm btn-primary"
+    >
+      Submit
+    </button>
   </form>
 </div>
-

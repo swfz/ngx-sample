@@ -1,41 +1,54 @@
-<ag-grid-angular #sampleGrid
-                 style="height: 100%"
-                 [gridOptions]="gridOptions"
-                 [rowData]="gridRows"
-                 [pinnedTopRowData]="pinnedTopRowData"
-                 enableSorting
-                 enableFilter
-                 suppressMenuHide
-                 class="ag-dark">
-  <ag-grid-column [headerName]="'アカウントID'"
-                  [field]="'accountId'"
-                  [width]="130"
-                  [filter]="'text'">
+<ag-grid-angular
+  #sampleGrid
+  style="height: 100%"
+  [gridOptions]="gridOptions"
+  [rowData]="gridRows"
+  [pinnedTopRowData]="pinnedTopRowData"
+  enableSorting
+  enableFilter
+  suppressMenuHide
+  class="ag-dark"
+>
+  <ag-grid-column
+    [headerName]="'アカウントID'"
+    [field]="'accountId'"
+    [width]="130"
+    [filter]="'text'"
+  >
   </ag-grid-column>
-  <ag-grid-column [headerName]="'アカウント名'"
-                  [field]="'name'"
-                  [width]="150"
-                  [filter]="'text'">
+  <ag-grid-column
+    [headerName]="'アカウント名'"
+    [field]="'name'"
+    [width]="150"
+    [filter]="'text'"
+  >
   </ag-grid-column>
-  <ag-grid-column [headerName]="'カテゴリ'"
-                  [field]="'category'"
-                  [width]="130"
-                  [filter]="'text'">
+  <ag-grid-column
+    [headerName]="'カテゴリ'"
+    [field]="'category'"
+    [width]="130"
+    [filter]="'text'"
+  >
   </ag-grid-column>
-  <ag-grid-column [headerName]="'スコア1'"
-                  [field]="'score1'"
-                  [width]="130"
-                  [filter]="'number'">
+  <ag-grid-column
+    [headerName]="'スコア1'"
+    [field]="'score1'"
+    [width]="130"
+    [filter]="'number'"
+  >
   </ag-grid-column>
-  <ag-grid-column [headerName]="'スコア2'"
-                  [field]="'score2'"
-                  [width]="130"
-                  [filter]="'number'">
+  <ag-grid-column
+    [headerName]="'スコア2'"
+    [field]="'score2'"
+    [width]="130"
+    [filter]="'number'"
+  >
   </ag-grid-column>
-  <ag-grid-column [headerName]="'レート'"
-                  [field]="'rate'"
-                  [width]="130"
-                  [filter]="'number'">
+  <ag-grid-column
+    [headerName]="'レート'"
+    [field]="'rate'"
+    [width]="130"
+    [filter]="'number'"
+  >
   </ag-grid-column>
 </ag-grid-angular>
-

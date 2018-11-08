@@ -50,7 +50,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
             const nodeId = params.node.id;
             const field = params.colDef.field;
             return params.value != params.context.rowData[nodeId][field];
-          },
+          }
         },
         editable: true
       }

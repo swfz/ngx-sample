@@ -1,24 +1,20 @@
-<custom-selector [(ngModel)]="rate"
-                 #custom="ngModel"
-                 [max]="10">
+<custom-selector [(ngModel)]="rate" #custom="ngModel" [max]="10">
 </custom-selector>
 
-<div>
-  touched: {{custom.touched}}
-</div>
-<div>
-  parent component: {{rate}}
-</div>
-<br>
-<br>
-<br>
-<br>
+<div>touched: {{ custom.touched }}</div>
+<div>parent component: {{ rate }}</div>
+<br />
+<br />
+<br />
+<br />
 
-<table-input [(ngModel)]="timetable"
-             [rowLabels]="tableRowLabels"
-             [colLabels]="tableColLabels"
-             [rows]="7"
-             [cols]="24">
+<table-input
+  [(ngModel)]="timetable"
+  [rowLabels]="tableRowLabels"
+  [colLabels]="tableColLabels"
+  [rows]="7"
+  [cols]="24"
+>
 </table-input>
 
-{{timetable|json}}
+{{ timetable | json }}

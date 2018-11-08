@@ -3,32 +3,27 @@
 </button>
 
 <div>
-  <ng-container *ngFor="let user of users | async">
+  <ng-container *ngFor="let user of (users | async)">
     <div>
-      {{user.id}}
-      &nbsp;
-      {{user.name}}
-      &nbsp;
-      {{user.username}}
-      <button type="button" class="btn btn-sm btn-success" (click)="viewAlbum(user)">
+      {{ user.id }} &nbsp; {{ user.name }} &nbsp; {{ user.username }}
+      <button
+        type="button"
+        class="btn btn-sm btn-success"
+        (click)="viewAlbum(user)"
+      >
         View Album
       </button>
     </div>
   </ng-container>
 
-  <hr>
+  <hr />
 
-  <ng-container *ngFor="let album of albums | async">
+  <ng-container *ngFor="let album of (albums | async)">
     <div class="text-overflow: ellipsis;">
-      {{album.id}}
-      &nbsp;
-      {{album.userId}}
-      &nbsp;
-      {{album.title}}
-      <ng-container *ngFor="let photo of album.photos; let i = index;">
-        <img *ngIf="i < 5" src="{{photo.thumbnailUrl}}">
+      {{ album.id }} &nbsp; {{ album.userId }} &nbsp; {{ album.title }}
+      <ng-container *ngFor="let photo of album.photos; let i = index">
+        <img *ngIf="i < 5" src="{{photo.thumbnailUrl}}" />
       </ng-container>
     </div>
   </ng-container>
 </div>
-

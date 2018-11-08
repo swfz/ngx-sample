@@ -1,65 +1,90 @@
 <div class="flex-container">
-
   <div class="submenu1">
-    <button type="button" class="btn btn-sm btn-primary"
-            (click)="isMenu1Collapsed = !isMenu1Collapsed">Toggle Menu1 collapse
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      (click)="isMenu1Collapsed = !isMenu1Collapsed"
+    >
+      Toggle Menu1 collapse
     </button>
-    <div (collapsed)="collapsed($event)"
-         (expanded)="expanded($event)"
-         [collapse]="isMenu1Collapsed"
-         class="card card-block card-header">
+    <div
+      (collapsed)="collapsed($event)"
+      (expanded)="expanded($event)"
+      [collapse]="isMenu1Collapsed"
+      class="card card-block card-header"
+    >
       <div class="well well-lg">Menu1 content</div>
     </div>
   </div>
 
   <div class="submenu2">
-    <button type="button" class="btn btn-sm btn-primary"
-            (click)="isMenu2Collapsed = !isMenu2Collapsed">Toggle Menu2 collapse
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      (click)="isMenu2Collapsed = !isMenu2Collapsed"
+    >
+      Toggle Menu2 collapse
     </button>
-    <div (collapsed)="collapsed($event)"
-         (expanded)="expanded($event)"
-         [collapse]="isMenu2Collapsed"
-         class="card card-block card-header">
+    <div
+      (collapsed)="collapsed($event)"
+      (expanded)="expanded($event)"
+      [collapse]="isMenu2Collapsed"
+      class="card card-block card-header"
+    >
       <div class="well well-lg">Menu2 content</div>
     </div>
   </div>
 
-  <ag-grid-angular #groupingGrid
-                   [gridOptions]="gridOptions"
-                   [rowData]="gridRows"
-                   enableSorting
-                   enableFilter
-                   suppressMenuHide
-                   class="grid ag-fresh">
-    <ag-grid-column [headerName]="'アカウントID'"
-                    [field]="'accountId'"
-                    [width]="130"
-                    [filter]="'text'">
+  <ag-grid-angular
+    #groupingGrid
+    [gridOptions]="gridOptions"
+    [rowData]="gridRows"
+    enableSorting
+    enableFilter
+    suppressMenuHide
+    class="grid ag-fresh"
+  >
+    <ag-grid-column
+      [headerName]="'アカウントID'"
+      [field]="'accountId'"
+      [width]="130"
+      [filter]="'text'"
+    >
     </ag-grid-column>
-    <ag-grid-column [headerName]="'アカウント名'"
-                    [field]="'name'"
-                    [width]="150"
-                    [filter]="'text'">
+    <ag-grid-column
+      [headerName]="'アカウント名'"
+      [field]="'name'"
+      [width]="150"
+      [filter]="'text'"
+    >
     </ag-grid-column>
-    <ag-grid-column [headerName]="'カテゴリ'"
-                    [field]="'category'"
-                    [width]="130"
-                    [filter]="'text'">
+    <ag-grid-column
+      [headerName]="'カテゴリ'"
+      [field]="'category'"
+      [width]="130"
+      [filter]="'text'"
+    >
     </ag-grid-column>
-    <ag-grid-column [headerName]="'スコア1'"
-                    [field]="'score1'"
-                    [width]="130"
-                    [filter]="'number'">
+    <ag-grid-column
+      [headerName]="'スコア1'"
+      [field]="'score1'"
+      [width]="130"
+      [filter]="'number'"
+    >
     </ag-grid-column>
-    <ag-grid-column [headerName]="'スコア2'"
-                    [field]="'score2'"
-                    [width]="130"
-                    [filter]="'number'">
+    <ag-grid-column
+      [headerName]="'スコア2'"
+      [field]="'score2'"
+      [width]="130"
+      [filter]="'number'"
+    >
     </ag-grid-column>
-    <ag-grid-column [headerName]="'レート'"
-                    [field]="'rate'"
-                    [width]="130"
-                    [filter]="'number'">
+    <ag-grid-column
+      [headerName]="'レート'"
+      [field]="'rate'"
+      [width]="130"
+      [filter]="'number'"
+    >
     </ag-grid-column>
   </ag-grid-angular>
 </div>

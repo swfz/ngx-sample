@@ -1,29 +1,37 @@
+<!-- <h1> -->
+<!-- 単純に*ngForにハッシュを渡す -->
+<!-- </h1> -->
 
-<!--<h1>-->
-  <!--単純に*ngForにハッシュを渡す-->
-<!--</h1>-->
-
-<!--<div *ngFor="let item of hash">-->
-  <!--{{item}}-->
-<!--</div>-->
+<!-- <div *ngFor="let item of hash"> -->
+<!-- {{item}} -->
+<!-- </div> -->
 
 <h5>カスタムディレクティブ</h5>
-<button type="button" (click)="changeHash()">
-  Change
-</button>
+<button type="button" (click)="changeHash()">Change</button>
 <div *appHashKeys="let key of hash">
-  <div>key: {{key}} , value: {{hash[key]}}</div>
+  <div>key: {{ key }} , value: {{ hash[key] }}</div>
 </div>
-
 
 <h5>テンプレートでarrow functionを実行</h5>
 
-<div *ngFor="let n of [1,2,3,4]; let last = last; let sum='ngForOf.reduce((a,b) => a + b, 0)'">
-  <div>{{n}}</div>
-  <div *ngIf="last">Sum: {{sum}}</div>
+<div
+  *ngFor="
+    let n of [1, 2, 3, 4];
+    let last = last;
+    let sum = &quot;ngForOf.reduce((a,b) => a + b, 0)&quot;
+  "
+>
+  <div>{{ n }}</div>
+  <div *ngIf="last">Sum: {{ sum }}</div>
 </div>
 
-<div *ngFor="let n of ['a','b','c','d']; let last = last; let str='ngForOf.join(\':\')'">
-  <div>{{n}}</div>
-  <div *ngIf="last">Joined: {{str}}</div>
+<div
+  *ngFor="
+    let n of ['a', 'b', 'c', 'd'];
+    let last = last;
+    let str = &quot;ngForOf.join(':')&quot;
+  "
+>
+  <div>{{ n }}</div>
+  <div *ngIf="last">Joined: {{ str }}</div>
 </div>

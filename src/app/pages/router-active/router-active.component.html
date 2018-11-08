@@ -1,74 +1,78 @@
 <div class="container">
   <div class="side-navi">
     <ul>
+      <li><h4>Menu(routerPathActive)</h4></li>
       <li>
-        <h4>
-          Menu(routerPathActive)
-        </h4>
-      </li>
-      <li>
-        <a #pathNone [routerLink]="['/routerlink']"
-           routerPathActive="is-active">
+        <a
+          #pathNone
+          [routerLink]="['/routerlink']"
+          routerPathActive="is-active"
+        >
           none
         </a>
-        <span>({{pathNone.href}})</span>
+        <span>({{ pathNone.href }})</span>
       </li>
       <li>
-        <a #pathHoge [routerLink]="['/routerlink', 'hoge']"
-           routerPathActive="is-active">
+        <a
+          #pathHoge
+          [routerLink]="['/routerlink', 'hoge']"
+          routerPathActive="is-active"
+        >
           hoge
         </a>
-        <span>({{pathHoge.href}})</span>
+        <span>({{ pathHoge.href }})</span>
       </li>
       <li>
-        <a #pathFuga [routerLink]="['/routerlink', 'fuga']"
-           [queryParams]="{piyo_id: piyoId}"
-           routerPathActive="is-active">
+        <a
+          #pathFuga
+          [routerLink]="['/routerlink', 'fuga']"
+          [queryParams]="{ piyo_id: piyoId }"
+          routerPathActive="is-active"
+        >
           fuga
         </a>
-        <span>({{pathFuga.href}})</span>
+        <span>({{ pathFuga.href }})</span>
       </li>
-      <br>
+      <br />
+      <li><h4>Menu(routerLinkActive)</h4></li>
       <li>
-        <h4>
-          Menu(routerLinkActive)
-        </h4>
-      </li>
-      <li>
-        <a #linkNone [routerLink]="['/routerlink']"
-           routerLinkActive="is-active">
+        <a
+          #linkNone
+          [routerLink]="['/routerlink']"
+          routerLinkActive="is-active"
+        >
           none
         </a>
-        <span>({{linkNone.href}})</span>
+        <span>({{ linkNone.href }})</span>
       </li>
       <li>
-        <a #linkHoge [routerLink]="['/routerlink', 'hoge']"
-           routerLinkActive="is-active">
+        <a
+          #linkHoge
+          [routerLink]="['/routerlink', 'hoge']"
+          routerLinkActive="is-active"
+        >
           hoge
         </a>
-        <span>({{linkHoge.href}})</span>
+        <span>({{ linkHoge.href }})</span>
       </li>
       <li>
-        <a #linkFuga [routerLink]="['/routerlink', 'fuga']"
-           [queryParams]="{piyo_id: piyoId}"
-           routerLinkActive="is-active">
+        <a
+          #linkFuga
+          [routerLink]="['/routerlink', 'fuga']"
+          [queryParams]="{ piyo_id: piyoId }"
+          routerLinkActive="is-active"
+        >
           fuga
         </a>
-        <span>({{linkFuga.href}})</span>
+        <span>({{ linkFuga.href }})</span>
       </li>
     </ul>
   </div>
   <div class="content">
     <div>コンテンツ</div>
-    <button class="btn-sm btn-info"
-            (click)="incrementPiyoId($event)">
+    <button class="btn-sm btn-info" (click)="incrementPiyoId($event)">
       PiyoIDをincrement
     </button>
-    <div>
-      {{ currentPath }}
-    </div>
+    <div>{{ currentPath }}</div>
   </div>
 </div>
-
-
-

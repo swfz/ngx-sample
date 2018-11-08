@@ -1,5 +1,10 @@
-<input type="text"
-       [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-dark-blue' }"
-       [(ngModel)]="datepickerModel"
-       #picker="bsDatepicker"
-       bsDatepicker>
+<input
+  type="text"
+  [bsConfig]="{
+    dateInputFormat: 'YYYY-MM-DD',
+    containerClass: 'theme-dark-blue'
+  }"
+  [(ngModel)]="datepickerModel"
+  #picker="bsDatepicker"
+  bsDatepicker
+/>

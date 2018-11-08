@@ -1,33 +1,32 @@
-<h3>
-  ポップアップウィンドウを生成しデータのやり取りを行うサンプル
-</h3>
+<h3>ポップアップウィンドウを生成しデータのやり取りを行うサンプル</h3>
 
-<br>
+<br />
 &nbsp;
-<button type="button"
-        class="btn btn-sm btn-primary"
-        (click)="openComponentWindow()">
+<button
+  type="button"
+  class="btn btn-sm btn-primary"
+  (click)="openComponentWindow()"
+>
   Open Window(angular)
 </button>
 &nbsp;
-<button type="button"
-         class="btn btn-sm btn-success"
-         (click)="openWindow()">
+<button type="button" class="btn btn-sm btn-success" (click)="openWindow()">
   Open Window(pure javascript)
 </button>
-<br>
-<br>
+<br />
+<br />
 &nbsp;
 <button type="button" class="btn btn-sm btn-warning" (click)="closeWindow()">
   Close Window
 </button>
 
-<br>
-<br>
-テキスト <input type="text"
-            class="input input-sm"
-            (ngModelChange)="onChangeText($event)"
-            [(ngModel)]="inputText">
-<br>
-
-
+<br />
+<br />
+テキスト
+<input
+  type="text"
+  class="input input-sm"
+  (ngModelChange)="onChangeText($event)"
+  [(ngModel)]="inputText"
+/>
+<br />

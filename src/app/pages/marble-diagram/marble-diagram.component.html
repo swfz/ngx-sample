@@ -1,36 +1,35 @@
-<p>
-  marble-diagram works!
-</p>
+<p>marble-diagram works!</p>
 
 <div class="stream">
-  <div class="stream-line">
-  </div>
-  <div #value
+  <div class="stream-line"></div>
+  <div
+    #value
     (mousedown)="onMouseDown($event)"
     (mouseup)="onMouseUp($event)"
     (mousemove)="onMouseMove($event)"
-    class="marble">
-  1
+    class="marble"
+  >
+    1
   </div>
-  <div #value
+  <div
+    #value
     (mousedown)="onMouseDown($event)"
     (mouseup)="onMouseUp($event)"
     (mousemove)="onMouseMove($event)"
-    class="marble">
-  2
+    class="marble"
+  >
+    2
   </div>
-  <div #value
+  <div
+    #value
     (mousedown)="onMouseDown($event)"
     (mouseup)="onMouseUp($event)"
     (mousemove)="onMouseMove($event)"
     (mouseout)="onMouseOut($event)"
-    class="marble">
-  3
+    class="marble"
+  >
+    3
   </div>
 </div>
 
-<div class="operator">
-  Map(x => x * 2)
-</div>
-
-
+<div class="operator">Map(x => x * 2)</div>

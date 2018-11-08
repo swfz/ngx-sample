@@ -1,44 +1,30 @@
 <div>
-  <button type="button"
-          (click)="getHeroes()"
-          class="btn btn-sm btn-primary">
+  <button type="button" (click)="getHeroes()" class="btn btn-sm btn-primary">
     GetHeroes
   </button>
   <ng-container *ngIf="heroes">
-    <div *ngFor="let hero of heroes">
-      {{hero?.id}}
-      {{hero?.name}}
-    </div>
-    {{heroes|json}}
+    <div *ngFor="let hero of heroes">{{ hero?.id }} {{ hero?.name }}</div>
+    {{ heroes | json }}
   </ng-container>
 </div>
 <div>
-  <button type="button"
-          (click)="getHeroes2()"
-          class="btn btn-sm btn-primary">
+  <button type="button" (click)="getHeroes2()" class="btn btn-sm btn-primary">
     GetHeroes2
   </button>
 
   <ng-container *ngIf="heroes2">
-    <div *ngFor="let hero of heroes2">
-      {{hero?.id}}
-      {{hero?.name}}
-    </div>
-    {{heroes|json}}
+    <div *ngFor="let hero of heroes2">{{ hero?.id }} {{ hero?.name }}</div>
+    {{ heroes | json }}
   </ng-container>
 </div>
 
-
-<ng-container *ngFor="let n of [1,2,3]">
-  <button type="button"
-          (click)="getHero(n)"
-          class="btn btn-sm btn-success">
-    Get Hero(id: {{n}})
+<ng-container *ngFor="let n of [1, 2, 3]">
+  <button type="button" (click)="getHero(n)" class="btn btn-sm btn-success">
+    Get Hero(id: {{ n }})
   </button>
 </ng-container>
 
-
-<br>
+<br />
 <button type="button" (click)="getUsers()" class="btn btn-sm btn-primary">
   Users
 </button>
@@ -46,11 +32,15 @@
   Users2
 </button>
 
-<button type="button" (click)="getUsersWithParams()" class="btn btn-sm btn-primary">
+<button
+  type="button"
+  (click)="getUsersWithParams()"
+  class="btn btn-sm btn-primary"
+>
   UsersWithParams
 </button>
 
 <ng-container *ngFor="let user of users">
-  <hr>
-  {{user|json}}
+  <hr />
+  {{ user | json }}
 </ng-container>
