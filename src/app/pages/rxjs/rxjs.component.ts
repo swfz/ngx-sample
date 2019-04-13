@@ -132,7 +132,7 @@ export class RxjsComponent implements OnInit {
   }
 
   private sleep(ms: number) {
-    setTimeout(console.log('timeout'), ms);
+    // setTimeout(console.log('timeout'), ms);
     return;
   }
 }
