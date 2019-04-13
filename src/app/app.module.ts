@@ -55,6 +55,9 @@ import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.co
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
 import { ChildWindowComponent } from './pages/child-window/child-window.component';
 import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
+import {ReactiveFormComponent} from "./pages/reactive-form/reactive-form.component";
+import {TemplateDrivenFormComponent} from "./pages/template-driven-form/template-driven-form.component";
+import {NonScrollGridComponent} from "./pages/non-scroll-grid/non-scroll-grid.component";
 
 @NgModule({
   declarations: [
@@ -92,6 +95,9 @@ import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
     AgGridReactiveColumndefComponent,
     BindBetweenWindowComponent,
     ChildWindowComponent,
+    ReactiveFormComponent,
+    TemplateDrivenFormComponent,
+    NonScrollGridComponent,
     ToPromiseComponent
   ],
   imports: [
