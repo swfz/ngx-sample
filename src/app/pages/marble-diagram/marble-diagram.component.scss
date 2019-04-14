@@ -6,7 +6,6 @@ $marble-radius: 20px;
   height: $stream-height;
 }
 
-
 .stream-line {
   position: relative;
   margin-left: 10px;
@@ -30,7 +29,7 @@ $marble-radius: 20px;
   line-height: $stream-height;
   font-size: 8px;
   vertical-align: middle;
-  color: #FFFFFF;
+  color: #ffffff;
   width: $stream-height;
   height: $stream-height;
   z-index: 5;
@@ -39,16 +38,16 @@ $marble-radius: 20px;
   cursor: move;
 }
 .marble:nth-child(4n) {
-  background-color: #8FC31F;
+  background-color: #8fc31f;
 }
-.marble:nth-child(4n+1) {
-  background-color: #E4007F;
+.marble:nth-child(4n + 1) {
+  background-color: #e4007f;
 }
-.marble:nth-child(4n+2) {
-  background-color: #0068B7;
+.marble:nth-child(4n + 2) {
+  background-color: #0068b7;
 }
-.marble:nth-child(4n+3) {
-  background-color: #F39800;
+.marble:nth-child(4n + 3) {
+  background-color: #f39800;
 }
 
 .operator {

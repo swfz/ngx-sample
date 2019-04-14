@@ -7,7 +7,7 @@
 
 .side-navi {
   grid-column-start: 1;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 .side-navi > ul > li {
@@ -15,11 +15,10 @@
 }
 
 .is-active {
-  color: #CC3333;
+  color: #cc3333;
   font-weight: bold;
 }
 
 .content {
   grid-column-start: 2;
 }
-

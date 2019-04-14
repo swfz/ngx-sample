@@ -8,9 +8,8 @@ describe('TemplateDrivenFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemplateDrivenFormComponent ]
-    })
-    .compileComponents();
+      declarations: [TemplateDrivenFormComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

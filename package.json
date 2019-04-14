@@ -10,9 +10,10 @@
     "lint": "ng lint",
     "packagr": "ng-packagr -p ng-package.json",
     "ghpages": "ng build --prod --aot --base-href '/ngx-sample/' && ngh --dir dist/",
-    "prettier": "npm run prettier-ts && npm run prettier-html",
+    "prettier": "npm run prettier-ts && npm run prettier-html && npm run prettier-scss",
     "prettier-ts": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
     "prettier-html": "prettier --parser angular --write \"./**/*.component.html\"",
+    "prettier-scss": "prettier --write \"./**/*.scss\"",
     "e2e": "ng e2e"
   },
   "private": false,
@@ -74,7 +75,7 @@
     "reveal.js": "^3.5.0",
     "rxjs-tslint": "^0.1.5",
     "ts-node": "~3.0.4",
-    "tslint": "~5.3.2",
+    "tslint": "^5.5.0",
     "typescript": "3.2.4"
   }
 }

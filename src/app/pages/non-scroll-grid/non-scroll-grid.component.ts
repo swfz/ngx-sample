@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ColDef, GridOptions} from "ag-grid";
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ColDef, GridOptions } from 'ag-grid';
 
 @Component({
   selector: 'app-non-scroll-grid',
@@ -7,12 +7,11 @@ import {ColDef, GridOptions} from "ag-grid";
   styleUrls: ['./non-scroll-grid.component.scss']
 })
 export class NonScrollGridComponent implements OnInit {
-
   public gridOptions: GridOptions;
   public columnDefs: ColDef[];
   public gridRows: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.gridOptions = <GridOptions>{};

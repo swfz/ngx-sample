@@ -8,9 +8,8 @@ describe('NonScrollGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NonScrollGridComponent ]
-    })
-    .compileComponents();
+      declarations: [NonScrollGridComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
