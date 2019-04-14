@@ -1,12 +1,12 @@
 <div class="container">
   <div class="side-navi">
     <ul>
-      <li><h4>Menu(routerPathActive)</h4></li>
+      <li><h4>Menu(appRouterPathActive)</h4></li>
       <li>
         <a
           #pathNone
           [routerLink]="['/routerlink']"
-          routerPathActive="is-active"
+          appRouterPathActive="is-active"
         >
           none
         </a>
@@ -16,7 +16,7 @@
         <a
           #pathHoge
           [routerLink]="['/routerlink', 'hoge']"
-          routerPathActive="is-active"
+          appRouterPathActive="is-active"
         >
           hoge
         </a>
@@ -27,7 +27,7 @@
           #pathFuga
           [routerLink]="['/routerlink', 'fuga']"
           [queryParams]="{ piyo_id: piyoId }"
-          routerPathActive="is-active"
+          appRouterPathActive="is-active"
         >
           fuga
         </a>

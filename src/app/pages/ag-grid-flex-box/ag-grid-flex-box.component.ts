@@ -7,8 +7,8 @@ import { GridOptions } from 'ag-grid';
   styleUrls: ['./ag-grid-flex-box.component.scss']
 })
 export class AgGridFlexBoxComponent implements OnInit {
-  public isMenu1Collapsed: boolean = false;
-  public isMenu2Collapsed: boolean = false;
+  public isMenu1Collapsed: boolean;
+  public isMenu2Collapsed: boolean;
   public gridOptions: GridOptions = {};
   public gridRows: any;
   constructor() {}

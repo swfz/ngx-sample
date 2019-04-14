@@ -21,7 +21,7 @@ import {
 import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: '[routerPathActive]'
+  selector: '[appRouterPathActive]'
 })
 export class RouterPathActiveDirective
   implements AfterContentInit, OnChanges, OnDestroy {
@@ -33,7 +33,7 @@ export class RouterPathActiveDirective
   private classes: string[] = [];
   private subscription: Subscription;
 
-  public isActive: boolean = false;
+  public isActive: boolean;
 
   constructor(
     private router: Router,
@@ -67,7 +67,9 @@ export class RouterPathActiveDirective
   }
 
   private update() {
-    if (!this.links || !this.linksWithHrefs || !this.router.navigated) return;
+    if (!this.links || !this.linksWithHrefs || !this.router.navigated) {
+      return;
+    }
 
     Promise.resolve().then(() => {
       const urlSegments = this.router['currentUrlTree']['root']['children'][
@@ -96,7 +98,9 @@ export class RouterPathActiveDirective
       const linkSegmentPaths = link.urlTree.root.children.primary.segments.map(
         segment => segment.path
       );
-      if (currentSegmentPaths.length != linkSegmentPaths.length) return false;
+      if (currentSegmentPaths.length !== linkSegmentPaths.length) {
+        return false;
+      }
 
       return currentSegmentPaths.every((currentSegmentPath, i, _) => {
         return currentSegmentPath === linkSegmentPaths[i];

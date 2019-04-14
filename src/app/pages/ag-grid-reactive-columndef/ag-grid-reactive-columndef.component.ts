@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridOptions } from 'ag-grid';
-import {
-  AgGridCellEditorDatepickerComponent
-} from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
+import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import _ from 'lodash';
 
 @Component({
