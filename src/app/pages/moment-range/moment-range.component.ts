@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as m from 'moment';
-import {DateRange, extendMoment} from 'moment-range';
+import { DateRange, extendMoment } from 'moment-range';
 const moment = extendMoment(m);
 
 @Component({

@@ -24,8 +24,7 @@ export class CustomSelectorComponent implements OnInit, ControlValueAccessor {
   @Input()
   max: number;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.ranges = Array.from(Array(this.max).keys());
@@ -48,5 +47,3 @@ export class CustomSelectorComponent implements OnInit, ControlValueAccessor {
     this._onTouched();
   }
 }
-
-
