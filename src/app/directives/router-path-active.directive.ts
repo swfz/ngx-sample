@@ -99,7 +99,7 @@ export class RouterPathActiveDirective
       if (currentSegmentPaths.length != linkSegmentPaths.length) return false;
 
       return currentSegmentPaths.every((currentSegmentPath, i, _) => {
-        return currentSegmentPath == linkSegmentPaths[i];
+        return currentSegmentPath === linkSegmentPaths[i];
       });
     };
   }

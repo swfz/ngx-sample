@@ -78,7 +78,7 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   }
 
   rowCheck(r) {
-    const isAllRowChecked = this._value[r].every(c => c == true);
+    const isAllRowChecked = this._value[r].every(c => c === true);
     this._value[r] = this._value[r].map(_ => !isAllRowChecked);
 
     this.writeValue(this._value);
@@ -87,7 +87,7 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
 
   allCheck() {
     const isAllChecked = this._value.every(r => {
-      return r.every(c => c == true);
+      return r.every(c => c === true);
     });
     this.rowRange.forEach(row => {
       this.colRange.forEach(col => {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GridOptions } from 'ag-grid';
-import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
+import {
+  AgGridCellEditorDatepickerComponent
+} from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import _ from 'lodash';
 
 @Component({
@@ -49,7 +51,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
           'bg-danger': params => {
             const nodeId = params.node.id;
             const field = params.colDef.field;
-            return params.value != params.context.rowData[nodeId][field];
+            return params.value !== params.context.rowData[nodeId][field];
           }
         },
         editable: true
@@ -76,8 +78,8 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   private checkRenderer(params) {
     const value = params.value;
     return Object.keys(params.value)
-      .map(_ => {
-        const iconClass = value[_] ? 'check-square-o' : 'square-o';
+      .map(key => {
+        const iconClass = value[key] ? 'check-square-o' : 'square-o';
         return `<i class="fa fa-${iconClass}"></i>`;
       })
       .join('');
@@ -96,18 +98,18 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   }
 
   downloadCsv() {
-    const params = {
+    const exportParams = {
       fileName: 'sample.csv',
       processCellCallback: params => {
         if (params.column.colDef.field === 'check') {
           return Object.keys(params.value)
-            .map(_ => `${_}: ${params.value[_]}`)
+            .map(key => `${key}: ${params.value[key]}`)
             .join(',');
         } else {
           return params.value;
         }
       }
     };
-    this.gridOptions.api.exportDataAsCsv(params);
+    this.gridOptions.api.exportDataAsCsv(exportParams);
   }
 }

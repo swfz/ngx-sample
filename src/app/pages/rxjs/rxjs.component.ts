@@ -70,7 +70,7 @@ export class RxjsComponent implements OnInit {
   silenceValue(v) {
     // 落ち着いたかどうかをチェック
     // このフィルタを通る = 入力がintervalの分だけないということ
-    return v[0][1].value == v[1][1].value;
+    return v[0][1].value === v[1][1].value;
   }
 
   // ずっと同じものが流れないようにする
