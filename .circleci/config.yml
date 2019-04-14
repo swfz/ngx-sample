@@ -16,12 +16,21 @@ jobs:
       - run: echo "Start Lint"
       - run: npm install
       - run: npx ng lint --exclude 'node_modules/**'
-
+  prettier:
+    docker:
+      - image: circleci/node:10.15.3-stretch-browsers
+    steps:
+      - checkout
+      - run: npm run prettier
+      - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
 workflows:
   version: 2
   workflow:
     jobs:
       - build
       - lint:
+          requires:
+           - build
+      - prettier:
           requires:
            - build
