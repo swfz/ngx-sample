@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: echo "Start Lint"
       - run: npm install
-      - run: npx ng lint
+      - run: npx ng lint --exclude 'node_modules/**'
 
 workflows:
   version: 2
