@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run: echo "Start Build"
       - run: npm install
-      - run: npx ng build --aot
+      - run: npx ng build --aot --no-progress

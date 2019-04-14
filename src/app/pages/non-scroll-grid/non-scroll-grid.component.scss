@@ -1,0 +1,10 @@
+.content {
+  height: calc(100% - 10px);
+  padding-top: 5px;
+  padding-left: 5px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0;
+}
