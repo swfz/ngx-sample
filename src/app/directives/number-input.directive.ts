@@ -2,11 +2,11 @@ import { OnInit, Directive, ElementRef, HostListener } from '@angular/core';
 import { NumberInputPipe } from '../pipes/number-input.pipe';
 
 @Directive({
-  selector: '[numberInput]'
+  selector: '[appNumberInput]'
 })
 export class NumberInputDirective implements OnInit {
   private element: HTMLInputElement;
-  private digits: string = '1.0-0';
+  private digits: string;
 
   constructor(
     private elementRef: ElementRef,
@@ -16,6 +16,7 @@ export class NumberInputDirective implements OnInit {
   }
 
   ngOnInit() {
+    this.digits = '1.0-0';
     this.element.value = this.numberInputPipe.transform(
       this.element.value,
       this.digits
