@@ -6,13 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-component.component.scss']
 })
 export class CustomComponentComponent implements OnInit {
-  rate: number = 2;
+  rate: number;
   timetable: any;
   tableRowLabels: string[];
   tableColLabels: string[];
   constructor() {}
 
   ngOnInit() {
+    this.rate = 2;
     this.tableRowLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     this.tableColLabels = Array.from(Array(24).keys()).map(_ => _.toString());
   }

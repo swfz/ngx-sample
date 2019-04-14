@@ -3,27 +3,29 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const CUSTOM_SELECTOR_CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
+  // tslint:disable-next-line:no-use-before-declare
   useExisting: forwardRef(() => CustomSelectorComponent),
   multi: true
 };
 
 @Component({
-  selector: 'custom-selector',
+  selector: 'app-custom-selector',
   templateUrl: './custom-selector.component.html',
   styleUrls: ['./custom-selector.component.scss'],
   providers: [CUSTOM_SELECTOR_CONTROL_VALUE_ACCESSOR]
 })
 export class CustomSelectorComponent implements OnInit, ControlValueAccessor {
-  constructor() {}
-
-  @Input()
-  max: number = 5;
+  public ranges: any = [];
+  public value: number;
 
   private _onChange: any = Function.prototype;
   private _onTouched: any = Function.prototype;
 
-  public ranges: any = [];
-  public value: number;
+  @Input()
+  max: number;
+
+  constructor() {
+  }
 
   ngOnInit() {
     this.ranges = Array.from(Array(this.max).keys());
@@ -46,3 +48,5 @@ export class CustomSelectorComponent implements OnInit, ControlValueAccessor {
     this._onTouched();
   }
 }
+
+

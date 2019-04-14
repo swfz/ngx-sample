@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as m from 'moment';
-import { extendMoment } from 'moment-range';
+import {DateRange, extendMoment} from 'moment-range';
 const moment = extendMoment(m);
 
 @Component({
@@ -10,13 +10,13 @@ const moment = extendMoment(m);
   styleUrls: ['./moment-range.component.scss']
 })
 export class MomentRangeComponent implements OnInit {
-  constructor() {}
-
-  public range1: any;
-  public range2: any;
-  public range3: any;
+  public range1: DateRange;
+  public range2: DateRange;
+  public range3: DateRange;
   public isOverlap1and2: boolean;
   public isOverlap2and3: boolean;
+
+  constructor() {}
 
   ngOnInit() {
     this.range1 = moment().range(
