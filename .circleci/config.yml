@@ -5,4 +5,6 @@ jobs:
       - image: circleci/node:10.15.3-stretch-browsers
     steps:
       - checkout
-      - run: echo "hello world"
+      - run: echo "Start Build"
+      - run: npm install
+      - run: npx ng build --aot
