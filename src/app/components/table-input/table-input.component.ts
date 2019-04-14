@@ -3,11 +3,12 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 export const TABLE_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
+  // tslint:disable-next-line:no-use-before-declare
   useExisting: forwardRef(() => TableInputComponent),
   multi: true
 };
 @Component({
-  selector: 'table-input',
+  selector: 'app-table-input',
   templateUrl: './table-input.component.html',
   styleUrls: ['./table-input.component.scss'],
   providers: [TABLE_INPUT_CONTROL_VALUE_ACCESSOR]
@@ -20,9 +21,9 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   public _value: any = [];
 
   @Input()
-  rows: number = 2;
+  rows: number;
   @Input()
-  cols: number = 2;
+  cols: number;
   @Input()
   rowLabels: string[];
   @Input()

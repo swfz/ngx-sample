@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 @Component({
-  selector: 'tile-selector',
+  selector: 'app-tile-selector',
   templateUrl: './tile-selector.component.html',
   styleUrls: ['./tile-selector.component.scss']
 })

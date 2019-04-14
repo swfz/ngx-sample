@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridOptions } from 'ag-grid';
+// tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import _ from 'lodash';
 

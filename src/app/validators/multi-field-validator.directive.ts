@@ -3,7 +3,7 @@ import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
   selector:
-    '[multiFieldValidator][formControlName],[multiFieldValidator][formControl]',
+    '[appMultiFieldValidator][formControlName],[appMultiFieldValidator][formControl]',
   // selector: '[multiFieldValidator][formControlName],[multiFieldValidator][formControl],[multiFieldValidator][ngModel]',
   providers: [
     {
@@ -18,7 +18,7 @@ export class MultiFieldValidatorDirective implements Validator {
     @Attribute('multiFieldValidator') public multiFieldValidator: any
   ) {}
   validate(control: AbstractControl): { [key: string]: any } {
-    let typeControl = control.root.get(this.multiFieldValidator);
+    const typeControl = control.root.get(this.multiFieldValidator);
     switch (typeControl.value) {
       case 'A':
         return control.value < 300

@@ -6,14 +6,18 @@ import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
   styleUrls: ['./marble-diagram.component.scss']
 })
 export class MarbleDiagramComponent implements OnInit {
-  private isDragging: boolean = false;
-  private beforeX: number = 0;
-  constructor() {}
+  private isDragging: boolean;
+  private beforeX: number;
 
   @ViewChild('value')
   value;
 
-  ngOnInit() {}
+  constructor() {}
+
+  ngOnInit() {
+    this.isDragging = false;
+    this.beforeX = 0;
+  }
 
   onMouseDown(event) {
     // console.log('mouseDown');
