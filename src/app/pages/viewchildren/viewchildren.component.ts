@@ -15,10 +15,10 @@ import { PopoverDirective } from 'ngx-bootstrap';
 })
 export class ViewchildrenComponent
   implements OnInit, AfterViewChecked, AfterViewInit {
-  constructor() {}
-
   @ViewChildren(PopoverDirective)
   childPopover: QueryList<PopoverDirective>;
+
+  constructor() {}
 
   ngOnInit() {}
 

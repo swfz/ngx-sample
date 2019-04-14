@@ -29,14 +29,19 @@ export interface IInputText {
   styleUrls: ['./rxjs.component.scss']
 })
 export class RxjsComponent implements OnInit {
-  public aaa: Observable<number> = new Subject();
+  public aaa: Observable<number>;
+
+  @ViewChild('input')
+  text;
 
   private events$: Subject<IEvent>;
   private inputTexts$: Subject<IInputText>;
   private interval$: Observable<any>;
+
   constructor() {}
 
   ngOnInit() {
+    this.aaa = new Subject();
     this.aaa.subscribe(result => {
       console.log('observer recieved' + result);
     });
@@ -77,9 +82,6 @@ export class RxjsComponent implements OnInit {
   distinct(a, b) {
     return a[1][1].value === b[1][1].value;
   }
-
-  @ViewChild('input')
-  text;
 
   onKeyup() {
     console.log(this.text.nativeElement.value);
