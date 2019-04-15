@@ -6,7 +6,13 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Build"
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run: npx ng build --aot --no-progress
   lint:
     docker:
@@ -14,7 +20,13 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Lint"
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run: npx ng lint --exclude 'node_modules/**'
   prettier:
     docker:
@@ -22,14 +34,36 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Prettier Check"
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
       - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run: npm run prettier
       - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
+  test:
+    docker:
+      - image: circleci/node:10.15.3-stretch-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run: npm run test --ci
+      # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 workflows:
   version: 2
   workflow:
     jobs:
       - build
+      - test
       - lint:
           requires:
            - build
