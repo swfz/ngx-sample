@@ -1,7 +1,7 @@
 import { RouterPathActiveDirective } from './router-path-active.directive';
-import {ElementRef, Renderer2} from '@angular/core';
-import {Router} from '@angular/router';
-import {TestBed} from '@angular/core/testing';
+import { ElementRef, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
 
 describe('RouterPathActiveDirective', () => {
   // let router: Router;
