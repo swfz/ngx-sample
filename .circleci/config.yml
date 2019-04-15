@@ -63,7 +63,7 @@ workflows:
   workflow:
     jobs:
       - build
-      - test
+      # - test
       - lint:
           requires:
            - build
