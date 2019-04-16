@@ -42,7 +42,7 @@
     "bootstrap": "3.4.1",
     "chart.js": "2.8.0",
     "core-js": "2.5.3",
-    "cypress": "^3.2.0",
+    "cypress": "3.2.0",
     "font-awesome": "4.7.0",
     "license-webpack-plugin": "2.1.1",
     "ngx-bootstrap": "3.3.0",
@@ -78,10 +78,10 @@
     "protractor": "5.1.2",
     "reveal.js": "3.6.0",
     "rxjs-tslint": "0.1.7",
-    "start-server-and-test": "^1.7.13",
+    "start-server-and-test": "1.7.13",
     "ts-node": "3.0.6",
     "tslint": "5.15.0",
     "typescript": "3.2.4",
-    "wait-on": "^3.2.0"
+    "wait-on": "3.2.0"
   }
 }
