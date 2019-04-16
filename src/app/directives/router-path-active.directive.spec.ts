@@ -14,9 +14,8 @@ describe('RouterPathActiveDirective', () => {
   //   let renderer2 = TestBed.get(Renderer2);
   // });
   //
-  // it('should create an instance', () => {
-  //
-  //   const directive = new RouterPathActiveDirective(router, elementRef, renderer2);
-  //   expect(directive).toBeTruthy();
-  // });
+  it.skip('should create an instance', () => {
+    // const directive = new RouterPathActiveDirective(router, elementRef, renderer2);
+    // expect(directive).toBeTruthy();
+  });
 });
