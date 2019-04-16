@@ -61,7 +61,7 @@ jobs:
             - "node_modules"
       - run: npx ng test
       # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-  etoe:
+  end_to_end:
     docker:
       - image: cypress/base:10
     steps:
@@ -92,7 +92,7 @@ workflows:
       #     executor: cypress/browsers-chrome69
       #     browser: chrome
       #     start: 'npm start-ci'
-      - etoe 
+      - end_to_end
       - test
       - lint
       - prettier
