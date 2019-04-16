@@ -63,7 +63,7 @@
     "@types/reveal": "3.3.33",
     "angular-cli-ghpages": "0.5.2",
     "codelyzer": "4.5.0",
-    "jasmine-core": "2.6.4",
+    "jasmine-core": "3.4.0",
     "jasmine-spec-reporter": "4.1.1",
     "jest": "24.7.1",
     "jest-preset-angular": "7.1.0",
