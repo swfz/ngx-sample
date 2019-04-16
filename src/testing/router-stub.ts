@@ -3,7 +3,6 @@ import { ReplaySubject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/Rx';
 
 export class RouterStub {
-
   // private subject = new ReplaySubject<Event>();
   // constructor() {
   //   this.setEvent();
