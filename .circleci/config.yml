@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+orbs:
+  # use Cypress orb from CircleCI registry
+  cypress: cypress-io/cypress@1.5.1
 jobs:
   build:
     docker:
@@ -76,8 +79,16 @@ workflows:
   version: 2
   workflow:
     jobs:
+      - cypress/install:
+          name: 'Linux install'
+          build: 'npm run build'
+      - cypress/run:
+          requires:
+            - Linux install
+          executor: cypress/browsers-chrome69
+          browser: chrome
+          start: 'npm start-ci'
       - test
-      - e2e
       - lint
       - prettier
       - build:
