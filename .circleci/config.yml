@@ -58,11 +58,26 @@ jobs:
             - "node_modules"
       - run: npx ng test
       # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  e2e:
+    docker:
+      - image: circleci/node:10.15.3-stretch-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run: npm run ci
+
 workflows:
   version: 2
   workflow:
     jobs:
       - test
+      - e2e
       - lint
       - prettier
       - build:
