@@ -5,7 +5,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-ci": "ng serve --no-progress",
     "build": "ng build",
     "test": "jest",
     "lint": "ng lint",
@@ -16,7 +15,9 @@
     "prettier-html": "prettier --parser angular --write \"./**/*.component.html\"",
     "prettier-scss": "prettier --write \"./**/*.scss\"",
     "e2e": "ng e2e",
-    "ci": "cypress run",
+    "ci:e2e:server": "ng serve --no-progress",
+    "ci:e2e:cypress": "cypress run",
+    "ci:e2e:run": "wait-on http://localhost:4200 && ci:e2e:cypress",
     "test:watch": "jest --watch"
   },
   "private": false,

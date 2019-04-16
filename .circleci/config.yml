@@ -73,7 +73,11 @@ jobs:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-      - run: npm run ci
+      - run:
+        command: npm run ci:e2e:server
+        background: true
+      - run:
+        command: npm run ci:e2e:run
 
 workflows:
   version: 2
@@ -88,6 +92,7 @@ workflows:
       #     executor: cypress/browsers-chrome69
       #     browser: chrome
       #     start: 'npm start-ci'
+      - e2e
       - test
       - lint
       - prettier
