@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AgGridCellEditorDatepickerComponent } from './ag-grid-cell-editor.datepicker.component';
 
 describe('AgGridCellEditorDatepickerComponent', () => {
-  const component: AgGridCellEditorDatepickerComponent;
   // let fixture: ComponentFixture<AgGridCellEditorDatepickerComponent>;
   //
   // beforeEach(async(() => {
@@ -19,6 +18,5 @@ describe('AgGridCellEditorDatepickerComponent', () => {
   // });
   //
   it.skip('should create', () => {
-    expect(component).toBeTruthy();
   });
 });
