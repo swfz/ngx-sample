@@ -4,7 +4,7 @@ describe('My First Test', function() {
   })
 });
 describe('number input directive', function() {
-  const urlBase = 'http://127.0.0.1:4200/';
+  const urlBase = 'http://localhost:4200/';
   it('format at focus out', function() {
     cy.visit(`${urlBase}focus`);
 
