@@ -74,10 +74,10 @@ jobs:
           paths:
             - "node_modules"
       - run:
-        command: npm run ci:e2e:server
+        command: 'npm run ci:e2e:server'
         background: true
       - run:
-        command: npm run ci:e2e:run
+        command: 'npm run ci:e2e:run'
 
 workflows:
   version: 2
