@@ -60,7 +60,7 @@ jobs:
       # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   e2e:
     docker:
-      - image: circleci/node:10.15.3-stretch-browsers
+      - image: cypress/base:10
     steps:
       - checkout
       - restore_cache:
