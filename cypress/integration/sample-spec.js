@@ -15,3 +15,16 @@ describe('number input directive', function() {
     cy.get('[name="directive-input"]').should('have.value', '10,000')
   })
 });
+describe('ag-grid flex box', function() {
+  const urlBase = 'http://localhost:4200/';
+
+  it('collapse and expand', function() {
+    cy.visit(`${urlBase}grid/flex`);
+
+    cy.get('div.card-block').contains('Menu2 content').should('be.visible');
+    cy.get('button').contains('Toggle Menu2 collapse').click();
+    cy.get('div.card-block').contains('Menu2 content').should('be.hidden');
+    cy.get('button').contains('Toggle Menu2 collapse').click();
+    cy.get('div.card-block').contains('Menu2 content').should('be.visible');
+  })
+});
