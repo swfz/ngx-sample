@@ -10,10 +10,10 @@ jobs:
       - checkout
       - run: echo "Start Build"
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run: npx ng build --aot --no-progress
@@ -24,10 +24,10 @@ jobs:
       - checkout
       - run: echo "Start Lint"
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run: npx ng lint --exclude 'node_modules/**'
@@ -38,11 +38,11 @@ jobs:
       - checkout
       - run: echo "Start Prettier Check"
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
       - run: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run: npm run prettier
@@ -53,51 +53,73 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run: npx ng test
       # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-  e2e:
+  e2e-feature:
     docker:
       - image: cypress/base:10
     steps:
       - checkout
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
+      - restore_cache:
+          key: nxg-sample-master
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
           background: true
       - run:
           name: 'cypress'
-          command: 'npm run ci:e2e:run'
+          command: 'npm run ci:e2e:run:actual'
+    branches:
+      ignore:
+        - master
 
+  e2e-master:
+    docker:
+    steps:
+     - checkout
+     - restore_cache:
+         key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+     - run: npm install
+     - save_cache:
+         key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+         paths:
+           - "node_modules"
+     - run:
+         name: 'server start'
+         command: 'npm run ci:e2e:server'
+         background: true
+     - run:
+         name: 'cypress'
+         command: 'npm run ci:e2e:run:base'
+     - save_cache:
+         key: ngx-sample-master
+         paths:
+           - "cypress/snapshots"
+    branches:
+      only:
+        - master
 workflows:
   version: 2
   workflow:
     jobs:
-      # - cypress/install:
-      #     name: 'Linux install'
-      #     build: 'npm run build'
-      # - cypress/run:
-      #     requires:
-      #       - Linux install
-      #     executor: cypress/browsers-chrome69
-      #     browser: chrome
-      #     start: 'npm start-ci'
-      - e2e
+      - e2e-feature
       - test
       - lint
       - prettier
+      - e2e-master
       - build:
           requires:
            - test
