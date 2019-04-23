@@ -82,44 +82,45 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
-    branches:
-      ignore:
-        - master
-
   e2e-master:
     docker:
+      - image: cypress/base:10
     steps:
-     - checkout
-     - restore_cache:
-         key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-     - run: npm install
-     - save_cache:
-         key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-         paths:
-           - "node_modules"
-     - run:
-         name: 'server start'
-         command: 'npm run ci:e2e:server'
-         background: true
-     - run:
-         name: 'cypress'
-         command: 'npm run ci:e2e:run:base'
-     - save_cache:
-         key: ngx-sample-master
-         paths:
-           - "cypress/snapshots"
-    branches:
-      only:
-        - master
+      - checkout
+      - restore_cache:
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run:
+          name: 'server start'
+          command: 'npm run ci:e2e:server'
+          background: true
+      - run:
+          name: 'cypress'
+          command: 'npm run ci:e2e:run:base'
+      - save_cache:
+          key: ngx-sample-master
+          paths:
+            - "cypress/snapshots"
+
 workflows:
   version: 2
   workflow:
     jobs:
-      - e2e-feature
+      - e2e-feature:
+        branches:
+          ignore:
+            - master
+      - e2e-master:
+        branches:
+          only:
+            - master
       - test
       - lint
       - prettier
-      - e2e-master
       - build:
           requires:
            - test
