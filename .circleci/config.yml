@@ -90,6 +90,7 @@ jobs:
     steps:
       - checkout
       - run: git checkout master
+      - run: git reset --hard
       - run: cat src/app/pages/format-focusout/format-focusout.component.html
       - run: git branch
       - restore_cache:
