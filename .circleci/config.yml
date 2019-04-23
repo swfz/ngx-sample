@@ -105,9 +105,23 @@ jobs:
           key: ngx-sample-master
           paths:
             - "cypress/snapshots"
+  deploy:
+    docker:
+      - image: circleci/node:10.15.3
+    steps:
+      - checkout
+      - run: echo "Deploy to GitHub Pages"
+      # - restore_cache:
+      #     key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      # - run: npm install
+      # - save_cache:
+      #     key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      #     paths:
+      #       - "node_modules"
+      - run: echo 'pending....'
 
 workflows:
-  version: 2
+  version: 2.1
   workflow:
     jobs:
       - e2e-feature:
@@ -126,3 +140,6 @@ workflows:
            - test
            - lint
            - prettier
+      - deploy:
+          requires:
+            - build
