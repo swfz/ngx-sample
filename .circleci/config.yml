@@ -91,6 +91,7 @@ jobs:
       - checkout
       - run: git checkout master
       - run: git reset --hard
+      - run: git status
       - run: cat src/app/pages/format-focusout/format-focusout.component.html
       - run: git branch
       - restore_cache:
