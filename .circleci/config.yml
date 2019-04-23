@@ -91,7 +91,7 @@ jobs:
       - checkout
       - run: git checkout master
       - run: cat src/app/pages/format-focusout/format-focusout.component.html
-      - run: git log
+      - run: git branch
       - restore_cache:
           key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
