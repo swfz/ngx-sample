@@ -82,12 +82,17 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
+      - store_artifacts:
+          path: "cypress/snapshots"
+          when: always
   e2e-master:
     docker:
       - image: cypress/base:10
     steps:
       - checkout
       - run: git checkout master
+      - run: git pull
+      - run: git reset --hard origin/master
       - restore_cache:
           key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
@@ -124,9 +129,10 @@ workflows:
       - e2e-feature:
           requires:
             - e2e-master
-        # branches:
-        #   ignore:
-        #     - master
+          filters:
+            branches:
+              ignore:
+                - master
       - e2e-master
       - test
       - lint
@@ -139,3 +145,7 @@ workflows:
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - master
