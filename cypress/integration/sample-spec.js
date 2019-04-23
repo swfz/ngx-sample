@@ -14,7 +14,7 @@ describe('number input directive', function() {
     cy.get('[name="directive-input"]').blur();
     cy.get('[name="directive-input"]').should('have.value', '10,000');
 
-    cy.compareSnapshot('number-input-form', 0.1);
+    cy.compareSnapshot('number-input-form', 0);
   });
 });
 describe('ag-grid flex box', function() {

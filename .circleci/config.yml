@@ -84,6 +84,7 @@ jobs:
           command: 'npm run ci:e2e:run:actual'
       - store_artifacts:
           path: "cypress/snapshots"
+          when: always
   e2e-master:
     docker:
       - image: cypress/base:10
@@ -125,12 +126,17 @@ workflows:
   version: 2.1
   workflow:
     jobs:
+      - wait-approval:
+          type: approval
+          requires:
+            - e2e-feature
       - e2e-feature:
           requires:
             - e2e-master
-        # branches:
-        #   ignore:
-        #     - master
+          filters:
+            branches:
+              ignore:
+                - master
       - e2e-master
       - test
       - lint
