@@ -67,14 +67,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - nxg-sample-base-snapshot
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
           key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
+      - restore_cache:
+          key: ngx-sample-base-snapshot
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
