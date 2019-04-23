@@ -82,6 +82,8 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
+      - store_artifacts:
+          path: "cypress/snapshots"
   e2e-master:
     docker:
       - image: cypress/base:10
