@@ -74,7 +74,7 @@ jobs:
           paths:
             - "node_modules"
       - restore_cache:
-          key: ngx-sample-base-snapshot
+          key: ngx-sample-base-snapshot-{{ .Revision }}
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
@@ -99,7 +99,7 @@ jobs:
           name: 'cypress'
           command: 'npm run ci:e2e:run:base'
       - save_cache:
-          key: ngx-sample-base-snapshot
+          key: ngx-sample-base-snapshot-{{ .Revision }}
           paths:
             - "cypress/snapshots"
   deploy:
