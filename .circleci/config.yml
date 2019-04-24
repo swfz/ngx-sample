@@ -2,6 +2,18 @@ version: 2.1
 # orbs:
 #   # use Cypress orb from CircleCI registry
 #   cypress: cypress-io/cypress@1.5.1
+commands:
+  restore_npm:
+    steps:
+      - restore_cache:
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+  save_npm:
+    steps:
+      - save_cache:
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
 jobs:
   build:
     docker:
@@ -9,13 +21,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Build"
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - restore_npm
       - run: npm install
-      - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+      - save_npm
       - run: npx ng build --aot --no-progress
   lint:
     docker:
@@ -23,13 +31,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Lint"
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - restore_npm
       - run: npm install
-      - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+      - save_npm
       - run: npx ng lint --exclude 'node_modules/**'
   prettier:
     docker:
@@ -37,14 +41,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Start Prettier Check"
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-
+      - restore_npm
       - run: npm install
-      - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+      - save_npm
       - run: npm run prettier
       - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
   test:
@@ -52,27 +51,18 @@ jobs:
       - image: circleci/node:10.15.3-stretch-browsers
     steps:
       - checkout
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - restore_npm
       - run: npm install
-      - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+      - save_npm
       - run: npx ng test
-      # - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   e2e-feature:
     docker:
       - image: cypress/base:10
     steps:
       - checkout
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - restore_npm
       - run: npm install
-      - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
+      - save_npm
       - restore_cache:
           key: ngx-sample-base-snapshot-{{ .Revision }}
       - run:
@@ -93,8 +83,7 @@ jobs:
       - run: git checkout master
       - run: git pull
       - run: git reset --hard origin/master
-      - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - restore_npm
       - run: npm install
       - run:
           name: 'server start'
@@ -107,6 +96,9 @@ jobs:
           key: ngx-sample-base-snapshot-{{ .Revision }}
           paths:
             - "cypress/snapshots"
+      - store_artifacts:
+          path: "cypress/snapshots"
+          when: always
   deploy:
     docker:
       - image: circleci/node:10.15.3
