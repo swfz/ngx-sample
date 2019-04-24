@@ -20,7 +20,7 @@ describe('ag-grid flex box', () => {
       .contains('menu2 content')
       .should('be.visible');
 
-    cy.comparesnapshot('ag-grid-flexbox', 0.3);
+    cy.compareSnapshot('ag-grid-flexbox', 0.3);
   });
 });
 

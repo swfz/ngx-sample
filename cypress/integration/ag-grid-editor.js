@@ -11,6 +11,8 @@ describe('ag-grid-editor', () => {
     // 値がセットされる
     cy.xpath('//bs-datepicker-container//td/span').eq(15).click();
     // TODO: 厳密な日付の比較など
+
+    cy.compareSnapshot('datepicker', 0.1);
   });
 
   it('editable', () => {
@@ -22,5 +24,7 @@ describe('ag-grid-editor', () => {
     cy.xpath('//div[@col-id="price"]').last().dblclick();
     cy.xpath('//div[@col-id="price"]').last().children('input').type('2000{enter}');
     cy.xpath('//div[@col-id="price"]').last().should('have.class', 'bg-danger');
+
+    cy.compareSnapshot('editable', 0.0);
   });
 });
