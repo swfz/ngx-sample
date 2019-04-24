@@ -14,10 +14,24 @@ commands:
           key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-jobs:
-  build:
+  install_notofont:
+    steps:
+      - run: apt-get install -y fonts-noto-cjk
+
+executors:
+  node:
     docker:
       - image: circleci/node:10.15.3-stretch-browsers
+  cypress-cjk:
+    docker:
+      - image: cypress/base:10
+    environment:
+      - LANG: ja_JP.UTF-8
+      - LC_CTYPE: ja_JP.UTF-8
+
+jobs:
+  build:
+    executor: node
     steps:
       - checkout
       - run: echo "Start Build"
@@ -26,8 +40,7 @@ jobs:
       - save_npm
       - run: npx ng build --aot --no-progress
   lint:
-    docker:
-      - image: circleci/node:10.15.3-stretch-browsers
+    executor: node
     steps:
       - checkout
       - run: echo "Start Lint"
@@ -36,8 +49,7 @@ jobs:
       - save_npm
       - run: npx ng lint --exclude 'node_modules/**'
   prettier:
-    docker:
-      - image: circleci/node:10.15.3-stretch-browsers
+    executor: node
     steps:
       - checkout
       - run: echo "Start Prettier Check"
@@ -47,8 +59,7 @@ jobs:
       - run: npm run prettier
       - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
   test:
-    docker:
-      - image: circleci/node:10.15.3-stretch-browsers
+    executor: node
     steps:
       - checkout
       - restore_npm
@@ -56,9 +67,9 @@ jobs:
       - save_npm
       - run: npx ng test
   e2e-feature:
-    docker:
-      - image: cypress/base:10
+    executor: cypress-cjk
     steps:
+      - install_notofont
       - checkout
       - restore_npm
       - run: npm install
@@ -76,9 +87,9 @@ jobs:
           path: "cypress/snapshots"
           when: always
   e2e-master:
-    docker:
-      - image: cypress/base:10
+    executor: cypress-cjk
     steps:
+      - install_notofont
       - checkout
       - run:
           name: 'masterとの比較用checkout'
@@ -103,8 +114,7 @@ jobs:
           path: "cypress/snapshots"
           when: always
   deploy:
-    docker:
-      - image: circleci/node:10.15.3
+    executor: node
     steps:
       - checkout
       - run: echo "Deploy to GitHub Pages"
