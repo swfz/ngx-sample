@@ -6806,9 +6806,9 @@ pretty-format@^24.7.0:
     ansi-styles "^3.2.0"
     react-is "^16.8.4"
 
-primeng@5.2.7:
-  version "5.2.7"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-5.2.7.tgz#9dcf461b6a82ea46de85751dc235ea82303e64b1"
+primeng@7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-7.1.2.tgz#0aa78bb1550d3fcaccdf2af394115faaf54e2751"
 
 private@^0.1.6:
   version "0.1.8"
