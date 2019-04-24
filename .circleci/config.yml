@@ -69,7 +69,7 @@ jobs:
   e2e-feature:
     executor: cypress-cjk
     steps:
-      - install_notofont
+      # - install_notofont
       - checkout
       - restore_npm
       - run: npm install
@@ -89,7 +89,7 @@ jobs:
   e2e-master:
     executor: cypress-cjk
     steps:
-      - install_notofont
+      # - install_notofont
       - checkout
       - run:
           name: 'masterとの比較用checkout'
