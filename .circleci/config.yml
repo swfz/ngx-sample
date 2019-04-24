@@ -80,9 +80,12 @@ jobs:
       - image: cypress/base:10
     steps:
       - checkout
-      - run: git checkout master
-      - run: git pull
-      - run: git reset --hard origin/master
+      - run:
+          name: 'masterとの比較用checkout'
+          command: |
+            git checkout master
+            git pull
+            git reset --hard origin/master
       - restore_npm
       - run: npm install
       - run:
@@ -105,13 +108,6 @@ jobs:
     steps:
       - checkout
       - run: echo "Deploy to GitHub Pages"
-      # - restore_cache:
-      #     key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      # - run: npm install
-      # - save_cache:
-      #     key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      #     paths:
-      #       - "node_modules"
       - run: echo 'pending....'
 
 workflows:
