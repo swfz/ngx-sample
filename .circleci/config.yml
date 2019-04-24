@@ -25,9 +25,9 @@ executors:
   cypress-cjk:
     docker:
       - image: cypress/base:10
-    environment:
-      - LANG: ja_JP.UTF-8
-      - LC_CTYPE: ja_JP.UTF-8
+    # environment:
+    #   - LANG: ja_JP.UTF-8
+    #   - LC_CTYPE: ja_JP.UTF-8
 
 jobs:
   build:
@@ -69,7 +69,7 @@ jobs:
   e2e-feature:
     executor: cypress-cjk
     steps:
-      # - install_notofont
+      - install_notofont
       - checkout
       - restore_npm
       - run: npm install
@@ -89,7 +89,7 @@ jobs:
   e2e-master:
     executor: cypress-cjk
     steps:
-      # - install_notofont
+      - install_notofont
       - checkout
       - run:
           name: 'masterとの比較用checkout'
