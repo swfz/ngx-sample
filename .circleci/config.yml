@@ -116,8 +116,11 @@ jobs:
   deploy:
     executor: node
     steps:
-      - checkout
       - run: echo "Deploy to GitHub Pages"
+      - checkout
+      - restore_npm
+      - run: npm install
+      - save_npm
       - run: npm run ghpages
 
 workflows:
@@ -143,6 +146,7 @@ workflows:
       - deploy:
           requires:
             - build
+            - e2e-master
           filters:
             branches:
               only:
