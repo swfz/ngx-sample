@@ -1031,9 +1031,9 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/moment-range@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@types/moment-range/-/moment-range-3.0.4.tgz#1097b46a09b6c755505cc534518b206eccef048b"
+"@types/moment-range@3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@types/moment-range/-/moment-range-3.1.2.tgz#19bfcbb7897172a2cb6a8874171e41d023f9a76b"
   dependencies:
     moment "^2.18.1"
 
