@@ -101,9 +101,9 @@
     "@angular-devkit/core" "7.3.8"
     rxjs "6.3.3"
 
-"@angular/animations@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-7.2.13.tgz#9a49482ea2e0386a691d5b9d7be422251b66d767"
+"@angular/animations@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-7.2.14.tgz#06ec2feac31e58f53429e673bc4c7f780a9d0710"
   dependencies:
     tslib "^1.9.0"
 
@@ -125,15 +125,15 @@
     semver "5.6.0"
     symbol-observable "1.2.0"
 
-"@angular/common@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-7.2.13.tgz#187fc1b053957c1654537ff4be6cc286ada76401"
+"@angular/common@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-7.2.14.tgz#6477b87a203af918e6a00b8238c29198322456f2"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/compiler-cli@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-7.2.13.tgz#6968310becf152eacc328584650035fa797e1b9f"
+"@angular/compiler-cli@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-7.2.14.tgz#6deba7f804d1c6d423f1db135ac77204389021ef"
   dependencies:
     canonical-path "1.0.0"
     chokidar "^2.1.1"
@@ -147,57 +147,57 @@
     tslib "^1.9.0"
     yargs "9.0.1"
 
-"@angular/compiler@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.2.13.tgz#30910c2a3e3b4062593c0aa1cdc8d1d5dc1207f0"
+"@angular/compiler@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.2.14.tgz#39abf41a0250a43c6a00e3501088ecee83c536e6"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/core@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-7.2.13.tgz#3ec4ca5027d8e259b2a13c9901c86d1dc50fc5b6"
+"@angular/core@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-7.2.14.tgz#b78c936d284223c1c5a4c4b02cd0d5fd6d03ec91"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/forms@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-7.2.13.tgz#27686331b6501a86fbb6c25904781ec233cdb059"
+"@angular/forms@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-7.2.14.tgz#7df70df357b9e1ae4aa8a0d008bf7ec753ccc03d"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/http@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-7.2.13.tgz#d1de539be60e82865745ffd8fb7625bde90c21c5"
+"@angular/http@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-7.2.14.tgz#13a0e71133296e2bb1c0b68d48281a70a5f233b5"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/language-service@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.2.13.tgz#941cb098657efdbc386ef8e54d2d893497f68c20"
+"@angular/language-service@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.2.14.tgz#f0c90e030fbb3777293a2946c2cb4b79c152856f"
 
-"@angular/platform-browser-dynamic@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-7.2.13.tgz#3aee18e422d5ef69ced4d4749031b23647dfad57"
+"@angular/platform-browser-dynamic@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-7.2.14.tgz#ae055ab0d3246c0f2d27d40a46cd99c012aa199d"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/platform-browser@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-7.2.13.tgz#6e87de07a7938a81981d75da20e2d5d31ec61ca9"
+"@angular/platform-browser@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-7.2.14.tgz#9b259c335eb0dda64bc79409fa8dbb8fbb6bd818"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/platform-server@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-7.2.13.tgz#8fd8a6cacea5149c78ec9ab899b44312676e3be2"
+"@angular/platform-server@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-7.2.14.tgz#3b93897f88891b4d68bf330310598dde4e280572"
   dependencies:
     domino "^2.1.0"
     tslib "^1.9.0"
     xhr2 "^0.1.4"
 
-"@angular/router@7.2.13":
-  version "7.2.13"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-7.2.13.tgz#9b470e37f57ddf2741e21d1f299974cf48b7e938"
+"@angular/router@7.2.14":
+  version "7.2.14"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-7.2.14.tgz#c8994ce10e6df3d5ada06e409a6a0b00ae9536d4"
   dependencies:
     tslib "^1.9.0"
 
