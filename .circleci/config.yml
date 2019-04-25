@@ -121,8 +121,11 @@ jobs:
       - restore_npm
       - run: npm install
       - save_npm
-      - run: git config --global user.email "swfz+circleci@users.noreply.github.com"
-      - run: git config --global user.name "swfz+circleci"
+      - run:
+          name: 'git config'
+          command: |
+            git config user.email "swfz+circleci@users.noreply.github.com"
+            git config user.name "swfz+circleci"
       - run: npm run ghpages
 
 workflows:
