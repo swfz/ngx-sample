@@ -118,7 +118,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Deploy to GitHub Pages"
-      - run: echo 'pending....'
+      - run: npm run ghpages
 
 workflows:
   version: 2.1
