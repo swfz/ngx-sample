@@ -8041,9 +8041,9 @@ stack-utils@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.2.tgz#33eba3897788558bebfc2db059dc158ec36cebb8"
 
-start-server-and-test@1.7.13:
-  version "1.7.13"
-  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.7.13.tgz#fbf8d149b41ba8297773bca3660e455b67ce9849"
+start-server-and-test@1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.9.0.tgz#23bd9ff87dd259b5c9e51392cd6b70749ddd4b0a"
   dependencies:
     bluebird "3.5.4"
     check-more-types "2.24.0"
