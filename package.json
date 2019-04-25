@@ -11,7 +11,7 @@
     "test": "jest",
     "lint": "ng lint",
     "packagr": "ng-packagr -p ng-package.json",
-    "ghpages": "ng build --prod --aot --base-href '/ngx-sample/' && ngh --dir dist/",
+    "ghpages": "ng build --prod --aot --no-progress --base-href '/ngx-sample/' && ngh --dir dist/",
     "prettier": "npm run prettier-ts && npm run prettier-html && npm run prettier-scss",
     "prettier-ts": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
     "prettier-html": "prettier --parser angular --write \"./**/*.component.html\"",
