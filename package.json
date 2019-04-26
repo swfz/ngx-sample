@@ -30,6 +30,7 @@
     "@angular/router": "7.2.13",
     "ag-grid": "18.1.2",
     "ag-grid-angular": "20.2.0",
+    "ag-grid-community": "^20.2.0",
     "ag-grid-enterprise": "20.2.0",
     "angular-google-auth2": "1.0.8",
     "bluebird": "3.5.4",
