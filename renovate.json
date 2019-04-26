@@ -3,9 +3,6 @@
     "config:base"
   ],
   "labels": ["renovate"],
-  "minor": {
-    "groupName": "all dependencies [minor]"
-  },
   "patch": {
     "groupName": "all dependencies [patch]"
   }
