@@ -39,7 +39,7 @@
     "@angular/platform-server": "7.2.14",
     "@angular/router": "7.2.14",
     "@briebug/cypress-schematic": "2.0.0",
-    "@briebug/jest-schematic": "1.6.0",
+    "@briebug/jest-schematic": "1.7.0",
     "@types/jest": "24.0.11",
     "ag-grid": "18.1.2",
     "ag-grid-angular": "18.1.0",
