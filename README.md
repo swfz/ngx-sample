@@ -1,11 +1,5 @@
+[![CircleCI](https://circleci.com/gh/swfz/ngx-sample/tree/master.svg?style=svg)](https://circleci.com/gh/swfz/ngx-sample/tree/master)
+
 # NgxSample
 
-## Handling Query Params
-
-using get parameter and set url
-
-https://github.com/swfz/ngx-sample/tree/master/src/app/pages/get-params
-
-
-
-
+Angular Sample Collection
