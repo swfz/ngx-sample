@@ -98,7 +98,7 @@ jobs:
             git config user.name "swfz+circleci"
             git checkout master
             git pull
-            git reset --hard origin/master
+            git reset --hard $(git show-branch --sha1-name master $CIRCLE_BRANCH | tail -1 | awk '{print $2}' | sed 's/\[//' | sed 's/\]//')
       - restore_npm
       - run: npm install
       - run:
