@@ -9,13 +9,10 @@
     [gridOptions]="gridOptions"
     [rowData]="rowData"
     [rowHeight]="35"
-    [enableColResize]="true"
-    [enableSorting]="true"
     [rowSelection]="'multiple'"
     [rowMultiSelectWithClick]="true"
     [suppressRowClickSelection]="false"
     [columnDefs]="columnDefs"
-    [enableFilter]="true"
     (cellValueChanged)="valueChanged($event)"
     (cellEditingStopped)="editted($event)"
   >

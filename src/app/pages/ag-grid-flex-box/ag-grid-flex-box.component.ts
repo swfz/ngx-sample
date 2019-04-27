@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridOptions } from 'ag-grid';
+import { GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'app-ag-grid-flex-box',
@@ -15,6 +15,10 @@ export class AgGridFlexBoxComponent implements OnInit {
 
   ngOnInit() {
     this.gridRows = this.getDummyGridRows();
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true
+    };
   }
 
   collapsed(event: any): void {

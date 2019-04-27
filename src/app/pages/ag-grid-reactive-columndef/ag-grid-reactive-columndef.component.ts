@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridOptions } from 'ag-grid';
+import { GridOptions } from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import _ from 'lodash';
@@ -19,6 +19,11 @@ export class AgGridReactiveColumndefComponent implements OnInit {
 
   ngOnInit() {
     this.gridOptions = <GridOptions>{};
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true,
+      resizable: true
+    };
     this.columnDefs = [
       {
         headerName: 'スペース',

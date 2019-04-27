@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ColDef, GridOptions } from 'ag-grid';
+import { ColDef, GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'app-non-scroll-grid',
@@ -16,6 +16,10 @@ export class NonScrollGridComponent implements OnInit {
   ngOnInit() {
     this.gridOptions = <GridOptions>{};
     this.gridRows = this.getDummyGridRows();
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true
+    };
   }
 
   onGridReady(params) {
