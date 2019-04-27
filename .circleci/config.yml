@@ -95,7 +95,6 @@ jobs:
           name: 'masterとの比較用checkout'
           command: |
             git checkout master
-            git pull
             git reset --hard origin/master
       - restore_npm
       - run: npm install

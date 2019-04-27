@@ -22,7 +22,7 @@ describe('ag-grid-editor', () => {
     // 編集後背景色が変わるか
     cy.xpath('//div[@col-id="price"]').last().should('not.have.class', 'bg-danger');
     cy.xpath('//div[@col-id="price"]').last().dblclick();
-    cy.xpath('//div[@col-id="price"]').last().children('input').type('2000{enter}');
+    cy.xpath('//div[@col-id="price"]').last().children().first().children().first().type('3000{enter}');
     cy.xpath('//div[@col-id="price"]').last().should('have.class', 'bg-danger');
 
     cy.compareSnapshot('editable', 0.0);
