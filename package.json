@@ -47,7 +47,7 @@
     "ag-grid-enterprise": "20.2.0",
     "angular-google-auth2": "1.0.8",
     "bluebird": "3.5.4",
-    "bootstrap": "3.4.1",
+    "bootstrap": "4.3.1",
     "chart.js": "2.8.0",
     "core-js": "2.5.3",
     "cypress": "3.2.0",
