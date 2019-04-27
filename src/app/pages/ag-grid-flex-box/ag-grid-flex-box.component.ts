@@ -15,6 +15,10 @@ export class AgGridFlexBoxComponent implements OnInit {
 
   ngOnInit() {
     this.gridRows = this.getDummyGridRows();
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true
+    };
   }
 
   collapsed(event: any): void {

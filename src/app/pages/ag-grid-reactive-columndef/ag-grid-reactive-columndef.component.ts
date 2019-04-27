@@ -19,6 +19,11 @@ export class AgGridReactiveColumndefComponent implements OnInit {
 
   ngOnInit() {
     this.gridOptions = <GridOptions>{};
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true,
+      resizable: true
+    };
     this.columnDefs = [
       {
         headerName: 'スペース',

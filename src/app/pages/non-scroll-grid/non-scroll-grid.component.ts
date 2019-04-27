@@ -16,6 +16,10 @@ export class NonScrollGridComponent implements OnInit {
   ngOnInit() {
     this.gridOptions = <GridOptions>{};
     this.gridRows = this.getDummyGridRows();
+    this.gridOptions.defaultColDef = {
+      sortable: true,
+      filter: true
+    };
   }
 
   onGridReady(params) {
