@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ColDef, GridOptions } from 'ag-grid';
+import { ColDef, GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'app-non-scroll-grid',
