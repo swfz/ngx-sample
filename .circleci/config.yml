@@ -93,14 +93,9 @@ jobs:
       - checkout
       - run:
           name: 'masterとの比較用checkout'
-            # git config user.email "swfz+circleci@users.noreply.github.com"
-            # git config user.name "swfz+circleci"
-            # git checkout master
           command: |
-            git reset --hard $(git show-branch --sha1-name master $CIRCLE_BRANCH | tail -1 | awk '{print $2}' | sed 's/\[//' | sed 's/\]//')
-      - run: git show-branch
-      - run: echo $CIRCLE_BRANCH
-      - run: git show-branch --sha1-name master $CIRCLE_BRANCH | tail -1 | awk '{print $2}' | sed 's/\[//' | sed 's/\]//'
+            git checkout master
+            git reset --hard origin/master
       - restore_npm
       - run: npm install
       - run:
