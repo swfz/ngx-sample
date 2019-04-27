@@ -6,12 +6,12 @@ commands:
   restore_npm:
     steps:
       - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
 
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
   install_notofont:
