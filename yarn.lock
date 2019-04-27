@@ -1274,6 +1274,10 @@ ag-grid-angular@20.2.0:
   version "20.2.0"
   resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-20.2.0.tgz#7ac37ccbe170420c264d3500c0ee5b3a440f7480"
 
+ag-grid-community@20.2.0:
+  version "20.2.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-20.2.0.tgz#22f26d53e309b51a156878d180c9ec6f16bc6403"
+
 ag-grid-enterprise@20.2.0:
   version "20.2.0"
   resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-20.2.0.tgz#dbc2c4f6d3c097661911fe40c18dcac775dac04d"
@@ -7494,9 +7498,9 @@ rx@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
-rxjs-compat@6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.4.0.tgz#800923c15697948e1f30f18c531b12b49451c75c"
+rxjs-compat@6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.5.1.tgz#de928292c633a9a5f2f54a4431e6f9c468001c68"
 
 rxjs-tslint@0.1.7:
   version "0.1.7"
