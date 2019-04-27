@@ -19,7 +19,8 @@ export class NonScrollGridComponent implements OnInit {
   }
 
   onGridReady(params) {
-    params.api.setDomLayout('print');
+    // TODO: 動かなくなったので後で修正
+    // params.api.setDomLayout('print');
   }
 
   private getDummyGridRows() {
