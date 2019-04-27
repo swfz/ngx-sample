@@ -1,4 +1,9 @@
-<button class="btn btn-sm btn-default" (click)="download()">Request</button>
+<button
+  class="btn btn-sm page-link text-dark d-inline-block"
+  (click)="download()"
+>
+  Request
+</button>
 
 <alert type="info" *ngIf="status == 'progress'"> waiting... </alert>
 <alert type="success" *ngIf="status == 'done'"> success!! </alert>
