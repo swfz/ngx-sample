@@ -1,0 +1,18 @@
+version: '3'
+services:
+  backend:
+    build: docker/backend
+    ports:
+      - "3000:3000"
+    environment:
+      - BUNDLE_PATH=/myapp/vendor/bundle
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./docker/backend:/myapp
+      - bundle:/myapp/vendor/bundle
+    command: bash -c "bundle install && bundle exec thin start --ssl -R app.ru"
+volumes:
+  bundle:
+    driver: local
+
