@@ -31,6 +31,7 @@ import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
 import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './pages/template-driven-form/template-driven-form.component';
 import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.component';
+import { WipComponent } from './pages/wip/wip.component';
 
 const appRoutes: Routes = [
   { path: 'queryparams', component: GetParamsComponent },
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
   { path: 'reactive-form', component: ReactiveFormComponent },
   { path: 'template-driven-form', component: TemplateDrivenFormComponent },
   { path: 'grid/non-scroll-grid', component: NonScrollGridComponent },
+  { path: 'wip', component: WipComponent },
   { path: '', component: TopComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];

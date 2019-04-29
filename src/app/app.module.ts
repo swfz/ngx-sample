@@ -58,6 +58,7 @@ import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
 import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './pages/template-driven-form/template-driven-form.component';
 import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.component';
+import { WipComponent } from './pages/wip/wip.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.
     ReactiveFormComponent,
     TemplateDrivenFormComponent,
     NonScrollGridComponent,
-    ToPromiseComponent
+    ToPromiseComponent,
+    WipComponent
   ],
   imports: [
     AppRoutingModule,
