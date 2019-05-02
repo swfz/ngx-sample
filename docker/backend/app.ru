@@ -22,7 +22,12 @@ class SimpleServer
     when /hello/
       [200, {"Content-Type" => "text/html"}, ["Hello World!"]]
     when /api\/heroes\/(\d)/
-      [200, text_header('json'), [heloes($1).to_json]]
+      hero = heloes($1)
+      if hero.nil?
+        [404, text_header('html'), ['Hero not found.']]
+      else
+        [200, text_header('json'), [hero.to_json]]
+      end
     when /api\/heroes/
       [200, text_header('json'), [heloes.to_json]]
     else
