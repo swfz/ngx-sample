@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<ng-container *ngFor="let n of [1, 2, 3]">
+<ng-container *ngFor="let n of [1, 2, 3, 4]">
   <button type="button" (click)="getHero(n)" class="btn btn-sm btn-success">
     Get Hero(id: {{ n }})
   </button>
@@ -54,7 +54,15 @@
 <div>Http Request Logs</div>
 <alert type="info">
   <div *ngFor="let log of logs">
-    {{ log.message }}
+    <span aria-label="url">
+      {{ log.message }}
+    </span>
+    <span aria-label="status">
+      {{ log.data?.status }}
+    </span>
+    <span aria-label="ok">
+      {{ log.data?.ok }}
+    </span>
   </div>
 </alert>
 

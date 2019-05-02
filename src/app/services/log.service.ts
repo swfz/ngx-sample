@@ -5,7 +5,7 @@ export interface Log {
   level?: string;
   message?: string;
   key?: string;
-  data?: any;
+  data?: unknown;
 }
 
 @Injectable({

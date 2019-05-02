@@ -1,4 +1,6 @@
 import {
+  HttpErrorResponse,
+  HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
@@ -12,21 +14,24 @@ import { LogService } from '../services/log.service';
 export class CapturingInterceptor implements HttpInterceptor {
   constructor(private logger: LogService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    return next
-      .handle(req)
-      .pipe(
-        tap(event => this.sendMessage(event), error => this.sendMessage(error))
-      );
+  intercept(req: HttpRequest<unknown>, next: HttpHandler) {
+    return next.handle(req).pipe(
+      tap(event => this.sendMessage(event), error => this.sendMessage(error))
+    );
   }
 
-  private sendMessage(response: any): void {
-    console.log('captured');
-    console.log(response);
-    this.logger.add({
-      level: 'warn',
-      message: response.url,
-      data: response
-    });
+  private sendMessage(event: HttpEvent<unknown> | HttpErrorResponse): void {
+    console.log(event);
+    const isHttpResponse = (e: unknown): e is HttpResponse<unknown> =>
+      e instanceof HttpResponse;
+    const isHttpErrorResponse = (e: unknown): e is HttpErrorResponse =>
+      e instanceof HttpErrorResponse;
+    if (isHttpResponse(event) || isHttpErrorResponse(event)) {
+      this.logger.add({
+        level: 'warn',
+        message: event.url,
+        data: event
+      });
+    }
   }
 }
