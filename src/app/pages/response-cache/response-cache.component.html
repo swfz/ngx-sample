@@ -1,3 +1,19 @@
+<div class="card border-secondary mb-6" style="max-width: 100%;">
+  <div class="card-header">HttpRequestCache</div>
+  <div class="card-body text-secondary">
+    <h4 class="card-title">Httpリクエストの結果をキャッシュするサンプル</h4>
+    <div class="card-text">
+      <p>
+        Httpリクエストの結果をキャッシュし同じパラメータであればHttpリスエストを送信しない
+      </p>
+      <p>
+        Httpリクエスト送信時にInterceptorでSubjectに通信内容を流しているので通信が発生するとログに出力される
+      </p>
+    </div>
+  </div>
+</div>
+
+
 <div>
   <button type="button" (click)="getHeroes()" class="btn btn-sm btn-primary">
     GetHeroes
@@ -39,6 +55,12 @@
 >
   UsersWithParams
 </button>
+
+<alert type="info">
+  <div *ngFor="let log of logs">
+    {{ log.message }}
+  </div>
+</alert>
 
 <ng-container *ngFor="let user of users">
   <hr />

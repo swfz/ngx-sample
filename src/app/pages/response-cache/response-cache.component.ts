@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CacheService, IHero } from '../../services/cache.service';
+import { AfterViewInit, Component } from '@angular/core';
+import { CacheService } from '../../services/cache.service';
+import { Log, LogService } from '../../services/log.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-response-cache',
@@ -9,10 +11,22 @@ import { CacheService, IHero } from '../../services/cache.service';
 export class ResponseCacheComponent {
   public heroes: any;
   public heroes2: any;
-
   public users: any;
+  public logs: Log[];
 
-  constructor(private cacheService: CacheService) {}
+  constructor(
+    private cacheService: CacheService,
+    private logService: LogService
+  ) {
+    this.clearLogs();
+    this.logService.messages$.subscribe(log => {
+      this.logs.push(log);
+    });
+  }
+
+  private clearLogs(): void {
+    this.logs = [];
+  }
 
   public getHeroes() {
     this.cacheService.getHeroes().subscribe(

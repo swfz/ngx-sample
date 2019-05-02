@@ -36,7 +36,7 @@ export class CacheService {
     // const apiUrl =
     // 'https://dhzjel6242.execute-api.ap-southeast-1.amazonaws.com/Prod/helloworld';
 
-    const apiUrl = 'http://192.168.30.14:8001/heroes';
+    const apiUrl = 'http://192.168.30.14:3000/heroes';
     if (!this._heroes) {
       this._heroes = this.http.get(apiUrl, this.options).pipe(
         shareReplay(),
@@ -48,7 +48,7 @@ export class CacheService {
   }
 
   getHero(id: number): Observable<any> {
-    const apiUrl = 'http://192.168.30.14:8001/heroes/' + id;
+    const apiUrl = 'http://192.168.30.14:3000/heroes/' + id;
 
     if (!this._hero[id]) {
       this._hero[id] = this.http.get(apiUrl, this.options).pipe(

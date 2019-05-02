@@ -15,6 +15,8 @@ import {
   BsDatepickerModule
 } from 'ngx-bootstrap';
 
+import { httpInterceptorProviders } from './http-interceptors';
+
 import {
   TopComponent,
   GetParamsComponent,
@@ -59,6 +61,10 @@ import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.compo
 import { TemplateDrivenFormComponent } from './pages/template-driven-form/template-driven-form.component';
 import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.component';
 import { WipComponent } from './pages/wip/wip.component';
+import { MessageService } from 'primeng/api';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -105,9 +111,12 @@ import { WipComponent } from './pages/wip/wip.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     TableInputModule,
     HttpClientModule,
+    MessageModule,
+    MessagesModule,
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
@@ -116,7 +125,13 @@ import { WipComponent } from './pages/wip/wip.component';
     AgGridModule.withComponents([]),
     ChartModule
   ],
-  providers: [NumberInputPipe, CacheService, PollingService],
+  providers: [
+    NumberInputPipe,
+    CacheService,
+    PollingService,
+    MessageService,
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
