@@ -2,7 +2,9 @@ import { interval as observableInterval, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap, map, concatMap, takeWhile } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PollingService {
   private httpResponses: any;
   private job: any;

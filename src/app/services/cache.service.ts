@@ -14,7 +14,9 @@ export class Hero {
   name: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CacheService {
   get heroes$() {
     return this._heroes$.asObservable();

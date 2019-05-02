@@ -32,8 +32,6 @@ import { NumberInputPipe } from './pipes/number-input.pipe';
 import { NumberInputDirective } from './directives/number-input.directive';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { MultiFieldValidatorDirective } from './validators/multi-field-validator.directive';
-import { CacheService } from './services/cache.service';
-import { PollingService } from './services/polling.service';
 import { SlideComponent } from './pages/slide/slide.component';
 import { MomentRangeComponent } from './pages/moment-range/moment-range.component';
 import { TileSelectorComponent } from './components/tile-selector/tile-selector.component';
@@ -125,13 +123,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AgGridModule.withComponents([]),
     ChartModule
   ],
-  providers: [
-    NumberInputPipe,
-    CacheService,
-    PollingService,
-    MessageService,
-    httpInterceptorProviders
-  ],
+  providers: [NumberInputPipe, MessageService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
