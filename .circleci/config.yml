@@ -57,6 +57,7 @@ jobs:
       - run: npm install
       - save_npm
       - run: npm run prettier
+      - run: git status
       - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
   test:
     executor: node
