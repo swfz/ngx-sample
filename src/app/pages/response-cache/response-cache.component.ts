@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { CacheService } from '../../services/cache.service';
+import {CacheService, Hero} from '../../services/cache.service';
 import { Log, LogService } from '../../services/log.service';
 import { Observable } from 'rxjs';
 
@@ -9,9 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./response-cache.component.scss']
 })
 export class ResponseCacheComponent {
-  public heroes: any;
-  public heroes2: any;
-  public users: any;
+  public heroes$: Observable<Hero[]>; public users: any;
   public logs: Log[];
 
   constructor(
@@ -22,6 +20,8 @@ export class ResponseCacheComponent {
     this.logService.messages$.subscribe(log => {
       this.logs.push(log);
     });
+
+    this.heroes$ = this.cacheService.heroes$;
   }
 
   private clearLogs(): void {
@@ -29,27 +29,7 @@ export class ResponseCacheComponent {
   }
 
   public getHeroes() {
-    this.cacheService.getHeroes().subscribe(
-      result => {
-        console.log(result);
-        this.heroes = result;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  public getHeroes2() {
-    this.cacheService.getHeroes().subscribe(
-      result => {
-        console.log(result);
-        this.heroes2 = result;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.cacheService.getHeroes();
   }
 
   public getHero(id: number) {
