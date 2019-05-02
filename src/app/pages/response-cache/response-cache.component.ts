@@ -1,5 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
-import {CacheService, Hero} from '../../services/cache.service';
+import { Component } from '@angular/core';
+import { CacheService, Hero } from '../../services/cache.service';
 import { Log, LogService } from '../../services/log.service';
 import { Observable } from 'rxjs';
 
@@ -9,7 +9,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./response-cache.component.scss']
 })
 export class ResponseCacheComponent {
-  public heroes$: Observable<Hero[]>; public users: any;
+  public heroes$: Observable<Hero[]>;
+  public hero$: Observable<Hero>;
+  // public users: any;
   public logs: Log[];
 
   constructor(
@@ -22,6 +24,7 @@ export class ResponseCacheComponent {
     });
 
     this.heroes$ = this.cacheService.heroes$;
+    this.hero$ = this.cacheService.hero$;
   }
 
   private clearLogs(): void {
@@ -33,54 +36,47 @@ export class ResponseCacheComponent {
   }
 
   public getHero(id: number) {
-    this.cacheService.getHero(id).subscribe(
-      hero => {
-        console.log(hero);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.cacheService.getHero(id);
   }
 
-  public getUsers() {
-    this.cacheService.getUsers().subscribe(
-      users => {
-        console.log(users);
-        this.users = users;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  // public getUsers() {
+  //   this.cacheService.getUsers().subscribe(
+  //     users => {
+  //       console.log(users);
+  //       this.users = users;
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
-  public getUsers2() {
-    this.cacheService.getUsers().subscribe(
-      users => {
-        console.log(users);
-        this.users = users;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  // public getUsers2() {
+  //   this.cacheService.getUsers().subscribe(
+  //     users => {
+  //       console.log(users);
+  //       this.users = users;
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
-  public getUsersWithParams() {
-    this.cacheService
-      .getUserWithParams({
-        hoge: 1,
-        fuga: 'piyo'
-      })
-      .subscribe(
-        users => {
-          console.log(users);
-          this.users = users;
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // public getUsersWithParams() {
+  //   this.cacheService
+  //     .getUserWithParams({
+  //       hoge: 1,
+  //       fuga: 'piyo'
+  //     })
+  //     .subscribe(
+  //       users => {
+  //         console.log(users);
+  //         this.users = users;
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 }

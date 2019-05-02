@@ -29,7 +29,11 @@
   </button>
 </ng-container>
 
-<div></div>
+<div class="card">
+  <div>CurrentHero</div>
+  <div>ID: {{ (hero$ | async)?.id }}</div>
+  <div>Name: {{ (hero$ | async)?.name }}</div>
+</div>
 
 <br />
 <!--<button type="button" (click)="getUsers()" class="btn btn-sm btn-primary">-->

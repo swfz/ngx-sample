@@ -9,11 +9,6 @@ import { catchError, shareReplay } from 'rxjs/operators';
 import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { HttpParams } from '@angular/common/http';
 
-export interface IHero {
-  id?: number;
-  name?: string;
-}
-
 export class Hero {
   id: number;
   name: string;
@@ -24,11 +19,15 @@ export class CacheService {
   get heroes$() {
     return this._heroes$.asObservable();
   }
+  get hero$() {
+    return this._hero$.asObservable();
+  }
 
   private _heroes$ = new BehaviorSubject<Hero[]>([]);
+  private _hero$ = new BehaviorSubject<Hero>(null);
   public options: any;
   // private _heroes: Observable<any>;
-  private _hero: any;
+  private _cachedHero: { [key: number]: Hero };
   private _users: Observable<any>;
 
   constructor(private http: HttpClient) {
@@ -42,7 +41,7 @@ export class CacheService {
       headers: headers
     };
 
-    this._hero = {};
+    this._cachedHero = {};
   }
 
   getHeroes(): void {
@@ -60,17 +59,23 @@ export class CacheService {
     }
   }
 
-  getHero(id: number): Observable<any> {
+  getHero(id: number): void {
     const apiUrl = 'http://192.168.30.14:4200/api/heroes/' + id;
 
-    if (!this._hero[id]) {
-      this._hero[id] = this.http.get(apiUrl, this.options).pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
+    const isHero = (hero: Hero | unknown): hero is Hero => hero !== undefined;
+    const isCached = !!this._cachedHero[id];
+
+    if (isCached) {
+      this._hero$.next(this._cachedHero[id]);
+      return;
     }
 
-    return this._hero[id];
+    this.http.get<Hero>(apiUrl, this.options).subscribe(_ => {
+      if (isHero(_)) {
+        this._hero$.next(_);
+        this._cachedHero[_.id] = _;
+      }
+    });
   }
 
   getUsers() {
