@@ -1,4 +1,8 @@
-import { throwError as observableThrowError, Observable } from 'rxjs';
+import {
+  throwError as observableThrowError,
+  Observable,
+  BehaviorSubject
+} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
@@ -6,14 +10,24 @@ import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { HttpParams } from '@angular/common/http';
 
 export interface IHero {
+  id?: number;
+  name?: string;
+}
+
+export class Hero {
   id: number;
   name: string;
 }
 
 @Injectable()
 export class CacheService {
+  get heroes$() {
+    return this._heroes$.asObservable();
+  }
+
+  private _heroes$ = new BehaviorSubject<Hero[]>([]);
   public options: any;
-  private _heroes: Observable<any>;
+  // private _heroes: Observable<any>;
   private _hero: any;
   private _users: Observable<any>;
 
@@ -31,24 +45,23 @@ export class CacheService {
     this._hero = {};
   }
 
-  getHeroes() {
-    // let apiUrl = 'http://192.168.30.14:3000/heroes';
-    // const apiUrl =
-    // 'https://dhzjel6242.execute-api.ap-southeast-1.amazonaws.com/Prod/helloworld';
+  getHeroes(): void {
+    const apiUrl = 'http://192.168.30.14:4200/api/heroes';
 
-    const apiUrl = 'http://192.168.30.14:3000/heroes';
-    if (!this._heroes) {
-      this._heroes = this.http.get(apiUrl, this.options).pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
+    const isHeroes = (heroes: Hero[] | unknown): heroes is Hero[] =>
+      Array.isArray(heroes);
+
+    if (this._heroes$.getValue().length === 0) {
+      this.http.get<Hero[]>(apiUrl, this.options).subscribe(_ => {
+        if (isHeroes(_)) {
+          this._heroes$.next(_);
+        }
+      });
     }
-
-    return this._heroes;
   }
 
   getHero(id: number): Observable<any> {
-    const apiUrl = 'http://192.168.30.14:3000/heroes/' + id;
+    const apiUrl = 'http://192.168.30.14:4200/api/heroes/' + id;
 
     if (!this._hero[id]) {
       this._hero[id] = this.http.get(apiUrl, this.options).pipe(
@@ -83,7 +96,7 @@ export class CacheService {
   }
 
   handleError(error: any) {
-    console.log(error);
+    // console.log(error);
     const errMsg = error.message || 'Server Error';
     return observableThrowError(errMsg);
   }
