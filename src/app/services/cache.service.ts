@@ -26,7 +26,7 @@ export class CacheService {
   private _heroes$ = new BehaviorSubject<Hero[]>([]);
   private _hero$ = new BehaviorSubject<Hero>(null);
   public options: any;
-  // private _heroes: Observable<any>;
+
   private _cachedHero: { [key: number]: Hero };
   private _users: Observable<any>;
 
