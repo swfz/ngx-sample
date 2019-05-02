@@ -11,7 +11,7 @@ services:
     volumes:
       - ./docker/backend:/myapp
       - bundle:/myapp/vendor/bundle
-    command: bash -c "bundle install && bundle exec thin start --ssl -R app.ru"
+    command: bash -c "bundle install && bundle exec thin start -R app.ru"
 volumes:
   bundle:
     driver: local
