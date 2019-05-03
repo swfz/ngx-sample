@@ -84,8 +84,16 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
+      - store_test_results:
+          path: "e2e-results"
+          when: always
+      - store_artifacts:
+          path: "e2e-results"
+          destination: cypress-report
+          when: always
       - store_artifacts:
           path: "cypress/snapshots"
+          destination: cypress-snapshots
           when: always
   e2e-master:
     executor: cypress-cjk
@@ -110,8 +118,16 @@ jobs:
           key: ngx-sample-base-snapshot-{{ .Revision }}
           paths:
             - "cypress/snapshots"
+      - store_test_results:
+          path: "e2e-results"
+          when: always
+      - store_artifacts:
+          path: "e2e-results"
+          destination: cypress-report
+          when: always
       - store_artifacts:
           path: "cypress/snapshots"
+          destination: cypress-snapshots
           when: always
   deploy:
     executor: node
