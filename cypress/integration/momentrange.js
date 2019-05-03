@@ -8,6 +8,6 @@ describe('momentrange', () => {
     cy.contains('true').should('is.visible');
     cy.contains('false').should('is.visible');
 
-    cy.compareSnapshot('moment-range-is-visible', 0.01);
+    cy.compareSnapshot('moment-range-is-visible', 0.05);
   });
 });
