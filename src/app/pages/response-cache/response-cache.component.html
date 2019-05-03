@@ -17,9 +17,15 @@
   <button type="button" (click)="getHeroes()" class="btn btn-sm btn-primary">
     GetHeroes
   </button>
-  <div class="card" *ngFor="let hero of heroes$ | async">
-    <div>ID: {{ hero.id }}</div>
-    <div>Name: {{ hero.name }}</div>
+  <div class="d-flex flex-column mb-3">
+    <div
+      class="d-flex flex-row bg-light border border-dark"
+      *ngFor="let hero of heroes$ | async"
+      aria-label="heroes"
+    >
+      <div class="p-2" aria-label="id">{{ hero.id }}</div>
+      <div class="p-2" aria-label="name">{{ hero.name }}</div>
+    </div>
   </div>
 </div>
 
@@ -31,8 +37,13 @@
 
 <div class="card">
   <div>CurrentHero</div>
-  <div>ID: {{ (hero$ | async)?.id }}</div>
-  <div>Name: {{ (hero$ | async)?.name }}</div>
+  <div
+    class="d-flex flex-row bd-highlight border border-dark"
+    aria-label="hero"
+  >
+    <div class="p-2" aria-label="id">{{ (hero$ | async)?.id }}</div>
+    <div class="p-2" aria-label="name">{{ (hero$ | async)?.name }}</div>
+  </div>
 </div>
 
 <br />
