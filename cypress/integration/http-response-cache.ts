@@ -1,15 +1,27 @@
 export class CustomCommands {
   static stubServer(): void {
     cy.server();
-    cy.route('/api/heroes/1', {id: 1, name: 'hoge'}).as('hero1');
-    cy.route('/api/heroes/2', {id: 2, name: 'fuga'}).as('hero2');
-    cy.route('/api/heroes/3', {id: 3, name: 'piyo'}).as('hero3');
-    cy.route('/api/heroes', [{id: 1, name: 'hoge'}, {id: 2, name: 'fuga'}, {id: 3, name: 'piyo'}]).as('allHero');
-    cy.route({url: '/api/heroes/4', status: 404, response: 'Hero not found.'}).as('notFound');
+    cy.route('/api/heroes/1', { id: 1, name: 'hoge' }).as('hero1');
+    cy.route('/api/heroes/2', { id: 2, name: 'fuga' }).as('hero2');
+    cy.route('/api/heroes/3', { id: 3, name: 'piyo' }).as('hero3');
+    cy.route('/api/heroes', [
+      { id: 1, name: 'hoge' },
+      { id: 2, name: 'fuga' },
+      { id: 3, name: 'piyo' }
+    ]).as('allHero');
+    cy.route({
+      url: '/api/heroes/4',
+      status: 404,
+      response: 'Hero not found.'
+    }).as('notFound');
   }
   static assertCurrentHero(id: string, name: string): void {
-    cy.xpath('//div[@aria-label="hero"]/div[@aria-label="id"]').first().should('have.text', id);
-    cy.xpath('//div[@aria-label="hero"]/div[@aria-label="name"]').first().should('have.text', name);
+    cy.xpath('//div[@aria-label="hero"]/div[@aria-label="id"]')
+      .first()
+      .should('have.text', id);
+    cy.xpath('//div[@aria-label="hero"]/div[@aria-label="name"]')
+      .first()
+      .should('have.text', name);
   }
   static assertLog(lines: number, code: number, ok: string): void {
     cy.get('.alert-info > div').should($log => {
@@ -34,14 +46,26 @@ describe('http-request-cache', () => {
     cy.get('.btn-primary').click();
     cy.wait('@allHero');
     cy.xpath('//div[@aria-label="heroes"]').should('have.length', 3);
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]').eq(0).should('have.text', '1');
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]').eq(0).should('have.text', 'hoge');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]')
+      .eq(0)
+      .should('have.text', '1');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]')
+      .eq(0)
+      .should('have.text', 'hoge');
 
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]').eq(1).should('have.text', '2');
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]').eq(1).should('have.text', 'fuga');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]')
+      .eq(1)
+      .should('have.text', '2');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]')
+      .eq(1)
+      .should('have.text', 'fuga');
 
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]').eq(2).should('have.text', '3');
-    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]').eq(2).should('have.text', 'piyo');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="id"]')
+      .eq(2)
+      .should('have.text', '3');
+    cy.xpath('//div[@aria-label="heroes"]/div[@aria-label="name"]')
+      .eq(2)
+      .should('have.text', 'piyo');
 
     CustomCommands.assertLog(1, 200, 'true');
 
@@ -52,7 +76,9 @@ describe('http-request-cache', () => {
     CustomCommands.stubServer();
     cy.visit(`${urlBase}cache`);
 
-    cy.get('.btn-success').eq(0).click();
+    cy.get('.btn-success')
+      .eq(0)
+      .click();
     cy.wait('@hero1');
 
     CustomCommands.assertCurrentHero('1', 'hoge');
@@ -66,7 +92,9 @@ describe('http-request-cache', () => {
     cy.visit(`${urlBase}cache`);
 
     // 1 -> 2 -> 1
-    cy.get('.btn-success').eq(0).click();
+    cy.get('.btn-success')
+      .eq(0)
+      .click();
     cy.wait('@hero1');
 
     // 1でdom変わってるか
@@ -75,7 +103,9 @@ describe('http-request-cache', () => {
     // log1行か
     CustomCommands.assertLog(1, 200, 'true');
 
-    cy.get('.btn-success').eq(1).click();
+    cy.get('.btn-success')
+      .eq(1)
+      .click();
     cy.wait('@hero2');
 
     // 2でdom変わってるか
@@ -84,7 +114,9 @@ describe('http-request-cache', () => {
     // log2行になっているか
     CustomCommands.assertLog(2, 200, 'true');
 
-    cy.get('.btn-success').eq(0).click();
+    cy.get('.btn-success')
+      .eq(0)
+      .click();
     cy.wait(5000);
     // 1でdom変わってるか
     CustomCommands.assertCurrentHero('1', 'hoge');
@@ -99,7 +131,9 @@ describe('http-request-cache', () => {
     CustomCommands.stubServer();
     cy.visit(`${urlBase}cache`);
 
-    cy.get('.btn-success').eq(3).click();
+    cy.get('.btn-success')
+      .eq(3)
+      .click();
     cy.wait('@notFound');
 
     CustomCommands.assertLog(1, 404, 'false');
@@ -112,13 +146,23 @@ describe('http-request-cache', () => {
     cy.visit(`${urlBase}cache`);
 
     cy.get('.btn-primary').click();
-    cy.get('.btn-success').eq(0).click();
-    cy.get('.btn-success').eq(1).click();
-    cy.get('.btn-success').eq(2).click();
-    cy.get('.btn-success').eq(3).click();
+    cy.get('.btn-success')
+      .eq(0)
+      .click();
+    cy.get('.btn-success')
+      .eq(1)
+      .click();
+    cy.get('.btn-success')
+      .eq(2)
+      .click();
+    cy.get('.btn-success')
+      .eq(3)
+      .click();
 
     // cached
-    cy.get('.btn-success').eq(1).click();
+    cy.get('.btn-success')
+      .eq(1)
+      .click();
 
     cy.wait('@allHero');
     cy.wait('@hero1');
@@ -137,7 +181,7 @@ describe('http-request-cache', () => {
           expect(log).to.contain(' 200 ');
           expect(log).to.contain('true');
         }
-      })
+      });
     });
 
     cy.compareSnapshot('all-pattern', 0.0);

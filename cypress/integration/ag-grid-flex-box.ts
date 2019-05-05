@@ -23,5 +23,3 @@ describe('ag-grid flex box', () => {
     cy.compareSnapshot('ag-grid-flexbox', 0.3);
   });
 });
-
-

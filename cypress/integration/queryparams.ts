@@ -4,7 +4,7 @@ describe('queryparams', () => {
   it('init-with-url', () => {
     cy.visit(`${urlBase}queryparams?count=5`);
     cy.get('span.text-info').should(value$ => {
-      expect(value$[0].textContent).to.equal('5')
+      expect(value$[0].textContent).to.equal('5');
     });
 
     cy.compareSnapshot('init-with-url', 0.0);
@@ -18,9 +18,9 @@ describe('queryparams', () => {
     cy.get('button.btn-primary').click();
 
     cy.get('span.text-info').should(value$ => {
-      expect(value$[0].textContent).to.equal('3')
+      expect(value$[0].textContent).to.equal('3');
     });
-    cy.url().should('include', 'count=3')
+    cy.url().should('include', 'count=3');
 
     cy.compareSnapshot('event-to-url', 0.0);
   });

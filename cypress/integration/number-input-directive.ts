@@ -12,4 +12,3 @@ describe('number input directive', () => {
     cy.compareSnapshot('number-input-form', 0);
   });
 });
-
