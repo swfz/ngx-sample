@@ -17,8 +17,11 @@ export class MultiFieldValidatorDirective implements Validator {
   constructor(
     @Attribute('multiFieldValidator') public multiFieldValidator: any
   ) {}
-  validate(control: AbstractControl): { [key: string]: any } {
+  validate(control: AbstractControl): { [key: string]: any } | null {
     const typeControl = control.root.get(this.multiFieldValidator);
+    if (typeControl === null) {
+      return null;
+    }
     switch (typeControl.value) {
       case 'A':
         return control.value < 300
