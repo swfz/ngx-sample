@@ -41,7 +41,7 @@
     "@angular/router": "7.2.14",
     "@briebug/cypress-schematic": "2.0.0",
     "@briebug/jest-schematic": "1.7.0",
-    "@types/jest": "24.0.12",
+    "@types/jest": "24.0.13",
     "ag-grid-angular": "20.2.0",
     "ag-grid-community": "20.2.0",
     "ag-grid-enterprise": "20.2.0",
