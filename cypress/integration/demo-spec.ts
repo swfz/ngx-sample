@@ -3,7 +3,9 @@ describe('viewchildren', () => {
   it('demo with typescript', () => {
     cy.visit(`${urlBase}viewchildren`);
 
-    cy.get('i.fa-exclamation-circle').eq(0).click();
+    cy.get('i.fa-exclamation-circle')
+      .eq(0)
+      .click();
     cy.get('div.popover-content')
       .eq(0)
       .should('have.text', 'a');
@@ -12,15 +14,21 @@ describe('viewchildren', () => {
   it('demo with xpath', () => {
     cy.visit(`${urlBase}viewchildren`);
 
-    cy.xpath('//i[contains(@class, "fa-exclamation-circle")]').eq(1).click();
-    cy.xpath('//div[contains(@class, "popover-content")]')
-      .should('have.text', 'b');
+    cy.xpath('//i[contains(@class, "fa-exclamation-circle")]')
+      .eq(1)
+      .click();
+    cy.xpath('//div[contains(@class, "popover-content")]').should(
+      'have.text',
+      'b'
+    );
   });
 
   it('demo with screenshot', () => {
     cy.visit(`${urlBase}viewchildren`);
 
-    cy.xpath('//button[contains(@class, "btn-primary")]').eq(0).click();
+    cy.xpath('//button[contains(@class, "btn-primary")]')
+      .eq(0)
+      .click();
 
     cy.compareSnapshot('demo-screenshot', 0.1);
   });
