@@ -12,10 +12,12 @@ export class NameValidatorDirective implements Validator {
   banName: string;
 
   constructor() {
-    this.banName = ''
+    this.banName = '';
   }
 
   validate(control: AbstractControl): { [key: string]: any } | null {
-    return this.banName !== control.value ? null : {banName: {value: control.value}};
+    return this.banName !== control.value
+      ? null
+      : { banName: { value: control.value } };
   }
 }
