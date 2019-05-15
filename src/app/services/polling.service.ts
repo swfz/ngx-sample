@@ -2,19 +2,26 @@ import { interval as observableInterval, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap, map, concatMap, takeWhile } from 'rxjs/operators';
 
+interface IStatusResponse {
+  status: 'progress' | 'done';
+}
+interface IUrlResponse {
+  url: string;
+}
+interface IStatus {
+  status: 'progress' | 'done';
+  url?: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class PollingService {
   private httpResponses: any;
   private job: any;
-  public log: string;
 
   constructor() {}
 
   private initialize() {
-    this.log = '';
-
     this.job = {
       id: '6e1bbc60-a142-4eea-8170-52128b7a3e79'
     };
@@ -36,44 +43,55 @@ export class PollingService {
     return of(this.job);
   }
 
-  private getStatus(id): Observable<any> {
+  private getStatus(id: string): Observable<IStatus> {
     // 本来はサーバへ通信
     return of(this.httpResponses.shift());
   }
 
-  private polling(id: string): Observable<any> {
+  private polling(id: string): Observable<string> {
     return observableInterval(2000).pipe(
       concatMap(() => this.getStatus(id)),
       concatMap(this.convertResponse),
       tap(this.downloadFile),
       takeWhile(this.inProgress),
-      map(res => res.status)
+      map((res: IStatus) => res.status)
     );
   }
 
-  private convertResponse(res): Observable<any> {
-    console.log(res);
-    if (res.url) {
-      return of(Object.assign(res, { status: 'progress' }), {
+  private convertResponse(
+    res: IStatusResponse | IUrlResponse
+  ): Observable<IStatus> {
+    const isUrlResponse = (r: any): r is IUrlResponse => {
+      return r.url !== undefined;
+    };
+
+    // key: urlが存在する = DL準備ができている
+    if (isUrlResponse(res)) {
+      return of(<IStatus>{
+        url: res.url,
         status: 'done'
       });
+    } else {
+      return of(res);
     }
-    return of(res);
   }
 
-  private inProgress(res) {
-    return res.status === 'progress';
+  private inProgress(res: IStatusResponse | IUrlResponse): boolean {
+    const isStatusResponse = (r: any): r is IStatusResponse => {
+      return r.url === undefined;
+    };
+
+    return isStatusResponse(res) ? res.status === 'progress' : false;
   }
 
-  private downloadFile(res) {
-    if (res['url']) {
+  private downloadFile(res: IStatusResponse | IUrlResponse): void {
+    const isUrlResponse = (r: any): r is IUrlResponse => {
+      return r.url !== undefined;
+    };
+
+    if (isUrlResponse(res)) {
       // location.href = res.url;
       console.log('download now!');
     }
-  }
-
-  private logging(log: string) {
-    this.log = `${this.log}\n${log}`;
-    console.log(log);
   }
 }
