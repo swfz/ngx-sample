@@ -31,7 +31,7 @@
             <span>開始日</span>
             <p>datepickerで日付を編集できる</p>
             <p>cellEditorFrameworkでコンポーネントを呼び出し</p>
-            <p>WIP: デフォルトの日付フィルタ</p>
+            <p>デフォルトの日付フィルタ</p>
           </li>
           <li>
             <span>check</span>
@@ -39,19 +39,21 @@
               gridでの表示をRendererでカスタマイズしHTMLを返すようにしている
             </p>
             <p>CSVでDLして見るとデータだけが見えるようになっている</p>
-            <p>WIP: カスタムソート. objectに対してソートを掛けられる</p>
-            <p>WIP: カスタムフィルタ. objectに対してフィルタを掛けられる</p>
+            <p>
+              カスタムフィルタ.
+              objectに対して対象キーの値(boolena)に対してフィルタを掛けられる
+            </p>
           </li>
           <li>
             <span>price</span>
             <p>gridOptions.contextに状態をもたせて編集後に比較する</p>
             <p>colDef.cellClassRuleで差分があればクラスを当てる</p>
-            <p>WIP: 数値のフィルタ</p>
+            <p>数値のフィルタ</p>
           </li>
           <li>
-            <span>category</span>
-            <p>WIP: なんかしら</p>
-            <p>WIP: set型フィルタ</p>
+            <span>data</span>
+            <p>json</p>
+            <p>JSONに対してキーが存在するものだけフィルタする機能</p>
           </li>
         </ul>
       </div>
@@ -59,8 +61,20 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-sm btn-primary" (click)="downloadCsv()">
+<button
+  type="button"
+  class="btn btn-sm btn-outline-primary"
+  (click)="downloadCsv()"
+>
   Download CSV
+</button>
+
+<button
+  type="button"
+  class="btn btn-sm btn-outline-secondary"
+  (click)="clearFilter()"
+>
+  Reset Filter
 </button>
 
 <div class="flex-container">

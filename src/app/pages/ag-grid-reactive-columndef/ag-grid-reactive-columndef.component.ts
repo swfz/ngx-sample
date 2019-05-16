@@ -4,8 +4,11 @@ import {
   ColDef,
   CsvExportParams,
   GridOptions,
+  ICellRendererFunc,
   ICellRendererParams,
-  ProcessCellForExportParams
+  ProcessCellForExportParams,
+  ValueFormatterParams,
+  ValueGetterParams
 } from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
@@ -20,6 +23,7 @@ interface Row {
   startDate: string;
   check: CheckedData;
   price: number;
+  rawData: { [key: string]: number };
 }
 @Component({
   selector: 'app-ag-grid-reactive-columndef',
@@ -54,6 +58,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         field: 'startDate',
         width: 120,
         editable: true,
+        filter: 'agDateColumnFilter',
         cellEditorFramework: AgGridCellEditorDatepickerComponent
       },
       // CSVと画面で違う出力を表示させたいサンプル
@@ -61,12 +66,32 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         headerName: 'check',
         field: 'check',
         width: 120,
+        filter: 'agTextColumnFilter',
+        // オブジェクトはfilterにわたすときに強制的にstringにされてしまうためJSONでシリアライズ,デシリアライズする
+        filterValueGetter: (params: ValueGetterParams) => {
+          return JSON.stringify(params.data.check);
+        },
+        filterParams: {
+          filterOptions: [
+            'empty',
+            {
+              displayKey: 'filterByKey',
+              displayName: 'Filter By Key',
+              test: (filterValue: any, cellValue: any): boolean => {
+                const json = JSON.parse(cellValue);
+                return json[filterValue];
+              }
+            }
+          ]
+        },
+        sortable: false,
         cellRenderer: this.checkRenderer
       },
       // contextを通してコールバックに任意のデータを渡したいサンプル
       {
         headerName: 'price',
         field: 'price',
+        filter: 'agNumberColumnFilter',
         width: 100,
         cellClassRules: {
           'bg-danger': params => {
@@ -79,6 +104,34 @@ export class AgGridReactiveColumndefComponent implements OnInit {
           }
         },
         editable: true
+      },
+      {
+        headerName: 'data',
+        field: 'rawData',
+        width: 300,
+        filter: 'agTextColumnFilter',
+        // オブジェクトはfilterにわたすときに強制的にstringにされてしまうためJSONでシリアライズ,デシリアライズする
+        filterValueGetter: (params: ValueGetterParams) => {
+          return JSON.stringify(params.data.rawData);
+        },
+        filterParams: {
+          filterOptions: [
+            'empty',
+            {
+              displayKey: 'filterExistKey',
+              displayName: 'Filter By Key Exist?',
+              test: (filterValue: any, cellValue: any): boolean => {
+                const json = JSON.parse(cellValue);
+                console.log(json);
+                console.log(json.hasOwnProperty(filterValue));
+                return json.hasOwnProperty(filterValue);
+              }
+            }
+          ]
+        },
+        sortable: false,
+        cellRenderer: (params: ICellRendererParams) =>
+          JSON.stringify(params.value)
       }
     ];
 
@@ -86,22 +139,26 @@ export class AgGridReactiveColumndefComponent implements OnInit {
       {
         startDate: '2018-08-01',
         check: { hoge: true, fuga: false, piyo: true },
-        price: 100
+        price: 100,
+        rawData: { gold: 2, silver: 1, bronze: 3 }
       },
       {
         startDate: '2018-08-02',
-        check: { hoge: false, fuga: false, piyo: true },
-        price: 200
+        check: { hoge: false, fuga: true, piyo: false },
+        price: 200,
+        rawData: { silver: 3, bronze: 8 }
       },
       {
         startDate: '2019-04-02',
         check: { hoge: false, fuga: false, piyo: true },
-        price: 300
+        price: 1300,
+        rawData: { silver: 7 }
       },
       {
         startDate: '2019-02-15',
-        check: { hoge: true, fuga: false, piyo: true },
-        price: 500
+        check: { hoge: true, fuga: true, piyo: false },
+        price: 500,
+        rawData: { gold: 3, bronze: 10 }
       }
     ];
 
@@ -152,5 +209,9 @@ export class AgGridReactiveColumndefComponent implements OnInit {
       }
     };
     this.gridOptions.api.exportDataAsCsv(exportParams);
+  }
+
+  clearFilter(): void {
+    this.gridOptions.api.setFilterModel(null);
   }
 }
