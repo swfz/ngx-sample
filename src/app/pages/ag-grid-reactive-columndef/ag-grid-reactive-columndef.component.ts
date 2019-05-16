@@ -1,9 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { GridOptions } from 'ag-grid-community';
+import {
+  CellValueChangedEvent,
+  ColDef,
+  CsvExportParams,
+  GridOptions,
+  ICellRendererParams,
+  ProcessCellForExportParams
+} from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import _ from 'lodash';
 
+interface CheckedData {
+  hoge: boolean;
+  fuga: boolean;
+  piyo: boolean;
+}
+interface Row {
+  startDate: string;
+  check: CheckedData;
+  price: number;
+}
 @Component({
   selector: 'app-ag-grid-reactive-columndef',
   templateUrl: './ag-grid-reactive-columndef.component.html',
@@ -12,8 +29,8 @@ import _ from 'lodash';
 })
 export class AgGridReactiveColumndefComponent implements OnInit {
   public gridOptions: GridOptions;
-  public rowData: any;
-  public columnDefs: any;
+  public rowData: Row[];
+  public columnDefs: ColDef[];
 
   constructor() {}
 
@@ -92,7 +109,7 @@ export class AgGridReactiveColumndefComponent implements OnInit {
     this.gridOptions.context = { rowData: _.cloneDeep(this.rowData) };
   }
 
-  private checkRenderer(params) {
+  private checkRenderer(params: ICellRendererParams): HTMLElement | string {
     const value = params.value;
     return Object.keys(params.value)
       .map(key => {
@@ -102,23 +119,30 @@ export class AgGridReactiveColumndefComponent implements OnInit {
       .join('');
   }
 
-  private linkRenderer(params) {
+  private linkRenderer(params: ICellRendererParams): HTMLElement | string {
     return `<a [routerLink]="['grid','felx']">リンク</a>`;
   }
 
-  valueChanged(e) {
+  valueChanged(e: CellValueChangedEvent): void {
     console.log(e);
   }
 
-  editted(e) {
+  editted(e: CellValueChangedEvent): void {
     console.log(e);
   }
 
-  downloadCsv() {
-    const exportParams = {
+  downloadCsv(): void {
+    const valueIsCheck = (v: unknown): v is CheckedData => {
+      if (typeof v !== 'object') {
+        return false;
+      }
+      return ['hoge', 'fuga', 'piyo'].every(k => v.hasOwnProperty(k));
+    };
+    const exportParams: CsvExportParams = {
       fileName: 'sample.csv',
-      processCellCallback: params => {
-        if (params.column.colDef.field === 'check') {
+      processCellCallback: (params: ProcessCellForExportParams) => {
+        const isCheckedData = valueIsCheck(params.value);
+        if (isCheckedData) {
           return Object.keys(params.value)
             .map(key => `${key}: ${params.value[key]}`)
             .join(',');
