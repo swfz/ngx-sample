@@ -55,7 +55,10 @@ export class AgGridReactiveColumndefComponent implements OnInit {
           'bg-danger': params => {
             const nodeId = params.node.id;
             const field = params.colDef.field;
-            return params.value !== params.context.rowData[nodeId][field];
+            return (
+              parseInt(params.value, 10) !==
+              params.context.rowData[nodeId][field]
+            );
           }
         },
         editable: true
