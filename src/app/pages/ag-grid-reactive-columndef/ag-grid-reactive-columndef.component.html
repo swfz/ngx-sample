@@ -1,3 +1,33 @@
+<div class="card border-secondary mb-6" style="max-width: 100%;">
+  <div class="card-header">ag-grid</div>
+  <div class="card-body text-secondary">
+    <h4 class="card-title">ag-gridで色々実験するサンプル</h4>
+    <div class="card-text">
+      <ul>
+        <li>
+          <span>スペース</span>
+          <p>リンクのRenderer. 現状動作してない...</p>
+        </li>
+        <li>
+          <span>開始日</span>
+          <p>datepickerで日付を編集できる</p>
+          <p>cellEditorFrameworkでコンポーネントを呼び出すサンプル</p>
+        </li>
+        <li>
+          <span>check</span>
+          <p>gridでの表示をRendererでカスタマイズしHTMLを返すようにしている</p>
+          <p>CSVでDLして見るとデータだけが見えるようになっている</p>
+        </li>
+        <li>
+          <span>price</span>
+          <p>gridOptions.contextに状態をもたせて編集後に比較する</p>
+          <p>colDef.cellClassRuleで差分があればクラスを当てる</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <button type="button" class="btn btn-sm btn-primary" (click)="downloadCsv()">
   Download CSV
 </button>

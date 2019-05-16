@@ -72,6 +72,16 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         startDate: '2018-08-02',
         check: { hoge: false, fuga: false, piyo: true },
         price: 200
+      },
+      {
+        startDate: '2019-04-02',
+        check: { hoge: false, fuga: false, piyo: true },
+        price: 300
+      },
+      {
+        startDate: '2019-02-15',
+        check: { hoge: true, fuga: false, piyo: true },
+        price: 500
       }
     ];
 
