@@ -1,29 +1,60 @@
-<div class="card border-secondary mb-6" style="max-width: 100%;">
-  <div class="card-header">ag-grid</div>
-  <div class="card-body text-secondary">
-    <h4 class="card-title">ag-gridで色々実験するサンプル</h4>
-    <div class="card-text">
-      <ul>
-        <li>
-          <span>スペース</span>
-          <p>リンクのRenderer. 現状動作してない...</p>
-        </li>
-        <li>
-          <span>開始日</span>
-          <p>datepickerで日付を編集できる</p>
-          <p>cellEditorFrameworkでコンポーネントを呼び出すサンプル</p>
-        </li>
-        <li>
-          <span>check</span>
-          <p>gridでの表示をRendererでカスタマイズしHTMLを返すようにしている</p>
-          <p>CSVでDLして見るとデータだけが見えるようになっている</p>
-        </li>
-        <li>
-          <span>price</span>
-          <p>gridOptions.contextに状態をもたせて編集後に比較する</p>
-          <p>colDef.cellClassRuleで差分があればクラスを当てる</p>
-        </li>
-      </ul>
+<div>
+  <div class="card border-secondary mb-6" style="max-width: 100%;">
+    <div class="card-header">
+      <span>
+        <span (click)="descriptionElement.toggle()">
+          <i
+            class="fa fa-lg fa-plus-square"
+            *ngIf="!descriptionElement.collapse"
+          ></i>
+          <i
+            class="fa fa-lg fa-minus-square"
+            *ngIf="descriptionElement.collapse"
+          ></i>
+        </span>
+      </span>
+      ag-grid
+    </div>
+    <div
+      class="card-body text-secondary"
+      #descriptionElement="bs-collapse"
+      [collapse]="false"
+    >
+      <h4 class="card-title">ag-gridで色々実験するサンプル</h4>
+      <div class="card-text">
+        <ul>
+          <li>
+            <span>スペース</span>
+            <p>リンクのRenderer. 現状動作してない...</p>
+          </li>
+          <li>
+            <span>開始日</span>
+            <p>datepickerで日付を編集できる</p>
+            <p>cellEditorFrameworkでコンポーネントを呼び出し</p>
+            <p>WIP: デフォルトの日付フィルタ</p>
+          </li>
+          <li>
+            <span>check</span>
+            <p>
+              gridでの表示をRendererでカスタマイズしHTMLを返すようにしている
+            </p>
+            <p>CSVでDLして見るとデータだけが見えるようになっている</p>
+            <p>WIP: カスタムソート. objectに対してソートを掛けられる</p>
+            <p>WIP: カスタムフィルタ. objectに対してフィルタを掛けられる</p>
+          </li>
+          <li>
+            <span>price</span>
+            <p>gridOptions.contextに状態をもたせて編集後に比較する</p>
+            <p>colDef.cellClassRuleで差分があればクラスを当てる</p>
+            <p>WIP: 数値のフィルタ</p>
+          </li>
+          <li>
+            <span>category</span>
+            <p>WIP: なんかしら</p>
+            <p>WIP: set型フィルタ</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
