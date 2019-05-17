@@ -82,7 +82,7 @@
     "jasmine-spec-reporter": "4.2.1",
     "jest": "24.8.0",
     "jest-preset-angular": "7.1.0",
-    "karma-cli": "1.0.1",
+    "karma-cli": "2.0.0",
     "moment": "2.24.0",
     "moment-range": "4.0.2",
     "ng-packagr": "5.2.0",
