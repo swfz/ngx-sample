@@ -4,10 +4,8 @@ import {
   ColDef,
   CsvExportParams,
   GridOptions,
-  ICellRendererFunc,
   ICellRendererParams,
   ProcessCellForExportParams,
-  ValueFormatterParams,
   ValueGetterParams
 } from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
@@ -181,11 +179,11 @@ export class AgGridReactiveColumndefComponent implements OnInit {
   }
 
   valueChanged(e: CellValueChangedEvent): void {
-    console.log(e);
+    console.log('valueChanged', e);
   }
 
   editted(e: CellValueChangedEvent): void {
-    console.log(e);
+    console.log('cellEditted', e);
   }
 
   downloadCsv(): void {
