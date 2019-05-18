@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import * as moment from 'moment/moment';
 import { ICellEditorAngularComp } from '../../../../node_modules/ag-grid-angular/src/interfaces';
+import { BsDatepickerDirective } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-ag-grid-cell-editor.datepicker',
@@ -9,9 +10,10 @@ import { ICellEditorAngularComp } from '../../../../node_modules/ag-grid-angular
 })
 export class AgGridCellEditorDatepickerComponent
   implements ICellEditorAngularComp, AfterViewInit {
-  public datepickerModel: Date;
+  public datepickerModel: Date = new Date();
+
   @ViewChild('picker')
-  bsDatepickerElement;
+  private bsDatepickerElement: BsDatepickerDirective;
 
   constructor() {}
 
