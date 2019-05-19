@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  CellClassParams,
   CellValueChangedEvent,
   ColDef,
   CsvExportParams,
@@ -55,6 +56,13 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         headerName: '開始日',
         field: 'startDate',
         width: 120,
+        cellClassRules: {
+          'bg-danger': params => {
+            const nodeId = params.node.id;
+            const field = params.colDef.field;
+            return params.value !== params.context.rowData[nodeId][field];
+          }
+        },
         editable: true,
         filter: 'agDateColumnFilter',
         cellEditorFramework: AgGridCellEditorDatepickerComponent
