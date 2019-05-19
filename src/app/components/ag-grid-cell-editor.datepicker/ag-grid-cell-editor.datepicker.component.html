@@ -4,7 +4,11 @@
     dateInputFormat: 'YYYY-MM-DD',
     containerClass: 'theme-dark-blue'
   }"
-  [(ngModel)]="datepickerModel"
+  [isOpen]="true"
+  [bsValue]="value"
+  (bsValueChange)="onChangeDate($event)"
+  (onShown)="onShown($event)"
+  (onHidden)="onHidden($event)"
   #picker="bsDatepicker"
   bsDatepicker
 />
