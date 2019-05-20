@@ -6,14 +6,18 @@ commands:
   restore_npm:
     steps:
       - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
-
+          keys:
+            - ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-{{ .Branch }}
+            - ngx-sample-
   save_npm:
     steps:
       - save_cache:
           key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
+            - "~/.npm"
+            - "~/.cache"
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
@@ -25,6 +29,9 @@ executors:
   cypress-cjk:
     docker:
       - image: cypress/base:10
+    environment:
+      ## this enables colors in the output
+      TERM: xterm
     # environment:
     #   - LANG: ja_JP.UTF-8
     #   - LC_CTYPE: ja_JP.UTF-8
