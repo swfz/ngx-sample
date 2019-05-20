@@ -7,13 +7,13 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-{{ .Branch }}
-            - ngx-sample-
+            - ngx-sample-v2-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-v2-{{ .Branch }}
+            - ngx-sample-v2-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-v2-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - "~/.npm"
