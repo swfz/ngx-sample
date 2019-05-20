@@ -2,7 +2,8 @@
   "screenshotsFolder": "cypress/snapshots/actual",
   "reporter": "junit",
   "reporterOptions": {
-    "mochaFile": "e2e-results/test-output-[hash].xml"
+    "mochaFile": "e2e-results/test-output.xml",
+    "toConsole": true
   },
   "trashAssetsBeforeRuns": true
 }
