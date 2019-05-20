@@ -21,7 +21,27 @@ commands:
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
-
+  store_reports:
+    steps:
+      - store_test_results:
+          path: "mochawesome.json"
+          when: always
+      - store_artifacts:
+          path: "mochawesome.json"
+          destination: cypress-report
+          when: always
+      - store_artifacts:
+          path: "cypress/videos"
+          destination: cypress-videos
+          when: always
+      - store_artifacts:
+          path: "mochawesome-report"
+          destination: cypress-html
+          when: always
+      - store_artifacts:
+          path: "cypress/snapshots"
+          destination: cypress-snapshots
+          when: always
 executors:
   node:
     docker:
@@ -35,7 +55,6 @@ executors:
     # environment:
     #   - LANG: ja_JP.UTF-8
     #   - LC_CTYPE: ja_JP.UTF-8
-
 jobs:
   build:
     executor: node
@@ -91,17 +110,7 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
-      - store_test_results:
-          path: "e2e-results"
-          when: always
-      - store_artifacts:
-          path: "e2e-results"
-          destination: cypress-report
-          when: always
-      - store_artifacts:
-          path: "cypress/snapshots"
-          destination: cypress-snapshots
-          when: always
+      - store_reports
   e2e-master:
     executor: cypress-cjk
     steps:
@@ -125,17 +134,7 @@ jobs:
           key: ngx-sample-base-snapshot-{{ .Revision }}
           paths:
             - "cypress/snapshots"
-      - store_test_results:
-          path: "e2e-results"
-          when: always
-      - store_artifacts:
-          path: "e2e-results"
-          destination: cypress-report
-          when: always
-      - store_artifacts:
-          path: "cypress/snapshots"
-          destination: cypress-snapshots
-          when: always
+      - store_reports
   deploy:
     executor: node
     steps:
