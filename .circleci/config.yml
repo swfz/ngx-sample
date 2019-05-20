@@ -129,6 +129,7 @@ jobs:
             git reset --hard origin/master
       - restore_npm
       - run: npm install
+      - save_npm
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
