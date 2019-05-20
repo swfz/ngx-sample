@@ -23,6 +23,12 @@ commands:
       - run: apt-get install -y fonts-noto-cjk
   store_reports:
     steps:
+      - run:
+          name: 'merge report'
+          command: 'npm run ci:e2e:report:merge'
+      - run:
+          name: 'generate html report'
+          command: 'npm run ci:e2e:report:generate'
       - store_test_results:
           path: "mochawesome.json"
           when: always
