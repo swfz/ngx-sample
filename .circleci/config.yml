@@ -133,6 +133,12 @@ jobs:
       - run: npm install
       - save_npm
       - run:
+          name: 'debug1'
+          command: 'ls -al /root/.cache/Cypress'
+      - run:
+          name: 'debug2'
+          command: 'ls -al /root/project/.cache/Cypress'
+      - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
           background: true
