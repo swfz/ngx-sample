@@ -6,18 +6,46 @@ commands:
   restore_npm:
     steps:
       - restore_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
-
+          keys:
+            - ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-v4-{{ .Branch }}
+            - ngx-sample-v4-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
-
+  store_reports:
+    steps:
+      - run:
+          name: 'merge report'
+          command: 'npm run ci:e2e:mocha:result'
+      - run:
+          name: 'generate html report'
+          command: 'npm run ci:e2e:mocha:generate'
+      - store_test_results:
+          path: "mochawesome.json"
+          when: always
+      - store_artifacts:
+          path: "mochawesome.json"
+          destination: cypress-report
+          when: always
+      - store_artifacts:
+          path: "cypress/videos"
+          destination: cypress-videos
+          when: always
+      - store_artifacts:
+          path: "mochawesome-report"
+          destination: cypress-html
+          when: always
+      - store_artifacts:
+          path: "cypress/snapshots"
+          destination: cypress-snapshots
+          when: always
 executors:
   node:
     docker:
@@ -25,10 +53,12 @@ executors:
   cypress-cjk:
     docker:
       - image: cypress/base:10
+    environment:
+      ## this enables colors in the output
+      TERM: xterm
     # environment:
     #   - LANG: ja_JP.UTF-8
     #   - LC_CTYPE: ja_JP.UTF-8
-
 jobs:
   build:
     executor: node
@@ -84,17 +114,7 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
-      - store_test_results:
-          path: "e2e-results"
-          when: always
-      - store_artifacts:
-          path: "e2e-results"
-          destination: cypress-report
-          when: always
-      - store_artifacts:
-          path: "cypress/snapshots"
-          destination: cypress-snapshots
-          when: always
+      - store_reports
   e2e-master:
     executor: cypress-cjk
     steps:
@@ -107,6 +127,7 @@ jobs:
             git reset --hard origin/master
       - restore_npm
       - run: npm install
+      - save_npm
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
@@ -118,17 +139,7 @@ jobs:
           key: ngx-sample-base-snapshot-{{ .Revision }}
           paths:
             - "cypress/snapshots"
-      - store_test_results:
-          path: "e2e-results"
-          when: always
-      - store_artifacts:
-          path: "e2e-results"
-          destination: cypress-report
-          when: always
-      - store_artifacts:
-          path: "cypress/snapshots"
-          destination: cypress-snapshots
-          when: always
+      - store_reports
   deploy:
     executor: node
     steps:

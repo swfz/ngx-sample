@@ -1,8 +1,11 @@
 {
   "screenshotsFolder": "cypress/snapshots/actual",
-  "reporter": "junit",
+  "reporter": "mochawesome",
   "reporterOptions": {
-    "mochaFile": "e2e-results/test-output-[hash].xml"
+    "reportDir": "cypress/tmp-e2e-results",
+    "overwrite": false,
+    "html": false,
+    "json": true
   },
   "trashAssetsBeforeRuns": true
 }
