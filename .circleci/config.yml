@@ -28,7 +28,7 @@ commands:
           name: 'generate html report'
           command: 'npm run ci:e2e:report:html'
       - store_test_results:
-          path: "mochawesome.json"
+          path: "cypress/results"
           when: always
       - store_artifacts:
           path: "mochawesome.json"
