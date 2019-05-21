@@ -7,13 +7,18 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-v2-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-v2-{{ .Branch }}
-            - ngx-sample-v2-
+            - ngx-sample-v3-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-v3-{{ .Branch }}
+            - ngx-sample-v3-
   save_npm:
     steps:
+      - run:
+          name: 'change permission'
+          command: |
+            chmod -R 777 ~/.npm
+            chmod -R 777 ~/.cache
       - save_cache:
-          key: ngx-sample-v2-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-v3-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - "~/.npm"
