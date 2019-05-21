@@ -30,10 +30,10 @@ commands:
     steps:
       - run:
           name: 'merge report'
-          command: 'npm run ci:e2e:report:merge'
+          command: 'npm run ci:e2e:mocha:result'
       - run:
           name: 'generate html report'
-          command: 'npm run ci:e2e:report:generate'
+          command: 'npm run ci:e2e:mocha:generate'
       - store_test_results:
           path: "mochawesome.json"
           when: always
