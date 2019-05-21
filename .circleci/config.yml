@@ -7,15 +7,16 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-v4-{{ .Branch }}
-            - ngx-sample-v4-
+            - ngx-sample-v5-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-v5-{{ .Branch }}
+            - ngx-sample-v5-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-v5-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
+            - "$HOME/.cache"
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
@@ -50,12 +51,15 @@ executors:
   node:
     docker:
       - image: circleci/node:10.15.3-stretch-browsers
+    environment:
+      - CYPRESS_CACHE_FOLDER: ~/$HOME/.cache
   cypress-cjk:
     docker:
       - image: cypress/base:10
     environment:
+      - CYPRESS_CACHE_FOLDER: ~/$HOME/.cache
       ## this enables colors in the output
-      TERM: xterm
+      - TERM: xterm
     # environment:
     #   - LANG: ja_JP.UTF-8
     #   - LC_CTYPE: ja_JP.UTF-8
