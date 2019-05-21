@@ -52,12 +52,12 @@ executors:
     docker:
       - image: circleci/node:10.15.3-stretch-browsers
     environment:
-      - CYPRESS_CACHE_FOLDER: .cache
+      - CYPRESS_CACHE_FOLDER: .cache/Cypress
   cypress-cjk:
     docker:
       - image: cypress/base:10
     environment:
-      - CYPRESS_CACHE_FOLDER: .cache
+      - CYPRESS_CACHE_FOLDER: .cache/Cypress
       ## this enables colors in the output
       - TERM: xterm
     # environment:
