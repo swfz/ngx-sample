@@ -38,9 +38,11 @@ commands:
       - run:
           name: 'merge report'
           command: 'npm run ci:e2e:report:json'
+          when: always
       - run:
           name: 'generate html report'
           command: 'npm run ci:e2e:report:html'
+          when: always
       - store_test_results:
           path: "cypress/results"
           when: always
