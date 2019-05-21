@@ -32,7 +32,7 @@ commands:
           when: always
       - store_artifacts:
           path: "mochawesome.json"
-          destination: cypress-report
+          destination: mochawesome.json
           when: always
       - store_artifacts:
           path: "cypress/videos"

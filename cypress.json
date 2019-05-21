@@ -1,8 +1,12 @@
 {
   "screenshotsFolder": "cypress/snapshots/actual",
-  "reporter": "mochawesome",
+  "reporter": "mocha-multi-reporter",
+  "reporterEnabled": "spec, mocha-junit-reporter, mochawesome",
   "reporterOptions": {
-    "reportDir": "cypress/tmp-e2e-results",
+    "mochaFile": "for junit-reporter"
+    "mochaFile": "cypress/tmp-e2e-results/[hash].xml"
+    "reportDir": "for mochawesome"
+    "reportDir": "cypress/tmp-e2e-json",
     "overwrite": false,
     "html": false,
     "json": true
