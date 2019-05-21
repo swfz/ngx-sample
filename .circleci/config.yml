@@ -7,22 +7,15 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-v3-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-v3-{{ .Branch }}
-            - ngx-sample-v3-
+            - ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-v4-{{ .Branch }}
+            - ngx-sample-v4-
   save_npm:
     steps:
-      - run:
-          name: 'change permission'
-          command: |
-            chmod -R 777 ~/.npm
-            chmod -R 777 ~/.cache
       - save_cache:
-          key: ngx-sample-v3-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-v4-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
-            - "~/.npm"
-            - "~/.cache"
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
