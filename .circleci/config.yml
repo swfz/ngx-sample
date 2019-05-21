@@ -7,16 +7,16 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-v5-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-v5-{{ .Branch }}
-            - ngx-sample-v5-
+            - ngx-sample-wip-v5-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-wip-v5-{{ .Branch }}
+            - ngx-sample-wip-v5-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-v5-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip-v5-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
-            - "$HOME/.cache"
+            - ".cache/Cypress"
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
