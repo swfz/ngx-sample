@@ -23,13 +23,10 @@ commands:
     steps:
       - run:
           name: 'merge report'
-          command: 'npm run ci:e2e:mocha:result'
-      - run:
-          name: 'debug'
-          command: 'ls -al'
+          command: 'npm run ci:e2e:report:json'
       - run:
           name: 'generate html report'
-          command: 'npm run ci:e2e:mocha:generate'
+          command: 'npm run ci:e2e:report:html'
       - store_test_results:
           path: "mochawesome.json"
           when: always

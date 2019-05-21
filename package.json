@@ -23,8 +23,8 @@
     "ci:e2e:cypress:base": "cypress run --env type=base --config screenshotsFolder=cypress/snapshots/base",
     "ci:e2e:run:actual": "wait-on http-get://localhost:4200 && npm run ci:e2e:cypress:actual",
     "ci:e2e:run:base": "wait-on http-get://localhost:4200 && npm run ci:e2e:cypress:base",
-    "ci:e2e:mocha:result": "mochawesome-merge --reportDir cypress/tmp-e2e-results > mochawesome.json",
-    "ci:e2e:mocha:generate": "mochawesome-report-generator mochawesome.json",
+    "ci:e2e:report:json": "mochawesome-merge --reportDir cypress/tmp-e2e-results > mochawesome.json",
+    "ci:e2e:report:html": "marge mochawesome.json",
     "test:watch": "jest --watch"
   },
   "private": false,
