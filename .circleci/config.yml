@@ -25,6 +25,9 @@ commands:
           name: 'merge report'
           command: 'npm run ci:e2e:mocha:result'
       - run:
+          name: 'debug'
+          command: 'ls -al'
+      - run:
           name: 'generate html report'
           command: 'npm run ci:e2e:mocha:generate'
       - store_test_results:
