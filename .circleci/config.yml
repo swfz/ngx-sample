@@ -7,16 +7,29 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-v6-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-v6-{{ .Branch }}
-            - ngx-sample-v6-
+            - ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-wip10-v6-{{ .Branch }}
+            - ngx-sample-wip10-v6-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-v6-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
+  restore_cypress_binary:
+    steps:
+      - restore_cache:
+          keys:
+            - ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-wip10-v6-{{ .Branch }}
+            - ngx-sample-wip10-v6-
+  save_cypress_binary:
+    steps:
+      - save_cache:
+          key: ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
             - "/tmp/.cache/Cypress"
+
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
@@ -107,7 +120,9 @@ jobs:
       - install_notofont
       - checkout
       - restore_npm
+      - restore_cypress_binary
       - run: npm install
+      - save_cypress_binary
       - save_npm
       - restore_cache:
           key: ngx-sample-base-snapshot-{{ .Revision }}
@@ -130,7 +145,9 @@ jobs:
             git checkout master
             git reset --hard origin/master
       - restore_npm
+      - restore_cypress_binary
       - run: npm install
+      - save_cypress_binary
       - save_npm
       - run:
           name: 'server start'
