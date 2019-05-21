@@ -7,13 +7,13 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-wip2-v5-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-wip2-v5-{{ .Branch }}
-            - ngx-sample-wip2-v5-
+            - ngx-sample-wip3-v5-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-wip3-v5-{{ .Branch }}
+            - ngx-sample-wip3-v5-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-wip2-v5-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip3-v5-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - ".cache/Cypress"
