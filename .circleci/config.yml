@@ -127,7 +127,7 @@ jobs:
       - save_cypress_binary
       - save_npm
       - attach_workspace:
-        at: cypress
+          at: cypress
       # - restore_cache:
       #     key: ngx-sample-base-snapshot-{{ .Revision }}
       - run:
