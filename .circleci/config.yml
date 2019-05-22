@@ -126,8 +126,10 @@ jobs:
       - run: npm install
       - save_cypress_binary
       - save_npm
-      - restore_cache:
-          key: ngx-sample-base-snapshot-{{ .Revision }}
+      - attach_workspace:
+        at: cypress
+      # - restore_cache:
+      #     key: ngx-sample-base-snapshot-{{ .Revision }}
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
@@ -158,10 +160,14 @@ jobs:
       - run:
           name: 'cypress'
           command: 'npm run ci:e2e:run:base'
-      - save_cache:
-          key: ngx-sample-base-snapshot-{{ .Revision }}
+      - persist_to_workspace:
+          root: cypress
           paths:
-            - "cypress/snapshots"
+            - snapshots
+      # - save_cache:
+      #     key: ngx-sample-base-snapshot-{{ .Revision }}
+      #     paths:
+      #       - "cypress/snapshots"
       - store_reports
   deploy:
     executor: node
