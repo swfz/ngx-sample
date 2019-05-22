@@ -1,4 +1,4 @@
-describe('viewchildren', () => {
+describe('demo-viewchildren', () => {
   const urlBase = 'http://localhost:4200/';
   it('demo with typescript', () => {
     cy.visit(`${urlBase}viewchildren`);
@@ -26,7 +26,7 @@ describe('viewchildren', () => {
   it('demo with screenshot', () => {
     cy.visit(`${urlBase}viewchildren`);
 
-    cy.xpath('//button[contains(@class, "btn-primary")]')
+    cy.xpath('//button[contains(@class, "btn-outline-primary")]')
       .eq(0)
       .click();
 

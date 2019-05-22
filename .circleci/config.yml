@@ -20,13 +20,13 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-wip10-v6-{{ .Branch }}
-            - ngx-sample-wip10-v6-
+            - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}
+            - ngx-sample-cypress-binary-wip10-v6-
   save_cypress_binary:
     steps:
       - save_cache:
-          key: ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "/tmp/.cache/Cypress"
 
@@ -38,9 +38,11 @@ commands:
       - run:
           name: 'merge report'
           command: 'npm run ci:e2e:report:json'
+          when: always
       - run:
           name: 'generate html report'
           command: 'npm run ci:e2e:report:html'
+          when: always
       - store_test_results:
           path: "cypress/results"
           when: always
