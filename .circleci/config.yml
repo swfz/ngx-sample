@@ -7,14 +7,14 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-{{ checksum "package.json" }}
-            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-
+            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.HOME }}-{{ checksum "package.json" }}
+            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.HOME }}-
             - ngx-sample-wip11-v6-{{ .Branch }}-
             - ngx-sample-wip11-v6-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.HOME }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - "/tmp/.cache/Cypress"
