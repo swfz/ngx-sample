@@ -75,7 +75,11 @@ jobs:
       - restore_npm
       - run: npm install
       - save_npm
-      - run: npx ng build --aot --no-progress
+      - run: npx ng build --aot --no-progress --base-href '/ngx-sample/'
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - dist
   lint:
     executor: node
     steps:
@@ -164,34 +168,36 @@ jobs:
       - run:
           name: 'git config'
           command: |
-            git config user.email "$GITHUB_EMAIL"
-            git config user.name "$GITHUB_USER"
-      - run: npm run ghpages
+            git config --global user.email $GITHUB_EMAIL
+            git config --global user.name $GITHUB_NAME
+      - attach_workspace:
+          at: dist
+      - run: npm run ngh
 
 workflows:
   version: 2.1
   workflow:
     jobs:
-      - e2e-feature:
-          requires:
-            - e2e-master
-          filters:
-            branches:
-              ignore:
-                - master
-      - e2e-master
-      - test
+      # - e2e-feature:
+      #     requires:
+      #       - e2e-master
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      # - e2e-master
+      # - test
       - lint
       - prettier
       - build:
           requires:
-           - test
+           # - test
            - lint
            - prettier
       - deploy:
           requires:
             - build
-            - e2e-master
+            # - e2e-master
           filters:
             branches:
               only:
