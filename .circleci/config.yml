@@ -161,6 +161,11 @@ jobs:
       - restore_npm
       - run: npm install
       - save_npm
+      - run:
+          name: 'git config'
+          command: |
+            git config user.email "$GITHUB_EMAIL"
+            git config user.name "$GITHUB_USER"
       - run: npm run ghpages
 
 workflows:
