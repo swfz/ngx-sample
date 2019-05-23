@@ -163,7 +163,7 @@ jobs:
       - run: echo "Deploy to GitHub Pages"
       - add_ssh_keys:
           fingerprints:
-            - "0e:4d:01:49:dd:c8:7c:a8:9c:a8:0f:f2:ad:d0:49:6d"
+            - "ec:ae:80:b6:bf:07:34:c5:76:1e:26:08:31:fe:c1:ba"
       - checkout
       - restore_npm
       - run: npm install
