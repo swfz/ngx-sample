@@ -175,7 +175,7 @@ jobs:
             git config --global user.email $GITHUB_EMAIL
             git config --global user.name $GITHUB_NAME
       - attach_workspace:
-          at: dist
+          at: /home/circleci/project
       - run: ls -al dist
       - run: npm run ngh
 
