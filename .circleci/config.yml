@@ -80,7 +80,6 @@ jobs:
           root: /home/circleci/project
           paths:
             - dist
-      - run: ls -al dist
   lint:
     executor: node
     steps:
@@ -176,33 +175,32 @@ jobs:
             git config --global user.name $GITHUB_NAME
       - attach_workspace:
           at: /home/circleci/project
-      - run: ls -al dist
       - run: npm run ngh
 
 workflows:
   version: 2.1
   workflow:
     jobs:
-      # - e2e-feature:
-      #     requires:
-      #       - e2e-master
-      #     filters:
-      #       branches:
-      #         ignore:
-      #           - master
-      # - e2e-master
-      # - test
+      - e2e-feature:
+          requires:
+            - e2e-master
+          filters:
+            branches:
+              ignore:
+                - master
+      - e2e-master
+      - test
       - lint
       - prettier
       - build:
           requires:
-           # - test
+           - test
            - lint
            - prettier
       - deploy:
           requires:
             - build
-            # - e2e-master
+            - e2e-master
           filters:
             branches:
               only:
