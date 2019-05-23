@@ -7,28 +7,30 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-wip10-v6-{{ .Branch }}
-            - ngx-sample-wip10-v6-
+            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-{{ checksum "package.json" }}
+            - ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-
+            - ngx-sample-wip11-v6-{{ .Branch }}-
+            - ngx-sample-wip11-v6-
   save_npm:
     steps:
       - save_cache:
-          key: ngx-sample-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip11-v6-{{ .Branch }}-{{ .Environment.IMAGE_NAME }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
-  restore_cypress_binary:
-    steps:
-      - restore_cache:
-          keys:
-            - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}
-            - ngx-sample-cypress-binary-wip10-v6-
-  save_cypress_binary:
-    steps:
-      - save_cache:
-          key: ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-          paths:
             - "/tmp/.cache/Cypress"
+  # restore_cypress_binary:
+  #   steps:
+  #     - restore_cache:
+  #         keys:
+  #           - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+  #           - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}
+  #           - ngx-sample-cypress-binary-wip10-v6-
+  # save_cypress_binary:
+  #   steps:
+  #     - save_cache:
+  #         key: ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
+  #         paths:
+  #           - "/tmp/.cache/Cypress"
 
   install_notofont:
     steps:
@@ -68,6 +70,7 @@ executors:
       - image: circleci/node:10.15.3-stretch-browsers
     environment:
       - CYPRESS_CACHE_FOLDER: /tmp/.cache/Cypress
+      - IMAGE_NAME: node
   cypress-cjk:
     docker:
       - image: cypress/base:10
@@ -75,6 +78,7 @@ executors:
       - CYPRESS_CACHE_FOLDER: /tmp/.cache/Cypress
       ## this enables colors in the output
       - TERM: xterm
+      - IMAGE_NAME: cypress
     # environment:
     #   - LANG: ja_JP.UTF-8
     #   - LC_CTYPE: ja_JP.UTF-8
@@ -122,14 +126,12 @@ jobs:
       - install_notofont
       - checkout
       - restore_npm
-      - restore_cypress_binary
+      # - restore_cypress_binary
       - run: npm install
-      - save_cypress_binary
+      # - save_cypress_binary
       - save_npm
       - attach_workspace:
           at: cypress
-      # - restore_cache:
-      #     key: ngx-sample-base-snapshot-{{ .Revision }}
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
@@ -149,9 +151,9 @@ jobs:
             git checkout master
             git reset --hard origin/master
       - restore_npm
-      - restore_cypress_binary
+      # - restore_cypress_binary
       - run: npm install
-      - save_cypress_binary
+      # - save_cypress_binary
       - save_npm
       - run:
           name: 'server start'
@@ -164,10 +166,6 @@ jobs:
           root: cypress
           paths:
             - snapshots
-      # - save_cache:
-      #     key: ngx-sample-base-snapshot-{{ .Revision }}
-      #     paths:
-      #       - "cypress/snapshots"
       - store_reports
   deploy:
     executor: node
