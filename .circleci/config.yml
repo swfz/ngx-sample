@@ -8,15 +8,15 @@ commands:
       - run: echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - ngx-sample-wip11-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
-            - ngx-sample-wip11-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-
-            - ngx-sample-wip11-v6-{{ .Branch }}-
-            - ngx-sample-wip11-v6-
+            - ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
+            - ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-
+            - ngx-sample-wip12-v6-{{ .Branch }}-
+            - ngx-sample-wip12-v6-
   save_npm:
     steps:
       - run: echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - save_cache:
-          key: ngx-sample-wip11-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - "/tmp/.cache/Cypress"
