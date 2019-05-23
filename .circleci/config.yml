@@ -157,16 +157,11 @@ jobs:
     executor: node
     steps:
       - run: echo "Deploy to GitHub Pages"
-      # - checkout
-      # - restore_npm
-      # - run: npm install
-      # - save_npm
-      # - run:
-      #     name: 'git config'
-      #     command: |
-      #       git config user.email "swfz+circleci@users.noreply.github.com"
-      #       git config user.name "swfz+circleci"
-      # - run: npm run ghpages
+      - checkout
+      - restore_npm
+      - run: npm install
+      - save_npm
+      - run: npm run ghpages
 
 workflows:
   version: 2.1
