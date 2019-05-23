@@ -80,6 +80,7 @@ jobs:
           root: /home/circleci/project
           paths:
             - dist
+      - run: ls -al dist
   lint:
     executor: node
     steps:
@@ -175,6 +176,7 @@ jobs:
             git config --global user.name $GITHUB_NAME
       - attach_workspace:
           at: dist
+      - run: ls -al dist
       - run: npm run ngh
 
 workflows:
