@@ -19,7 +19,7 @@ commands:
           paths:
             - "node_modules"
             - "/tmp/.cache/Cypress"
- install_notofont:
+  install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
   store_reports:
