@@ -105,6 +105,9 @@ jobs:
     executor: node
     steps:
       - checkout
+      - run:
+          name: 'debug'
+          command: env
       - run: echo "Start Prettier Check"
       - restore_npm
       - run: npm install
@@ -145,6 +148,9 @@ jobs:
     steps:
       - install_notofont
       - checkout
+      - run:
+          name: 'debug'
+          command: env
       - run:
           name: 'masterとの比較用checkout'
           command: |
