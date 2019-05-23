@@ -77,7 +77,7 @@ jobs:
       - save_npm
       - run: npx ng build --aot --no-progress --base-href '/ngx-sample/'
       - persist_to_workspace:
-          root: ./
+          root: /home/circleci/project
           paths:
             - dist
   lint:
