@@ -8,7 +8,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "jest --maxWorkers=2",
+    "test": "jest --maxWorkers=1",
     "lint": "ng lint",
     "packagr": "ng-packagr -p ng-package.json",
     "ghpages": "ng build --prod --aot --no-progress --base-href '/ngx-sample/' && ngh -S --dir dist/",
