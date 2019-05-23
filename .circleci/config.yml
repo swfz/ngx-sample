@@ -8,32 +8,17 @@ commands:
       - run: echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
-            - ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-
-            - ngx-sample-wip12-v6-{{ .Branch }}-
-            - ngx-sample-wip12-v6-
+            - ngx-sample-wip13-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
+            - ngx-sample-wip13-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-
+            - ngx-sample-wip13-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
   save_npm:
     steps:
       - run: echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - save_cache:
-          key: ngx-sample-wip12-v6-{{ .Branch }}-{{ checksum "/tmp/env_image_name.txt" }}-{{ checksum "package.json" }}
+          key: ngx-sample-wip13-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
             - "/tmp/.cache/Cypress"
-  # restore_cypress_binary:
-  #   steps:
-  #     - restore_cache:
-  #         keys:
-  #           - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-  #           - ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}
-  #           - ngx-sample-cypress-binary-wip10-v6-
-  # save_cypress_binary:
-  #   steps:
-  #     - save_cache:
-  #         key: ngx-sample-cypress-binary-wip10-v6-{{ .Branch }}-{{ checksum "package.json" }}
-  #         paths:
-  #           - "/tmp/.cache/Cypress"
-
   install_notofont:
     steps:
       - run: apt-get install -y fonts-noto-cjk
@@ -81,9 +66,6 @@ executors:
       ## this enables colors in the output
       - TERM: xterm
       - IMAGE_NAME: cypress
-    # environment:
-    #   - LANG: ja_JP.UTF-8
-    #   - LC_CTYPE: ja_JP.UTF-8
 jobs:
   build:
     executor: node
@@ -131,9 +113,7 @@ jobs:
       - install_notofont
       - checkout
       - restore_npm
-      # - restore_cypress_binary
       - run: npm install
-      # - save_cypress_binary
       - save_npm
       - attach_workspace:
           at: cypress
@@ -159,9 +139,7 @@ jobs:
             git checkout master
             git reset --hard origin/master
       - restore_npm
-      # - restore_cypress_binary
       - run: npm install
-      # - save_cypress_binary
       - save_npm
       - run:
           name: 'server start'
