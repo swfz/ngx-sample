@@ -1,8 +1,9 @@
 workflow "RunCircleCIOnPullRequest" {
   on = "pull_request"
-  resolves = ["new-action"]
+  resolves = ["shell"]
 }
 
-action "new-action" {
-  uses = "owner/repo/path@ref"
+action "shell" {
+  uses = "actions/bin/sh@master"
+  args = ["cat /github/workflow/event.json"]
 }
