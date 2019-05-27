@@ -5,6 +5,6 @@ workflow "RunCircleCIOnPullRequest" {
 }
 
 action "shell" {
-  uses = "actions/bin/sh@master"
+  uses = "./docker/jq"
   args = ["cat /github/workflow/event.json | jq"]
 }
