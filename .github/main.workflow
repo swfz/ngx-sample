@@ -5,7 +5,7 @@ workflow "RunCircleCIOnPullRequest" {
 
 action "shell" {
   uses = "./docker/jq"
-  args = ["cat /github/workflow/event.json | jq '.pull_request.head.ref' | xargs -i echo '$HOGE_TOKEN {}'"]
+  args = ["sh /kick_circle.sh"]
   secrets = [
     "HOGE_TOKEN",
     "CIRCLE_TOKEN",
