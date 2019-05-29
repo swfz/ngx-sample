@@ -182,7 +182,7 @@ jobs:
           at: /home/circleci/project
       - run: npm run ngh
   comment-cypress-result:
-    executor: cypress
+    executor: cypress-cjk
     steps:
       - run: env
 
