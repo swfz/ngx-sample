@@ -184,12 +184,13 @@ jobs:
   comment-cypress-result:
     executor: cypress
     steps:
-      - run: echo 'hello'
+      - run: env
 
 workflows:
   version: 2.1
   workflow:
     jobs:
+      - comment-cypress-result
       - e2e-feature:
           requires:
             - e2e-master
