@@ -4,28 +4,43 @@ version: 2.1
 #   cypress: cypress-io/cypress@1.5.1
 commands:
   restore_npm:
+    parameters:
+      prefix: &cache_key_prefix_parameter
+        description: cache key prefix
+        type: string
+        default: ngx-sample-wip14-v6
     steps:
       - run: &echo_env echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - &cache_key ngx-sample-wip14-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
-            - ngx-sample-wip14-v6-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
-            - ngx-sample-wip14-v6-{{ checksum "/tmp/env_image_name.txt" }}-
+            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
+            - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
+            - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-
   save_npm:
+    parameters:
+      prefix:
+        <<: *cache_key_prefix_parameter
+      with_cypress:
+        description: is cypress flag
+        type: boolean
+        default: false
     steps:
       - run: *echo_env
-      - save_cache:
-          key: *cache_key
-          paths:
-            - "node_modules"
-  save_npm_with_cypress:
-    steps:
-      - run: *echo_env
-      - save_cache:
-          key: *cache_key
-          paths:
-            - "node_modules"
-            - "/tmp/.cache/Cypress"
+      - when:
+          condition: << parameters.with_cypress >>
+          steps:
+            - save_cache:
+                key: *cache_key
+                paths:
+                  - "node_modules"
+                  - "/tmp/.cache/Cypress"
+      - unless:
+          condition: << parameters.with_cypress >>
+          steps:
+            - save_cache:
+                key: *cache_key
+                paths:
+                  - "node_modules"
 
   install_notofont:
     steps:
@@ -126,7 +141,7 @@ jobs:
       - checkout
       - restore_npm
       - run: npm install
-      - save_npm_with_cypress
+      - save_npm
       - attach_workspace:
           at: cypress
       - run:
@@ -149,7 +164,8 @@ jobs:
             git reset --hard origin/master
       - restore_npm
       - run: npm install
-      - save_npm_with_cypress
+      - save_npm:
+          with_cypress: true
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
@@ -172,7 +188,8 @@ jobs:
       - checkout
       - restore_npm
       - run: npm install
-      - save_npm
+      - save_npm:
+          with_cypress: true
       - run:
           name: 'git config'
           command: |
