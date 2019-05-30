@@ -6,7 +6,7 @@ workflow "RunCircleCIOnPush" {
 
 action "kick-circleci-pipeline" {
   uses = "./docker/jq"
-  args = ["sh /kick_circle.sh"]
+  args = ["sh -x /kick_circle.sh"]
   secrets = [
     "HOGE_TOKEN",
     "CIRCLE_TOKEN",
