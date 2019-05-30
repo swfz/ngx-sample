@@ -15,7 +15,7 @@ else
   curl -q -u $CIRCLE_TOKEN: \
        -X POST \
        --header "Content-Type: application/json" \
-       -d "{\"branch\": ${branch},\"revision\": ${revision}}" \
+       -d "{\"branch\": ${branch}}" \
        "https://circleci.com/api/v1.1/project/github/swfz/ngx-sample/build"
 fi
 
