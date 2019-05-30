@@ -1,7 +1,7 @@
 #!/bin/sh
 
-branch=$(cat /github/workflow/event.json | jq '.pull_request.head.ref')
-revision=$(cat /github/workflow/event.json | jq '.pull_request.head.sha')
+branch=$(cat /github/workflow/event.json | jq '.ref')
+revision=$(cat /github/workflow/event.json | jq '.head_commit.id')
 
 curl -u $CIRCLE_TOKEN: \
      -X POST \

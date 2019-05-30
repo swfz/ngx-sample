@@ -1,8 +1,7 @@
-workflow "RunCircleCIOnPullRequest" {
+workflow "RunCircleCIOnPush" {
   # on = "pull_request"
   on = "push"
-  # resolves = ["kick-circleci-pipeline"]
-  resolves = ["shell"]
+  resolves = ["kick-circleci-pipeline", "shell"]
 }
 
 action "kick-circleci-pipeline" {
