@@ -8,6 +8,6 @@ Angular Sample Collection
 
 CircleCI + GitHubActions
 
-実験中
+実験中1
 
 
