@@ -1,6 +1,6 @@
 #!/bin/sh
 
-branch=$(cat /github/workflow/event.json | jq '.ref')
+branch=$(cat /github/workflow/event.json | jq '.ref' | sed 's/ref\/heads\///')
 revision=$(cat /github/workflow/event.json | jq '.head_commit.id')
 echo '--'
 echo $branch
