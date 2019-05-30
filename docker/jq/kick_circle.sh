@@ -9,7 +9,7 @@ echo $revision
 echo '--'
 
 
-if [ $branch = 'master' ]; then
+if [ $branch = '"master"' ]; then
   echo 'branch is master. not need kick pipeline.'
 else
   curl -q -u $CIRCLE_TOKEN: \
