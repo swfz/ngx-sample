@@ -2,6 +2,8 @@
 
 branch=$(cat /github/workflow/event.json | jq '.ref')
 revision=$(cat /github/workflow/event.json | jq '.head_commit.id')
+echo $branch
+echo $revision
 
 curl -u $CIRCLE_TOKEN: \
      -X POST \
