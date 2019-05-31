@@ -70,7 +70,7 @@
     "@angular/compiler-cli": "7.2.15",
     "@angular/language-service": "7.2.15",
     "@cypress/webpack-preprocessor": "4.0.3",
-    "@types/jasmine": "3.3.12",
+    "@types/jasmine": "3.3.13",
     "@types/jasminewd2": "2.0.6",
     "@types/moment": "2.13.0",
     "@types/moment-range": "3.1.2",
