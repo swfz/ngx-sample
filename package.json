@@ -52,7 +52,7 @@
     "bluebird": "3.5.5",
     "bootstrap": "4.3.1",
     "chart.js": "2.8.0",
-    "core-js": "2.6.5",
+    "core-js": "2.6.9",
     "cypress": "3.3.1",
     "font-awesome": "4.7.0",
     "license-webpack-plugin": "2.1.1",
