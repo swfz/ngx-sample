@@ -133,7 +133,7 @@ jobs:
       - restore_npm
       - run: npm install
       - save_npm
-      - run: npx ng test
+      - run: npm run test
   e2e-feature:
     executor: cypress-cjk
     steps:
