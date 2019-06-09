@@ -141,7 +141,8 @@ jobs:
       - checkout
       - restore_npm
       - run: npm install
-      - save_npm
+      - save_npm:
+          with_cypress: true
       - attach_workspace:
           at: cypress
       - run:
