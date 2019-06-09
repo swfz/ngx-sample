@@ -9,7 +9,7 @@ export class MarbleDiagramComponent implements OnInit {
   private isDragging: boolean;
   private beforeX: number;
 
-  @ViewChild('value')
+  @ViewChild('value', { static: true })
   value;
 
   constructor() {}
