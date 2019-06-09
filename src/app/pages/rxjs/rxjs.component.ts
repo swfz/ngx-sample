@@ -31,7 +31,7 @@ export interface IInputText {
 export class RxjsComponent implements OnInit {
   public aaa: Observable<number>;
 
-  @ViewChild('input')
+  @ViewChild('input', { static: false })
   text;
 
   private events$: Subject<IEvent>;

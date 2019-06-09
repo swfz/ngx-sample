@@ -14,7 +14,7 @@ export class AgGridCellEditorDatepickerComponent
   implements AgEditorComponent, AfterViewInit {
   public value: Date;
 
-  @ViewChild('picker')
+  @ViewChild('picker', { static: true })
   private bsDatepickerElement: BsDatepickerDirective;
   private api: GridApi;
 
