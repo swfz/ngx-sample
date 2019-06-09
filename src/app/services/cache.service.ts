@@ -6,7 +6,6 @@ import {
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
-import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { HttpParams } from '@angular/common/http';
 
 export class Hero {
@@ -109,7 +108,7 @@ export class CacheService {
   }
 
   private formatGetParams(conditions: any) {
-    const paramsOptions = <HttpParamsOptions>{ fromObject: conditions };
+    const paramsOptions = { fromObject: conditions };
     const params = new HttpParams(paramsOptions);
 
     return { params: params };

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { HttpParamsOptions } from '../../../node_modules/@angular/common/http/src/params';
 import { concatMap, scan, tap } from 'rxjs/operators';
 
 export class User {
@@ -54,7 +53,7 @@ export class ApiSampleService {
     const condition = { userId: user.id.toString() };
     const albums = await this.http
       .get<Album[]>(apiUrl, {
-        params: new HttpParams(<HttpParamsOptions>{ fromObject: condition })
+        params: new HttpParams({ fromObject: condition })
       })
       .toPromise();
 
@@ -73,7 +72,7 @@ export class ApiSampleService {
     const condition = { albumId: album.id.toString() };
     return this.http
       .get<Photo[]>(apiUrl, {
-        params: new HttpParams(<HttpParamsOptions>{ fromObject: condition })
+        params: new HttpParams({ fromObject: condition })
       })
       .pipe(
         concatMap(photos => {
