@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@angular-builders/jest@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/@angular-builders/jest/-/jest-7.4.2.tgz#69bffcc0ab7c0879f0ca6db6f12bd36f4017b404"
+"@angular-builders/jest@7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@angular-builders/jest/-/jest-7.4.4.tgz#c514e32c31b88e39c7b96b5850f183e84bd79913"
   dependencies:
     jest-preset-angular "^7.0.1"
     lodash "^4.17.10"
