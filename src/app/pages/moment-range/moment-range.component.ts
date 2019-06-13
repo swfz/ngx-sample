@@ -10,11 +10,11 @@ const moment = extendMoment(m);
   styleUrls: ['./moment-range.component.scss']
 })
 export class MomentRangeComponent implements OnInit {
-  public range1: DateRange;
-  public range2: DateRange;
-  public range3: DateRange;
-  public isOverlap1and2: boolean;
-  public isOverlap2and3: boolean;
+  public range1!: DateRange;
+  public range2!: DateRange;
+  public range3!: DateRange;
+  public isOverlap1and2!: boolean;
+  public isOverlap2and3!: boolean;
 
   constructor() {}
 

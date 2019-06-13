@@ -1,6 +1,15 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ColDef, GridOptions } from 'ag-grid-community';
 
+interface GridRow {
+  accountId: number;
+  name: string;
+  category: string;
+  score1: number;
+  score2: number;
+  rate: number;
+}
+
 @Component({
   selector: 'app-non-scroll-grid',
   templateUrl: './non-scroll-grid.component.html',
@@ -8,13 +17,13 @@ import { ColDef, GridOptions } from 'ag-grid-community';
 })
 export class NonScrollGridComponent implements OnInit {
   public gridOptions: GridOptions;
-  public columnDefs: ColDef[];
   public gridRows: any;
 
-  constructor() {}
+  constructor() {
+    this.gridOptions = {};
+  }
 
   ngOnInit() {
-    this.gridOptions = <GridOptions>{};
     this.gridRows = this.getDummyGridRows();
     this.gridOptions.defaultColDef = {
       sortable: true,
@@ -22,17 +31,16 @@ export class NonScrollGridComponent implements OnInit {
     };
   }
 
-  onGridReady(params) {
+  onGridReady() {
     // TODO: 動かなくなったので後で修正
     // params.api.setDomLayout('print');
   }
 
-  private getDummyGridRows() {
-    const categories = ['hoge', 'fuga', 'piyo'];
-
-    return Array.apply(null, { length: 100 })
+  private getDummyGridRows(): GridRow[]  {
+    const categories = ['hoge', 'fuga', 'piyo'] as const;
+    return Array.apply(null, new Array(100))
       .map(Number.call, Number)
-      .map(n => {
+      .map((n: number) => {
         const s1 = Math.floor(Math.random() * 1000);
         const s2 = Math.floor(Math.random() * 100);
         return {

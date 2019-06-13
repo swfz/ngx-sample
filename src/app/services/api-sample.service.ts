@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { concatMap, scan, tap } from 'rxjs/operators';
+import { BehaviorSubject, of } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 
-export class User {
+export interface User {
   id: number;
   name: string;
   username: string;
 }
-export class Album {
+export interface Album {
   id: number;
   userId: number;
   title: string;
   photos: Photo[];
 }
-export class Photo {
+export interface Photo {
   id: number;
   albumId: number;
   title: string;

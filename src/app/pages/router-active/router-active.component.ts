@@ -7,16 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./router-active.component.scss']
 })
 export class RouterActiveComponent implements OnInit {
-  public piyoId: number;
-  public currentPath: string;
+  public piyoId!: number;
+  public currentPath!: string;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.piyoId = 0;
+    this.currentPath = this.router.url;
   }
 
-  public incrementPiyoId(event) {
+  public incrementPiyoId(): void {
     this.piyoId += 1;
   }
 }
