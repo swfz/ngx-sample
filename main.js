@@ -813,7 +813,9 @@ var AgGridCellEditorDatepickerComponent = /** @class */ (function () {
     }
     AgGridCellEditorDatepickerComponent.prototype.agInit = function (params) {
         this.value = moment_moment__WEBPACK_IMPORTED_MODULE_1__(params.value).toDate();
-        this.api = params.api;
+        if (params.api) {
+            this.api = params.api;
+        }
     };
     AgGridCellEditorDatepickerComponent.prototype.ngAfterViewInit = function () {
         console.log('afterViewInit');
@@ -826,7 +828,9 @@ var AgGridCellEditorDatepickerComponent = /** @class */ (function () {
         // TODO: 同じ値を選択した場合自動で閉じられない
         if (this.getValue() !== moment_moment__WEBPACK_IMPORTED_MODULE_1__(event).format('YYYY-MM-DD')) {
             this.value = event;
-            this.api.stopEditing(false);
+            if (this.api) {
+                this.api.stopEditing(false);
+            }
         }
     };
     AgGridCellEditorDatepickerComponent.prototype.onHidden = function (event) {
@@ -2770,7 +2774,7 @@ var styles_NonScrollGridComponent = [_non_scroll_grid_component_scss_shim_ngstyl
 var RenderType_NonScrollGridComponent = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵcrt"]({ encapsulation: 0, styles: styles_NonScrollGridComponent, data: {} });
 
 function View_NonScrollGridComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 24, "div", [["class", "content"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 0, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](2, 16777216, null, null, 22, "ag-grid-angular", [["class", "ag-theme-balham"], ["style", "width: 100%; height: 100%;"], ["suppressMenuHide", ""]], null, [[null, "gridReady"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("gridReady" === en)) {
-        var pd_0 = (_co.onGridReady($event) !== false);
+        var pd_0 = (_co.onGridReady() !== false);
         ad = (pd_0 && ad);
     } return ad; }, _node_modules_ag_grid_angular_dist_agGridAngular_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_AgGridAngular_0"], _node_modules_ag_grid_angular_dist_agGridAngular_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_AgGridAngular"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵprd"](512, null, ag_grid_angular_dist_angularFrameworkOverrides__WEBPACK_IMPORTED_MODULE_3__["AngularFrameworkOverrides"], ag_grid_angular_dist_angularFrameworkOverrides__WEBPACK_IMPORTED_MODULE_3__["AngularFrameworkOverrides"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵprd"](512, null, ag_grid_angular_dist_angularFrameworkComponentWrapper__WEBPACK_IMPORTED_MODULE_4__["AngularFrameworkComponentWrapper"], ag_grid_angular_dist_angularFrameworkComponentWrapper__WEBPACK_IMPORTED_MODULE_4__["AngularFrameworkComponentWrapper"], []), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](5, 4898816, [["groupingGrid", 4]], 1, ag_grid_angular_dist_agGridAngular__WEBPACK_IMPORTED_MODULE_5__["AgGridAngular"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], ag_grid_angular_dist_angularFrameworkOverrides__WEBPACK_IMPORTED_MODULE_3__["AngularFrameworkOverrides"], ag_grid_angular_dist_angularFrameworkComponentWrapper__WEBPACK_IMPORTED_MODULE_4__["AngularFrameworkComponentWrapper"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"]], { gridOptions: [0, "gridOptions"], rowData: [1, "rowData"], suppressMenuHide: [2, "suppressMenuHide"] }, { gridReady: "gridReady" }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 1, { columns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](7, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](8, 49152, [[2, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 2, { childColumns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](10, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](11, 49152, [[3, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 3, { childColumns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](13, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](14, 49152, [[4, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 4, { childColumns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](16, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](17, 49152, [[5, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 5, { childColumns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](19, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](20, 49152, [[6, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 6, { childColumns: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](22, 0, null, null, 2, "ag-grid-column", [], null, null, null, _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_AgGridColumn_0"], _node_modules_ag_grid_angular_dist_agGridColumn_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_AgGridColumn"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](23, 49152, [[7, 4], [1, 4]], 1, ag_grid_angular_dist_agGridColumn__WEBPACK_IMPORTED_MODULE_7__["AgGridColumn"], [], { headerName: [0, "headerName"], field: [1, "field"], filter: [2, "filter"], width: [3, "width"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 7, { childColumns: 1 })], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.gridOptions; var currVal_1 = _co.gridRows; var currVal_2 = ""; _ck(_v, 5, 0, currVal_0, currVal_1, currVal_2); var currVal_3 = "\u30A2\u30AB\u30A6\u30F3\u30C8ID"; var currVal_4 = "accountId"; var currVal_5 = "text"; var currVal_6 = 130; _ck(_v, 8, 0, currVal_3, currVal_4, currVal_5, currVal_6); var currVal_7 = "\u30A2\u30AB\u30A6\u30F3\u30C8\u540D"; var currVal_8 = "name"; var currVal_9 = "text"; var currVal_10 = 150; _ck(_v, 11, 0, currVal_7, currVal_8, currVal_9, currVal_10); var currVal_11 = "\u30AB\u30C6\u30B4\u30EA"; var currVal_12 = "category"; var currVal_13 = "text"; var currVal_14 = 130; _ck(_v, 14, 0, currVal_11, currVal_12, currVal_13, currVal_14); var currVal_15 = "\u30B9\u30B3\u30A21"; var currVal_16 = "score1"; var currVal_17 = "number"; var currVal_18 = 130; _ck(_v, 17, 0, currVal_15, currVal_16, currVal_17, currVal_18); var currVal_19 = "\u30B9\u30B3\u30A22"; var currVal_20 = "score2"; var currVal_21 = "number"; var currVal_22 = 130; _ck(_v, 20, 0, currVal_19, currVal_20, currVal_21, currVal_22); var currVal_23 = "\u30EC\u30FC\u30C8"; var currVal_24 = "rate"; var currVal_25 = "number"; var currVal_26 = 130; _ck(_v, 23, 0, currVal_23, currVal_24, currVal_25, currVal_26); }, null); }
 function View_NonScrollGridComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-non-scroll-grid", [], null, null, null, View_NonScrollGridComponent_0, RenderType_NonScrollGridComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _non_scroll_grid_component__WEBPACK_IMPORTED_MODULE_8__["NonScrollGridComponent"], [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
@@ -2813,32 +2817,34 @@ var styles = [".content[_ngcontent-%COMP%] {\n  height: calc(100% - 10px);\n  pa
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NonScrollGridComponent", function() { return NonScrollGridComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ag_grid_community__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ag-grid-community */ "./node_modules/ag-grid-community/main.js");
+/* harmony import */ var ag_grid_community__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ag_grid_community__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var NonScrollGridComponent = /** @class */ (function () {
     function NonScrollGridComponent() {
+        this.gridOptions = {};
     }
     NonScrollGridComponent.prototype.ngOnInit = function () {
-        this.gridOptions = {};
         this.gridRows = this.getDummyGridRows();
         this.gridOptions.defaultColDef = {
             sortable: true,
             filter: true
         };
     };
-    NonScrollGridComponent.prototype.onGridReady = function (params) {
+    NonScrollGridComponent.prototype.onGridReady = function () {
         // TODO: 動かなくなったので後で修正
         // params.api.setDomLayout('print');
     };
     NonScrollGridComponent.prototype.getDummyGridRows = function () {
         var categories = ['hoge', 'fuga', 'piyo'];
-        return Array.apply(null, { length: 100 })
-            .map(Number.call, Number)
-            .map(function (n) {
+        var dummyArray = new Array(100).fill(1);
+        return dummyArray.map(function (n, i) {
             var s1 = Math.floor(Math.random() * 1000);
             var s2 = Math.floor(Math.random() * 100);
             return {
-                accountId: n,
-                name: "\u30C6\u30B9\u30C8\u30A2\u30AB\u30A6\u30F3\u30C8" + n,
+                accountId: i,
+                name: "\u30C6\u30B9\u30C8\u30A2\u30AB\u30A6\u30F3\u30C8" + i,
                 category: categories[Math.floor(Math.random() * categories.length)],
                 score1: s1,
                 score2: s2,
@@ -2942,24 +2948,25 @@ __webpack_require__.r(__webpack_exports__);
 var PinnedRowComponent = /** @class */ (function () {
     function PinnedRowComponent() {
         this.gridOptions = {};
-        this.pinnedTopRowData = [{}];
+        this.pinnedTopRowData = [];
     }
     PinnedRowComponent.prototype.ngOnInit = function () {
         this.gridRows = this.getDummyGridRows();
     };
     PinnedRowComponent.prototype.ngAfterViewInit = function () {
-        this.gridOptions.api.setPinnedTopRowData(this.getDummyPinnedTopRowData());
+        if (this.gridOptions.api) {
+            this.gridOptions.api.setPinnedTopRowData(this.getDummyPinnedTopRowData());
+        }
     };
     PinnedRowComponent.prototype.getDummyGridRows = function () {
         var categories = ['hoge', 'fuga', 'piyo'];
-        return Array.apply(null, { length: 100 })
-            .map(Number.call, Number)
-            .map(function (n) {
+        var dummyArray = new Array(100).fill(1);
+        return dummyArray.map(function (n, i) {
             var s1 = Math.floor(Math.random() * 1000);
             var s2 = Math.floor(Math.random() * 100);
             return {
-                accountId: n,
-                name: "\u30C6\u30B9\u30C8\u30A2\u30AB\u30A6\u30F3\u30C8" + n,
+                accountId: i,
+                name: "\u30C6\u30B9\u30C8\u30A2\u30AB\u30A6\u30F3\u30C8" + i,
                 category: categories[Math.floor(Math.random() * categories.length)],
                 score1: s1,
                 score2: s2,
@@ -3479,7 +3486,7 @@ function View_RouterActiveComponent_0(_l) { return _angular_core__WEBPACK_IMPORT
         var pd_0 = (_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 63).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](63, 671744, [[12, 4]], 0, _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"]], { queryParams: [0, "queryParams"], routerLink: [1, "routerLink"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵpod"](64, { piyo_id: 0 }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵpad"](65, 2), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](66, 1720320, null, 2, _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"], [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], [2, _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLink"]], [2, _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]]], { routerLinkActive: [0, "routerLinkActive"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 11, { links: 1 }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 12, { linksWithHrefs: 1 }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, [" fuga "])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](70, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](71, null, ["(", ")"])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](72, 0, null, null, 6, "div", [["class", "content"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](73, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, ["\u30B3\u30F3\u30C6\u30F3\u30C4"])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](75, 0, null, null, 1, "button", [["class", "btn-sm btn-info"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.incrementPiyoId($event) !== false);
+        var pd_0 = (_co.incrementPiyoId() !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, [" PiyoID\u3092increment "])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](77, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](78, null, ["", ""]))], function (_ck, _v) { var _co = _v.component; var currVal_2 = _ck(_v, 9, 0, "/routerlink"); _ck(_v, 8, 0, currVal_2); var currVal_6 = _ck(_v, 19, 0, "/routerlink", "hoge"); _ck(_v, 18, 0, currVal_6); var currVal_10 = _ck(_v, 29, 0, _co.piyoId); var currVal_11 = _ck(_v, 30, 0, "/routerlink", "fuga"); _ck(_v, 28, 0, currVal_10, currVal_11); var currVal_15 = _ck(_v, 44, 0, "/routerlink"); _ck(_v, 43, 0, currVal_15); var currVal_16 = "is-active"; _ck(_v, 45, 0, currVal_16); var currVal_20 = _ck(_v, 54, 0, "/routerlink", "hoge"); _ck(_v, 53, 0, currVal_20); var currVal_21 = "is-active"; _ck(_v, 55, 0, currVal_21); var currVal_25 = _ck(_v, 64, 0, _co.piyoId); var currVal_26 = _ck(_v, 65, 0, "/routerlink", "fuga"); _ck(_v, 63, 0, currVal_25, currVal_26); var currVal_27 = "is-active"; _ck(_v, 66, 0, currVal_27); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 8).target; var currVal_1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 8).href; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 7).href; _ck(_v, 15, 0, currVal_3); var currVal_4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 18).target; var currVal_5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 18).href; _ck(_v, 17, 0, currVal_4, currVal_5); var currVal_7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 17).href; _ck(_v, 25, 0, currVal_7); var currVal_8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 28).target; var currVal_9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 28).href; _ck(_v, 27, 0, currVal_8, currVal_9); var currVal_12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 27).href; _ck(_v, 36, 0, currVal_12); var currVal_13 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 43).target; var currVal_14 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 43).href; _ck(_v, 42, 0, currVal_13, currVal_14); var currVal_17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 42).href; _ck(_v, 50, 0, currVal_17); var currVal_18 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 53).target; var currVal_19 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 53).href; _ck(_v, 52, 0, currVal_18, currVal_19); var currVal_22 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 52).href; _ck(_v, 60, 0, currVal_22); var currVal_23 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 63).target; var currVal_24 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 63).href; _ck(_v, 62, 0, currVal_23, currVal_24); var currVal_28 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 62).href; _ck(_v, 71, 0, currVal_28); var currVal_29 = _co.currentPath; _ck(_v, 78, 0, currVal_29); }); }
 function View_RouterActiveComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-router-active", [], null, null, null, View_RouterActiveComponent_0, RenderType_RouterActiveComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _router_active_component__WEBPACK_IMPORTED_MODULE_5__["RouterActiveComponent"], [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
@@ -3531,8 +3538,9 @@ var RouterActiveComponent = /** @class */ (function () {
     }
     RouterActiveComponent.prototype.ngOnInit = function () {
         this.piyoId = 0;
+        this.currentPath = this.router.url;
     };
-    RouterActiveComponent.prototype.incrementPiyoId = function (event) {
+    RouterActiveComponent.prototype.incrementPiyoId = function () {
         this.piyoId += 1;
     };
     return RouterActiveComponent;
@@ -4672,14 +4680,11 @@ var NumberInputPipe = /** @class */ (function () {
 /*!************************************************!*\
   !*** ./src/app/services/api-sample.service.ts ***!
   \************************************************/
-/*! exports provided: User, Album, Photo, ApiSampleService */
+/*! exports provided: ApiSampleService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Album", function() { return Album; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Photo", function() { return Photo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiSampleService", function() { return ApiSampleService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
@@ -4691,24 +4696,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
-}());
-
-var Album = /** @class */ (function () {
-    function Album() {
-    }
-    return Album;
-}());
-
-var Photo = /** @class */ (function () {
-    function Photo() {
-    }
-    return Photo;
-}());
 
 var ApiSampleService = /** @class */ (function () {
     function ApiSampleService(http) {
