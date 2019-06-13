@@ -36,20 +36,20 @@ export class NonScrollGridComponent implements OnInit {
     // params.api.setDomLayout('print');
   }
 
-  private getDummyGridRows(): GridRow[]  {
+  private getDummyGridRows(): GridRow[] {
     const categories = ['hoge', 'fuga', 'piyo'] as const;
     const dummyArray: number[] = new Array(100).fill(1);
     return dummyArray.map((n: number, i: number) => {
-        const s1 = Math.floor(Math.random() * 1000);
-        const s2 = Math.floor(Math.random() * 100);
-        return {
-          accountId: i,
-          name: `テストアカウント${i}`,
-          category: categories[Math.floor(Math.random() * categories.length)],
-          score1: s1,
-          score2: s2,
-          rate: Math.round((s2 / s1) * 100) / 100
-        };
-      });
+      const s1 = Math.floor(Math.random() * 1000);
+      const s2 = Math.floor(Math.random() * 100);
+      return {
+        accountId: i,
+        name: `テストアカウント${i}`,
+        category: categories[Math.floor(Math.random() * categories.length)],
+        score1: s1,
+        score2: s2,
+        rate: Math.round((s2 / s1) * 100) / 100
+      };
+    });
   }
 }
