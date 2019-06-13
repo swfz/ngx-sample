@@ -17,8 +17,8 @@ export interface IReportRow {
 })
 export class PinnedRowComponent implements OnInit, AfterViewInit {
   public gridOptions: GridOptions = {};
-  public gridRows: IReportRow[];
-  public pinnedTopRowData: any = [{}];
+  public gridRows!: IReportRow[];
+  public pinnedTopRowData: IReportRow[] = [];
 
   constructor() {}
 
@@ -27,20 +27,20 @@ export class PinnedRowComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.gridOptions.api.setPinnedTopRowData(this.getDummyPinnedTopRowData());
+    if (this.gridOptions.api) {
+      this.gridOptions.api.setPinnedTopRowData(this.getDummyPinnedTopRowData());
+    }
   }
 
-  private getDummyGridRows() {
+  private getDummyGridRows(): IReportRow[] {
     const categories = ['hoge', 'fuga', 'piyo'];
-
-    return Array.apply(null, { length: 100 })
-      .map(Number.call, Number)
-      .map(n => {
+    const dummyArray: number[] = new Array(100).fill(1);
+    return dummyArray.map((n: number, i: number) => {
         const s1 = Math.floor(Math.random() * 1000);
         const s2 = Math.floor(Math.random() * 100);
-        return <IReportRow>{
-          accountId: n,
-          name: `テストアカウント${n}`,
+        return {
+          accountId: i,
+          name: `テストアカウント${i}`,
           category: categories[Math.floor(Math.random() * categories.length)],
           score1: s1,
           score2: s2,
