@@ -12,17 +12,19 @@ import { AgEditorComponent } from 'ag-grid-angular';
 })
 export class AgGridCellEditorDatepickerComponent
   implements AgEditorComponent, AfterViewInit {
-  public value: Date;
+  public value!: Date;
 
   @ViewChild('picker', { static: true })
-  private bsDatepickerElement: BsDatepickerDirective;
-  private api: GridApi;
+  private bsDatepickerElement!: BsDatepickerDirective;
+  private api?: GridApi;
 
   constructor() {}
 
   agInit(params: ICellEditorParams): void {
     this.value = moment(params.value).toDate();
-    this.api = params.api;
+    if (params.api) {
+      this.api = params.api;
+    }
   }
 
   ngAfterViewInit() {
@@ -38,7 +40,9 @@ export class AgGridCellEditorDatepickerComponent
     // TODO: 同じ値を選択した場合自動で閉じられない
     if (this.getValue() !== moment(event).format('YYYY-MM-DD')) {
       this.value = event;
-      this.api.stopEditing(false);
+      if (this.api) {
+        this.api.stopEditing(false);
+      }
     }
   }
 
