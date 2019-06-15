@@ -4916,6 +4916,7 @@ var PollingService = /** @class */ (function () {
         }
     };
     PollingService.prototype.inProgress = function (res) {
+        console.log(res);
         var isStatusResponse = function (r) {
             return r.url === undefined;
         };
