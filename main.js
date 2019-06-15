@@ -1242,8 +1242,8 @@ var RouterPathActiveDirective = /** @class */ (function () {
         this.element = element;
         this.renderer = renderer;
         this.classes = [];
-        this.subscription = router.events.subscribe(function (s) {
-            if (s instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
+        this.subscription = router.events.subscribe(function (value) {
+            if (value instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
                 _this.update();
             }
         });
