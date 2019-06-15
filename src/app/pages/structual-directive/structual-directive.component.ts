@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./structual-directive.component.scss']
 })
 export class StructualDirectiveComponent implements OnInit {
-  public hash: any;
+  public hash!: { [key: string]: string };
   constructor() {}
 
   ngOnInit() {
@@ -21,6 +21,6 @@ export class StructualDirectiveComponent implements OnInit {
     this.hash = Object.keys(this.hash).reduce((acc, cur) => {
       acc[cur] = `${this.hash[cur]}_`;
       return acc;
-    }, {});
+    }, this.hash);
   }
 }

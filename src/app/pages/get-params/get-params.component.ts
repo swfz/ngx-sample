@@ -23,11 +23,10 @@ export class GetParamsComponent implements OnInit {
   countUp(): void {
     this.count = this.count + 1;
     const route = this._activatedRoute.routeConfig;
-    if (!route) {
-      return;
+    if (route) {
+      this._router.navigate([route.path], {
+        queryParams: { count: this.count }
+      });
     }
-    this._router.navigate([route.path], {
-      queryParams: { count: this.count }
-    });
   }
 }
