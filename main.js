@@ -3600,9 +3600,6 @@ var RxjsComponent = /** @class */ (function () {
     RxjsComponent.prototype.distinct = function (a, b) {
         return a[1][1].value === b[1][1].value;
     };
-    RxjsComponent.prototype.onKeyup = function () {
-        console.log(this.text.nativeElement.value);
-    };
     RxjsComponent.prototype.from = function () {
         Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["from"])([1, 2, 3]).subscribe(function (value) { return console.log("value: " + value); }, function (error) { return console.log("error " + error); }, function () { return console.log('completed'); });
     };
@@ -3624,9 +3621,10 @@ var RxjsComponent = /** @class */ (function () {
         this.events$.next({ type: type });
     };
     RxjsComponent.prototype.onInputEvent = function (e) {
-        // console.log(e);
-        // console.log(e.target.value);
-        this.inputTexts$.next({ value: e.target.value });
+        if (e.target) {
+            var input = e.target; // やむを得ずキャストしている
+            this.inputTexts$.next({ value: input.value });
+        }
     };
     RxjsComponent.prototype.sleep = function (ms) {
         // setTimeout(console.log('timeout'), ms);
