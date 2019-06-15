@@ -5,7 +5,7 @@ import { DecimalPipe } from '@angular/common';
   name: 'numberInput'
 })
 export class NumberInputPipe implements PipeTransform {
-  transform(value: string, digits?: string): string {
+  transform(value: string, digits?: string): string | null {
     if (digits) {
       return new DecimalPipe('en').transform(value, digits);
     } else {
