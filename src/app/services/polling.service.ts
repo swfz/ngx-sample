@@ -76,7 +76,8 @@ export class PollingService {
     }
   }
 
-  private inProgress(res: IStatusResponse | IUrlResponse): boolean {
+  private inProgress(res: IStatus): boolean {
+    console.log(res);
     const isStatusResponse = (r: any): r is IStatusResponse => {
       return r.url === undefined;
     };
@@ -84,7 +85,7 @@ export class PollingService {
     return isStatusResponse(res) ? res.status === 'progress' : false;
   }
 
-  private downloadFile(res: IStatusResponse | IUrlResponse): void {
+  private downloadFile(res: IStatus): void {
     const isUrlResponse = (r: any): r is IUrlResponse => {
       return r.url !== undefined;
     };
