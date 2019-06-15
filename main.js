@@ -1939,6 +1939,7 @@ var BindBetweenWindowComponent = /** @class */ (function () {
         this.componentFactoryResolver = componentFactoryResolver;
     }
     BindBetweenWindowComponent.prototype.ngOnInit = function () {
+        this.inputText = '';
         this.hash = { value: '' };
     };
     BindBetweenWindowComponent.prototype.openWindow = function () {
@@ -1948,13 +1949,13 @@ var BindBetweenWindowComponent = /** @class */ (function () {
         var defaultNode = defaultDiv.appendChild(document.createTextNode('New Window!!!'));
         var inputTextDiv = document.createElement('div');
         var inputTextNode = inputTextDiv.appendChild(document.createTextNode(this.inputText));
-        this.w.document.body.appendChild(defaultNode);
-        this.w.document.body.appendChild(inputTextNode);
+        if (this.w) {
+            this.w.document.body.appendChild(defaultNode);
+            this.w.document.body.appendChild(inputTextNode);
+        }
     };
     BindBetweenWindowComponent.prototype.openComponentWindow = function () {
         this.w = window.open('', '_blank', 'toolbar=0,width=300,height=200');
-        console.log(this.w);
-        console.log(this.w.document.body);
         var factory = this.componentFactoryResolver.resolveComponentFactory(_child_window_child_window_component__WEBPACK_IMPORTED_MODULE_1__["ChildWindowComponent"]);
         this.childComponentRef = this.viewContainerRef.createComponent(factory);
         this.childComponentRef.instance.hash = this.hash;
@@ -1964,7 +1965,9 @@ var BindBetweenWindowComponent = /** @class */ (function () {
         this.hash.value = event;
     };
     BindBetweenWindowComponent.prototype.closeWindow = function () {
-        this.w.close();
+        if (this.w) {
+            this.w.close();
+        }
     };
     return BindBetweenWindowComponent;
 }());
@@ -4712,12 +4715,11 @@ var ApiSampleService = /** @class */ (function () {
 /*!*******************************************!*\
   !*** ./src/app/services/cache.service.ts ***!
   \*******************************************/
-/*! exports provided: Hero, CacheService */
+/*! exports provided: CacheService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hero", function() { return Hero; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CacheService", function() { return CacheService; });
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
@@ -4729,17 +4731,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Hero = /** @class */ (function () {
-    function Hero() {
-    }
-    return Hero;
-}());
-
 var CacheService = /** @class */ (function () {
     function CacheService(http) {
         this.http = http;
         this._heroes$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"]([]);
-        this._hero$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
+        this._hero$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"]({});
         var headers = {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
@@ -4789,7 +4785,7 @@ var CacheService = /** @class */ (function () {
             return;
         }
         this.http.get(apiUrl, this.options).subscribe(function (_) {
-            if (isHero(_)) {
+            if (isHero(_) && _.id) {
                 _this._hero$.next(_);
                 _this._cachedHero[_.id] = _;
             }
