@@ -50,7 +50,6 @@ import { RouterActiveComponent } from './pages/router-active/router-active.compo
 import { RouterPathActiveDirective } from './directives/router-path-active.directive';
 import { AgGridCellEditorDatepickerComponent } from './components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import { AgGridReactiveColumndefComponent } from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
-import { MarbleDiagramComponent } from './pages/marble-diagram/marble-diagram.component';
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
 import { ChildWindowComponent } from './pages/child-window/child-window.component';
 import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
@@ -93,7 +92,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HashKeysDirective,
     RouterActiveComponent,
     RouterPathActiveDirective,
-    MarbleDiagramComponent,
     AgGridCellEditorDatepickerComponent,
     AgGridReactiveColumndefComponent,
     BindBetweenWindowComponent,

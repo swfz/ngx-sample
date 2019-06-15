@@ -23,7 +23,6 @@ import { AgGridFlexBoxComponent } from './pages/ag-grid-flex-box/ag-grid-flex-bo
 import { StructualDirectiveComponent } from 'app/pages/structual-directive/structual-directive.component';
 import { RouterActiveComponent } from './pages/router-active/router-active.component';
 import { AgGridReactiveColumndefComponent } from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
-// import {MarbleDiagramComponent} from "./pages/marble-diagram/marble-diagram.component";
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
 import { ChildWindowComponent } from './pages/child-window/child-window.component';
 import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
@@ -53,7 +52,6 @@ const appRoutes: Routes = [
   { path: 'chartjs', component: ChartjsComponent },
   // { path: 'google', component: GoogleOauthComponent},
   { path: 'structual_directive', component: StructualDirectiveComponent },
-  // { path: 'marble_diagram', component: MarbleDiagramComponent},
   { path: 'grid/reactive', component: AgGridReactiveColumndefComponent },
   { path: 'window', component: BindBetweenWindowComponent },
   { path: 'child-window', component: ChildWindowComponent },
