@@ -38,7 +38,6 @@ import { TileSelectorComponent } from './components/tile-selector/tile-selector.
 import { CustomSelectorComponent } from './components/custom-selector/custom-selector.component';
 import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
 import { TableInputModule } from './components/table-input/table-input.module';
-import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
 import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
 import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
 import { PollingJobComponent } from './pages/polling-job/polling-job.component';
@@ -84,7 +83,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TileSelectorComponent,
     CustomSelectorComponent,
     CustomComponentComponent,
-    GroupingGridComponent,
     ViewchildrenComponent,
     PinnedRowComponent,
     PollingJobComponent,
