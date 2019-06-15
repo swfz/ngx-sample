@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import * as _ from 'lodash';
 
 @Pipe({
   name: 'numberInput'
