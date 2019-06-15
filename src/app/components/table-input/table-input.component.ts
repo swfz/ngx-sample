@@ -1,6 +1,9 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
+type RowValue = boolean[];
+type CheckValues = RowValue[];
+
 export const TABLE_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   // tslint:disable-next-line:no-use-before-declare
@@ -17,20 +20,20 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   private _onChange: any = Function.prototype;
   private _onTouched: any = Function.prototype;
 
-  public value: any;
-  public _value: any = [];
+  public value!: any;
+  public _value!: any = [];
 
   @Input()
-  rows: number;
+  rows!: number;
   @Input()
-  cols: number;
+  cols!: number;
   @Input()
-  rowLabels: string[];
+  rowLabels!: string[];
   @Input()
-  colLabels: string[];
+  colLabels!: string[];
 
-  public rowRange: number[];
-  public colRange: number[];
+  public rowRange!: number[];
+  public colRange!: number[];
 
   constructor() {}
 
@@ -61,14 +64,15 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
     this._onTouched = fn;
   }
 
-  check(r, c) {
+  check(r: number, c: number) {
     this._value[r][c] = !this._value[r][c];
 
     this.writeValue(this._value);
     this._onChange(this._value);
   }
 
-  colCheck(c) {
+  colCheck(c: number) {
+    console.log(this._value);
     const isAllColChecked = this._value.every(r => r[c]);
     this._value.map(row => {
       row[c] = !isAllColChecked;
@@ -78,7 +82,7 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
     this._onChange(this._value);
   }
 
-  rowCheck(r) {
+  rowCheck(r: number) {
     const isAllRowChecked = this._value[r].every(c => c === true);
     this._value[r] = this._value[r].map(_ => !isAllRowChecked);
 
