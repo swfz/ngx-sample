@@ -6,15 +6,16 @@ import * as _ from 'lodash';
   name: 'numberInput'
 })
 export class NumberInputPipe implements PipeTransform {
-  transform(value: string | number, digits?: string): string {
-    if (_.isNumber(value)) {
-      if (digits) {
-        return new DecimalPipe('en').transform(value, digits) || '';
-      } else {
-        return new DecimalPipe('en').transform(value, '1.0-0') || '';
-      }
+  transform(value: string, digits?: string): string {
+    const parsedValue: number = parseInt(value, 10);
+    if (isNaN(parsedValue)) {
+      return value;
     }
-    return '';
+    if (digits) {
+      return new DecimalPipe('en').transform(value, digits) || value;
+    } else {
+      return new DecimalPipe('en').transform(value, '1.0-0') || value;
+    }
   }
 
   parse(value: string): string {
