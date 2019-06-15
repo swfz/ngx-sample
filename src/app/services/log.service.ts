@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 export interface Log {
   level?: string;
-  message?: string | undefined;
+  message?: string | null | undefined;
   key?: string;
   data?: unknown;
 }

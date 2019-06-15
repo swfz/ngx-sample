@@ -13,6 +13,7 @@ import {
 import {
   NavigationEnd,
   Router,
+  Event,
   RouterEvent,
   RouterLink,
   RouterLinkWithHref,
@@ -26,22 +27,22 @@ import { Subscription } from 'rxjs';
 export class RouterPathActiveDirective
   implements AfterContentInit, OnChanges, OnDestroy {
   @ContentChildren(RouterLink, { descendants: true })
-  links: QueryList<RouterLink>; // aタグ以外でのリンク要素
+  links!: QueryList<RouterLink>; // aタグ以外でのリンク要素
   @ContentChildren(RouterLinkWithHref, { descendants: true })
-  linksWithHrefs: QueryList<RouterLinkWithHref>; // aタグでのリンク要素
+  linksWithHrefs!: QueryList<RouterLinkWithHref>; // aタグでのリンク要素
 
   private classes: string[] = [];
   private subscription: Subscription;
 
-  public isActive: boolean;
+  public isActive?: boolean;
 
   constructor(
     private router: Router,
     private element: ElementRef,
     private renderer: Renderer2
   ) {
-    this.subscription = router.events.subscribe((s: RouterEvent) => {
-      if (s instanceof NavigationEnd) {
+    this.subscription = router.events.subscribe((value: Event) => {
+      if (value instanceof NavigationEnd) {
         this.update();
       }
     });
@@ -108,7 +109,7 @@ export class RouterPathActiveDirective
     };
   }
 
-  private hasActiveLinks(currentSegments): boolean {
+  private hasActiveLinks(currentSegments: UrlSegment[]): boolean {
     return (
       this.links.some(this.isLinkActive(currentSegments)) ||
       this.linksWithHrefs.some(this.isLinkActive(currentSegments))
