@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
 
-export class Hero {
-  id: number;
-  name: string;
+export interface Hero {
+  id?: number;
+  name?: string;
 }
 
 @Injectable({
@@ -25,11 +25,11 @@ export class CacheService {
   }
 
   private _heroes$ = new BehaviorSubject<Hero[]>([]);
-  private _hero$ = new BehaviorSubject<Hero>(null);
+  private _hero$ = new BehaviorSubject<Hero>({});
   public options: any;
 
   private _cachedHero: { [key: number]: Hero };
-  private _users: Observable<any>;
+  private _users!: Observable<any>;
 
   constructor(private http: HttpClient) {
     const headers = {
@@ -72,7 +72,7 @@ export class CacheService {
     }
 
     this.http.get<Hero>(apiUrl, this.options).subscribe(_ => {
-      if (isHero(_)) {
+      if (isHero(_) && _.id) {
         this._hero$.next(_);
         this._cachedHero[_.id] = _;
       }
