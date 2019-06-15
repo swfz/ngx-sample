@@ -1056,10 +1056,10 @@ var TableInputComponent = /** @class */ (function () {
     function TableInputComponent() {
         this._onChange = Function.prototype;
         this._onTouched = Function.prototype;
-        this._value = [];
     }
     TableInputComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._value = [];
         this.rowRange = Array.from(Array(this.rows).keys());
         this.colRange = Array.from(Array(this.cols).keys());
         // this.rowLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
