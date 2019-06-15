@@ -12,7 +12,7 @@ export interface ISampleModel {
   styleUrls: ['./validation.component.scss']
 })
 export class ValidationComponent implements OnInit {
-  public model: ISampleModel;
+  public model!: ISampleModel;
 
   constructor() {}
 

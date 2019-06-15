@@ -1,9 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GridOptions, RowNode } from 'ag-grid-community';
 
-type hoge = Pick<keyof IReportRow>;
 export interface IReportRow {
-  accountId: number|string;
+  accountId: number | string;
   name: string;
   category: string;
   score1: number;

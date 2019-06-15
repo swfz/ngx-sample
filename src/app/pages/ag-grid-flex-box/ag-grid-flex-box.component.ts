@@ -11,7 +11,10 @@ export class AgGridFlexBoxComponent implements OnInit {
   public isMenu2Collapsed: boolean;
   public gridOptions: GridOptions = {};
   public gridRows: any;
-  constructor() {}
+  constructor() {
+    this.isMenu1Collapsed = false;
+    this.isMenu2Collapsed = false;
+  }
 
   ngOnInit() {
     this.gridRows = this.getDummyGridRows();
@@ -32,19 +35,19 @@ export class AgGridFlexBoxComponent implements OnInit {
   private getDummyGridRows() {
     const categories = ['hoge', 'fuga', 'piyo'];
 
-    return Array.apply(null, { length: 100 })
-      .map(Number.call, Number)
-      .map(n => {
-        const s1 = Math.floor(Math.random() * 1000);
-        const s2 = Math.floor(Math.random() * 100);
-        return {
-          accountId: n,
-          name: `テストアカウント${n}`,
-          category: categories[Math.floor(Math.random() * categories.length)],
-          score1: s1,
-          score2: s2,
-          rate: Math.round((s2 / s1) * 100) / 100
-        };
-      });
+    const dummyArray: number[] = new Array(100).fill(1);
+    return dummyArray.map((n: number, i: number) => {
+      const s1 = Math.floor(Math.random() * 1000);
+      const s2 = Math.floor(Math.random() * 100);
+      return {
+        accountId: i,
+        name: `テストアカウント${i}`,
+        category: categories[Math.floor(Math.random() * categories.length)],
+        score1: s1,
+        score2: s2,
+        rate: Math.round((s2 / s1) * 100) / 100
+      };
+      this.isMenu1Collapsed = false;
+    });
   }
 }
