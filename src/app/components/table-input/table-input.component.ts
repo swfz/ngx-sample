@@ -21,7 +21,7 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   private _onTouched: any = Function.prototype;
 
   public value!: any;
-  public _value!: any = [];
+  public _value!: any;
 
   @Input()
   rows!: number;
@@ -38,6 +38,7 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   constructor() {}
 
   ngOnInit() {
+    this._value = [];
     this.rowRange = Array.from(Array(this.rows).keys());
     this.colRange = Array.from(Array(this.cols).keys());
     // this.rowLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -72,9 +73,8 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   }
 
   colCheck(c: number) {
-    console.log(this._value);
-    const isAllColChecked = this._value.every(r => r[c]);
-    this._value.map(row => {
+    const isAllColChecked = this._value.every((r: boolean[]) => r[c]);
+    this._value.map((row: boolean[]) => {
       row[c] = !isAllColChecked;
     });
 
@@ -83,15 +83,15 @@ export class TableInputComponent implements OnInit, ControlValueAccessor {
   }
 
   rowCheck(r: number) {
-    const isAllRowChecked = this._value[r].every(c => c === true);
-    this._value[r] = this._value[r].map(_ => !isAllRowChecked);
+    const isAllRowChecked = this._value[r].every((c: boolean) => c === true);
+    this._value[r] = this._value[r].map((_: boolean) => !isAllRowChecked);
 
     this.writeValue(this._value);
     this._onChange(this._value);
   }
 
   allCheck() {
-    const isAllChecked = this._value.every(r => {
+    const isAllChecked = this._value.every((r: boolean[]) => {
       return r.every(c => c === true);
     });
     this.rowRange.forEach(row => {

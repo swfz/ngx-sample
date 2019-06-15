@@ -16,24 +16,24 @@ export const CUSTOM_SELECTOR_CONTROL_VALUE_ACCESSOR = {
 })
 export class CustomSelectorComponent implements OnInit, ControlValueAccessor {
   public ranges: any = [];
-  public value: number;
+  public value?: number;
 
   private _onChange: any = Function.prototype;
   private _onTouched: any = Function.prototype;
 
   @Input()
-  max: number;
+  max!: number;
 
   constructor() {}
 
   ngOnInit() {
     this.ranges = Array.from(Array(this.max).keys());
   }
-  writeValue(value: any): void {
+  writeValue(value: number): void {
     this.value = value;
   }
 
-  registerOnChange(fn: (_: any) => {}): void {
+  registerOnChange(fn: (_: number) => {}): void {
     this._onChange = fn;
   }
 
