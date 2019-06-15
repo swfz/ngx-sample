@@ -6,7 +6,13 @@ import {
   Observable,
   interval
 } from 'rxjs';
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  QueryList
+} from '@angular/core';
 import {
   bufferTime,
   distinctUntilChanged,
@@ -20,6 +26,9 @@ export interface IEvent {
   type: string;
 }
 
+type TextInputPair = [number, { value: string }];
+type TextInputTuple = [TextInputPair, TextInputPair];
+
 export interface IInputText {
   value: string;
 }
@@ -29,14 +38,14 @@ export interface IInputText {
   styleUrls: ['./rxjs.component.scss']
 })
 export class RxjsComponent implements OnInit {
-  public aaa: Observable<number>;
+  public aaa!: Observable<number>;
 
   @ViewChild('input', { static: false })
-  text;
+  text!: HTMLInputElement;
 
-  private events$: Subject<IEvent>;
-  private inputTexts$: Subject<IInputText>;
-  private interval$: Observable<any>;
+  private events$!: Subject<IEvent>;
+  private inputTexts$!: Subject<IInputText>;
+  private interval$!: Observable<any>;
 
   constructor() {}
 
@@ -72,19 +81,15 @@ export class RxjsComponent implements OnInit {
       });
   }
 
-  silenceValue(v) {
+  silenceValue(v: TextInputTuple): boolean {
     // 落ち着いたかどうかをチェック
     // このフィルタを通る = 入力がintervalの分だけないということ
     return v[0][1].value === v[1][1].value;
   }
 
   // ずっと同じものが流れないようにする
-  distinct(a, b) {
+  distinct(a: TextInputTuple, b: TextInputTuple): boolean {
     return a[1][1].value === b[1][1].value;
-  }
-
-  onKeyup() {
-    console.log(this.text.nativeElement.value);
   }
 
   from() {
@@ -123,14 +128,15 @@ export class RxjsComponent implements OnInit {
     );
   }
 
-  clickEvent(type) {
+  clickEvent(type: 'hoge' | 'fuga') {
     this.events$.next({ type: type });
   }
 
-  onInputEvent(e) {
-    // console.log(e);
-    // console.log(e.target.value);
-    this.inputTexts$.next({ value: e.target.value });
+  onInputEvent(e: KeyboardEvent) {
+    if (e.target) {
+      const input: HTMLInputElement = e.target as HTMLInputElement; // やむを得ずキャストしている
+      this.inputTexts$.next({ value: input.value });
+    }
   }
 
   private sleep(ms: number) {
