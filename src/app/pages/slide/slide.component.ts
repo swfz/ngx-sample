@@ -13,7 +13,6 @@ export class SlideComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(r);
     // this.reveal.initialize({
     //   controls: true,
     // });
@@ -35,21 +34,21 @@ export class SlideComponent implements AfterViewInit {
       dependencies: [
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js',
           condition: function() {
             return !document.body.classList;
           }
         },
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.2/marked.min.js',
           condition: function() {
             return !!document.querySelector('[data-markdown]');
           }
         },
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.min.js',
           condition: function() {
             return !!document.querySelector('[data-markdown]');
           }
