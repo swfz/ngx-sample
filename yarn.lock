@@ -7895,9 +7895,9 @@ retry@^0.10.0:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
 
-reveal.js@3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.6.0.tgz#ce0e64f30cbebd6e5ce885c2f384085c5e5821e8"
+reveal.js@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.8.0.tgz#9a2818e366d46237f0e64c00f50a05f2340cd50f"
 
 rimraf@2, rimraf@^2.5.4, rimraf@^2.6.1:
   version "2.6.2"
