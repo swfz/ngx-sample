@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
-import * as r from 'reveal.js';
 
+interface RevealInWindow {
+  Reveal: any;
+}
 @Component({
   selector: 'app-slide',
   templateUrl: './slide.component.html',
@@ -9,7 +11,7 @@ import * as r from 'reveal.js';
 export class SlideComponent implements AfterViewInit {
   reveal: any;
   constructor() {
-    this.reveal = r.Reveal;
+    this.reveal = (window as Window & RevealInWindow).Reveal;
   }
 
   ngAfterViewInit() {
@@ -22,7 +24,7 @@ export class SlideComponent implements AfterViewInit {
     // this.reveal.initialize({
     //   controls: true,
     // });
-    r.initialize({
+    this.reveal.initialize({
       width: 800,
       height: 600,
       controls: true,
