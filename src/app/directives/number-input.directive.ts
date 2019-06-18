@@ -6,7 +6,7 @@ import { NumberInputPipe } from '../pipes/number-input.pipe';
 })
 export class NumberInputDirective implements OnInit {
   private element: HTMLInputElement;
-  private digits: string;
+  private digits!: string;
 
   constructor(
     private elementRef: ElementRef,
@@ -24,11 +24,11 @@ export class NumberInputDirective implements OnInit {
   }
 
   @HostListener('focus', ['$event.target.value'])
-  onFocus(value) {
+  onFocus(value: string) {
     this.element.value = this.numberInputPipe.parse(value);
   }
   @HostListener('blur', ['$event.target.value'])
-  onBlur(value) {
+  onBlur(value: string) {
     this.element.value = this.numberInputPipe.transform(value, this.digits);
   }
 }

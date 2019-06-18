@@ -18,6 +18,7 @@ export class ResponseCacheComponent {
     private cacheService: CacheService,
     private logService: LogService
   ) {
+    this.logs = [];
     this.clearLogs();
     this.logService.messages$.subscribe(log => {
       this.logs.push(log);

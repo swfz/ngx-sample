@@ -6,12 +6,12 @@ describe('NumberInputPipe', () => {
     expect(pipe).toBeTruthy();
   });
   it('900', () => {
-    expect(pipe.transform(900)).toEqual('900');
+    expect(pipe.transform('900')).toEqual('900');
   });
   it('1000', () => {
-    expect(pipe.transform(1000)).toEqual('1,000');
+    expect(pipe.transform('1000')).toEqual('1,000');
   });
   it('1000000', () => {
-    expect(pipe.transform(1000000)).toEqual('1,000,000');
+    expect(pipe.transform('1000000')).toEqual('1,000,000');
   });
 });

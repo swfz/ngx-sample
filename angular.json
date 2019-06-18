@@ -37,7 +37,6 @@
               "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
-              "node_modules/reveal.js/lib/js/head.min.js",
               "node_modules/reveal.js/js/reveal.js",
               "node_modules/chart.js/dist/Chart.js"
             ]

@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { GridOptions } from 'ag-grid-community';
+import { GridOptions, RowNode } from 'ag-grid-community';
 
 export interface IReportRow {
-  accountId: number;
+  accountId: number | string;
   name: string;
   category: string;
   score1: number;
@@ -49,13 +49,36 @@ export class PinnedRowComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private getDummyPinnedTopRowData() {
+  private getDummyPinnedTopRowData(): IReportRow[] {
+    // const summaryRow: Partial<IReportRow> = {
+    //   score1: 0,
+    //   score2: 0,
+    //   rate: 0
+    // };
+
+    // if (this.gridOptions.api) {
+    //   this.gridOptions.api.forEachNodeAfterFilter((node: RowNode) => {
+    //     const data: IReportRow = node.data;
+    //     const keys: (keyof data)[] = Object.keys(data);
+    //     keys.forEach(k => {
+    //       if (typeof data[k] === 'number') {
+    //         summaryRow[k] += node.data[k];
+    //       }
+    //     });
+    //   });
+    // }
+    // summaryRow.name = 'Total';
+    // summaryRow.category = 'Total';
+    //
+    // return [summaryRow];
+
     return [
       {
-        accountId: 6,
+        accountId: '',
         name: 'Total',
         category: 'Total',
-        score: 5550,
+        score1: 5550,
+        score2: 300,
         rate: 0.0983
       }
     ];

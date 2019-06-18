@@ -11,7 +11,7 @@ import {
 } from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 interface CheckedData {
   hoge: boolean;
@@ -31,14 +31,16 @@ interface Row {
   entryComponents: [AgGridCellEditorDatepickerComponent]
 })
 export class AgGridReactiveColumndefComponent implements OnInit {
-  public gridOptions: GridOptions;
-  public rowData: Row[];
-  public columnDefs: ColDef[];
+  public gridOptions!: GridOptions;
+  public rowData!: Row[];
+  public columnDefs!: ColDef[];
 
   constructor() {}
 
   ngOnInit() {
-    this.gridOptions = <GridOptions>{};
+    this.rowData = [];
+    this.columnDefs = [];
+    this.gridOptions = {};
     this.gridOptions.defaultColDef = {
       sortable: true,
       filter: true,
@@ -57,10 +59,17 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         field: 'startDate',
         width: 120,
         cellClassRules: {
-          'bg-danger': params => {
+          'bg-danger': (params: ICellRendererParams): boolean => {
+            const data = params.context.rowData;
             const nodeId = params.node.id;
             const field = params.colDef.field;
-            return params.value !== params.context.rowData[nodeId][field];
+            if (!field) {
+              return false;
+            }
+            if (!data) {
+              return false;
+            }
+            return params.value !== data[nodeId][field];
           }
         },
         editable: true,
@@ -100,13 +109,14 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         filter: 'agNumberColumnFilter',
         width: 100,
         cellClassRules: {
-          'bg-danger': params => {
+          'bg-danger': (params: ICellRendererParams) => {
             const nodeId = params.node.id;
             const field = params.colDef.field;
-            return (
-              parseInt(params.value, 10) !==
-              params.context.rowData[nodeId][field]
-            );
+            const value = params.context.rowData[nodeId];
+            if (!field || !value) {
+              return false;
+            }
+            return parseInt(params.value, 10) !== value[field];
           }
         },
         editable: true
@@ -199,6 +209,9 @@ export class AgGridReactiveColumndefComponent implements OnInit {
       if (typeof v !== 'object') {
         return false;
       }
+      if (!v) {
+        return false;
+      }
       return ['hoge', 'fuga', 'piyo'].every(k => v.hasOwnProperty(k));
     };
     const exportParams: CsvExportParams = {
@@ -214,10 +227,14 @@ export class AgGridReactiveColumndefComponent implements OnInit {
         }
       }
     };
-    this.gridOptions.api.exportDataAsCsv(exportParams);
+    if (this.gridOptions.api) {
+      this.gridOptions.api.exportDataAsCsv(exportParams);
+    }
   }
 
   clearFilter(): void {
-    this.gridOptions.api.setFilterModel(null);
+    if (this.gridOptions.api) {
+      this.gridOptions.api.setFilterModel(null);
+    }
   }
 }

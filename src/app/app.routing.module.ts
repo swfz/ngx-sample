@@ -14,7 +14,6 @@ import {
 // import {PivotGroupingGridComponent} from "./pages/pivot-grouping-grid/pivot-grouping-grid.component";
 import { SlideComponent } from './pages/slide/slide.component';
 import { CustomComponentComponent } from './pages/custom-component/custom-component.component';
-import { GroupingGridComponent } from './pages/grouping-grid/grouping-grid.component';
 import { ViewchildrenComponent } from './pages/viewchildren/viewchildren.component';
 import { PinnedRowComponent } from './pages/pinned-row/pinned-row.component';
 import { PollingJobComponent } from './pages/polling-job/polling-job.component';
@@ -24,7 +23,6 @@ import { AgGridFlexBoxComponent } from './pages/ag-grid-flex-box/ag-grid-flex-bo
 import { StructualDirectiveComponent } from 'app/pages/structual-directive/structual-directive.component';
 import { RouterActiveComponent } from './pages/router-active/router-active.component';
 import { AgGridReactiveColumndefComponent } from './pages/ag-grid-reactive-columndef/ag-grid-reactive-columndef.component';
-// import {MarbleDiagramComponent} from "./pages/marble-diagram/marble-diagram.component";
 import { BindBetweenWindowComponent } from './pages/bind-between-window/bind-between-window.component';
 import { ChildWindowComponent } from './pages/child-window/child-window.component';
 import { ToPromiseComponent } from './pages/to-promise/to-promise.component';
@@ -47,7 +45,6 @@ const appRoutes: Routes = [
   { path: 'momentrange', component: MomentRangeComponent },
   { path: 'slide', component: SlideComponent },
   { path: 'custom', component: CustomComponentComponent },
-  { path: 'grid/group', component: GroupingGridComponent },
   { path: 'grid/pinned', component: PinnedRowComponent },
   { path: 'grid/flex', component: AgGridFlexBoxComponent },
   // { path: 'grid/pivot', component: PivotGroupingGridComponent},
@@ -55,7 +52,6 @@ const appRoutes: Routes = [
   { path: 'chartjs', component: ChartjsComponent },
   // { path: 'google', component: GoogleOauthComponent},
   { path: 'structual_directive', component: StructualDirectiveComponent },
-  // { path: 'marble_diagram', component: MarbleDiagramComponent},
   { path: 'grid/reactive', component: AgGridReactiveColumndefComponent },
   { path: 'window', component: BindBetweenWindowComponent },
   { path: 'child-window', component: ChildWindowComponent },

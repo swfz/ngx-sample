@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
-import * as r from 'reveal.js';
 
+interface RevealInWindow {
+  Reveal: any;
+}
 @Component({
   selector: 'app-slide',
   templateUrl: './slide.component.html',
@@ -9,11 +11,10 @@ import * as r from 'reveal.js';
 export class SlideComponent implements AfterViewInit {
   reveal: any;
   constructor() {
-    this.reveal = r.Reveal;
+    this.reveal = (window as Window & RevealInWindow).Reveal;
   }
 
   ngAfterViewInit() {
-    console.log(r);
     // this.reveal.initialize({
     //   controls: true,
     // });
@@ -23,7 +24,7 @@ export class SlideComponent implements AfterViewInit {
     // this.reveal.initialize({
     //   controls: true,
     // });
-    r.initialize({
+    this.reveal.initialize({
       width: 800,
       height: 600,
       controls: true,
@@ -35,21 +36,21 @@ export class SlideComponent implements AfterViewInit {
       dependencies: [
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js',
           condition: function() {
             return !document.body.classList;
           }
         },
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.2/marked.min.js',
           condition: function() {
             return !!document.querySelector('[data-markdown]');
           }
         },
         {
           src:
-            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.min.js',
           condition: function() {
             return !!document.querySelector('[data-markdown]');
           }

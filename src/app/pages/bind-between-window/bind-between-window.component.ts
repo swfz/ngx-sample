@@ -12,11 +12,10 @@ import { ChildWindowComponent } from '../child-window/child-window.component';
   styleUrls: ['./bind-between-window.component.scss']
 })
 export class BindBetweenWindowComponent implements OnInit {
-  private w: Window;
-  public inputText: string;
+  public inputText!: string;
 
-  private hash: { [key: string]: string };
-
+  private w: Window | undefined | null;
+  private hash!: { [key: string]: string };
   private childComponentRef: any;
 
   constructor(
@@ -25,6 +24,7 @@ export class BindBetweenWindowComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.inputText = '';
     this.hash = { value: '' };
   }
 
@@ -39,14 +39,14 @@ export class BindBetweenWindowComponent implements OnInit {
     const inputTextNode = inputTextDiv.appendChild(
       document.createTextNode(this.inputText)
     );
-    this.w.document.body.appendChild(defaultNode);
-    this.w.document.body.appendChild(inputTextNode);
+    if (this.w) {
+      this.w.document.body.appendChild(defaultNode);
+      this.w.document.body.appendChild(inputTextNode);
+    }
   }
 
   openComponentWindow(): void {
     this.w = window.open('', '_blank', 'toolbar=0,width=300,height=200');
-    console.log(this.w);
-    console.log(this.w.document.body);
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(
       ChildWindowComponent
@@ -61,6 +61,8 @@ export class BindBetweenWindowComponent implements OnInit {
   }
 
   closeWindow(): void {
-    this.w.close();
+    if (this.w) {
+      this.w.close();
+    }
   }
 }

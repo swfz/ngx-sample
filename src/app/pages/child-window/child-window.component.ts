@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child-window.component.scss']
 })
 export class ChildWindowComponent implements OnInit {
-  public hash: { [key: string]: string };
+  public hash?: { [key: string]: string };
 
   constructor() {}
 

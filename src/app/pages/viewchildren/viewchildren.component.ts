@@ -16,7 +16,7 @@ import { PopoverDirective } from 'ngx-bootstrap';
 export class ViewchildrenComponent
   implements OnInit, AfterViewChecked, AfterViewInit {
   @ViewChildren(PopoverDirective)
-  childPopover: QueryList<PopoverDirective>;
+  childPopover!: QueryList<PopoverDirective>;
 
   constructor() {}
 
@@ -25,7 +25,6 @@ export class ViewchildrenComponent
   ngAfterViewChecked() {
     this.childPopover.forEach(element => {
       console.log('viewChecked');
-      // console.log(element);
     });
   }
 

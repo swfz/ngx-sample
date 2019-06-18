@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-component.component.scss']
 })
 export class CustomComponentComponent implements OnInit {
-  rate: number;
+  rate!: number;
   timetable: any;
-  tableRowLabels: string[];
-  tableColLabels: string[];
+  tableRowLabels!: string[];
+  tableColLabels!: string[];
   constructor() {}
 
   ngOnInit() {
@@ -18,12 +18,12 @@ export class CustomComponentComponent implements OnInit {
     this.tableColLabels = Array.from(Array(24).keys()).map(_ => _.toString());
   }
 
-  onChange(e) {
+  onChange(e: Event) {
     console.log('change');
     console.log(e);
   }
 
-  onBlur(e) {
+  onBlur(e: Event) {
     console.log('blur');
     console.log(e);
   }
