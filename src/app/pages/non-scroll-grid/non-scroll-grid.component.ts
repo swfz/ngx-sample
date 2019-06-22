@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild
+} from '@angular/core';
 import { ColDef, GridOptions } from 'ag-grid-community';
 
 interface GridRow {
@@ -32,8 +39,9 @@ export class NonScrollGridComponent implements OnInit {
   }
 
   onGridReady() {
-    // TODO: 動かなくなったので後で修正
-    // params.api.setDomLayout('print');
+    if (this.gridOptions.api) {
+      this.gridOptions.api.setDomLayout('print');
+    }
   }
 
   private getDummyGridRows(): GridRow[] {
