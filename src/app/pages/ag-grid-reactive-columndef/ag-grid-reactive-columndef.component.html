@@ -90,6 +90,8 @@
     [columnDefs]="columnDefs"
     (cellValueChanged)="valueChanged($event)"
     (cellEditingStopped)="editted($event)"
+    (sortChanged)="sortChanged($event)"
+    (filterChanged)="filterChanged($event)"
   >
   </ag-grid-angular>
 </div>

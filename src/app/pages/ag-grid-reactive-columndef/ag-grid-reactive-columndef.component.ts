@@ -1,17 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {
   CellClassParams,
   CellValueChangedEvent,
   ColDef,
   CsvExportParams,
+  FilterChangedEvent,
   GridOptions,
   ICellRendererParams,
   ProcessCellForExportParams,
+  SortChangedEvent,
   ValueGetterParams
 } from 'ag-grid-community';
 // tslint:disable-next-line:max-line-length
 import { AgGridCellEditorDatepickerComponent } from '../../components/ag-grid-cell-editor.datepicker/ag-grid-cell-editor.datepicker.component';
 import * as _ from 'lodash';
+import { AgGridAngular } from 'ag-grid-angular';
 
 interface CheckedData {
   hoge: boolean;
@@ -30,12 +42,20 @@ interface Row {
   styleUrls: ['./ag-grid-reactive-columndef.component.scss'],
   entryComponents: [AgGridCellEditorDatepickerComponent]
 })
-export class AgGridReactiveColumndefComponent implements OnInit {
+export class AgGridReactiveColumndefComponent implements OnInit, AfterViewInit {
   public gridOptions!: GridOptions;
   public rowData!: Row[];
   public columnDefs!: ColDef[];
+  @ViewChild(AgGridAngular, { static: true, read: ElementRef })
+  private gridElement!: ElementRef;
 
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
+    console.log(
+      this.gridElement.nativeElement.querySelectorAll('div.ag-header-cell')
+    );
+  }
 
   ngOnInit() {
     this.rowData = [];
@@ -236,5 +256,37 @@ export class AgGridReactiveColumndefComponent implements OnInit {
     if (this.gridOptions.api) {
       this.gridOptions.api.setFilterModel(null);
     }
+  }
+
+  sortChanged(sort: SortChangedEvent): void {
+    this.setHeaderStyle();
+  }
+
+  filterChanged(filter: FilterChangedEvent): void {
+    this.setHeaderStyle();
+  }
+
+  private setHeaderStyle(): void {
+    this.gridElement.nativeElement
+      .querySelectorAll('div.ag-header-cell')
+      .forEach((value: Element) => {
+        const sortedAsc = value.querySelector('div.ag-header-cell-sorted-asc');
+        const sortedDesc = value.querySelector(
+          'div.ag-header-cell-sorted-desc'
+        );
+        const classNames = value.getAttribute('class');
+        const filtered =
+          classNames !== null && classNames.match(/ag-header-cell-filtered/);
+
+        const backgroundColor =
+          (sortedAsc || sortedDesc) && filtered
+            ? '#efd'
+            : filtered
+            ? '#def'
+            : sortedAsc || sortedDesc
+            ? '#fde'
+            : '';
+        this.renderer.setStyle(value, 'background-color', backgroundColor);
+      });
   }
 }
