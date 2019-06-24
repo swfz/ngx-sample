@@ -116,16 +116,11 @@ jobs:
     executor: node
     steps:
       - checkout
-      - run:
-          name: 'debug'
-          command: env
       - run: echo "Start Prettier Check"
       - restore_npm
       - run: npm install
       - save_npm
-      - run: npm run prettier
-      - run: git status
-      - run: test "0" = $(git status -s -- . ":(exclude)package-lock.json" | wc -l)
+      - run: npm run prettier:check
   test:
     executor: node
     steps:
