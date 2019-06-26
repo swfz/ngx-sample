@@ -2884,11 +2884,11 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
-cypress-visual-regression@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/cypress-visual-regression/-/cypress-visual-regression-1.0.1.tgz#c4f1600b6a0577d55cebe19e9a7cd3d7b2a272ea"
+cypress-visual-regression@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/cypress-visual-regression/-/cypress-visual-regression-1.0.2.tgz#75466fbd8bdc8c00788d98240618a1d994cb51a5"
   dependencies:
-    cypress "^3.2.0"
+    cypress "^3.3.1"
     pixelmatch "^4.0.2"
     pngjs "^3.3.3"
 
@@ -2896,7 +2896,7 @@ cypress-xpath@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/cypress-xpath/-/cypress-xpath-1.4.0.tgz#0a7d1a8c59c263f01060d1d04a69f1b0337b06ff"
 
-cypress@3.3.1, cypress@^3.2.0:
+cypress@3.3.1, cypress@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.3.1.tgz#8a127b1d9fa74bff21f111705abfef58d595fdef"
   dependencies:
