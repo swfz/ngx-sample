@@ -74,6 +74,12 @@ commands:
           path: "cypress/snapshots"
           destination: cypress-snapshots
           when: always
+  comment_to_pr:
+    steps:
+      - run:
+          name: 'Failed!!!'
+          command: sh .circleci/e2e_failed.sh
+          when: on_fail
 executors:
   node:
     docker:
@@ -174,6 +180,7 @@ jobs:
           paths:
             - snapshots
       - store_reports
+      - comment_to_pr
   deploy:
     executor: node
     steps:
