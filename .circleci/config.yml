@@ -154,6 +154,7 @@ jobs:
           name: 'cypress'
           command: 'npm run ci:e2e:run:actual'
       - store_reports
+      - comment_to_pr
   e2e-master:
     executor: cypress-cjk
     steps:
@@ -180,7 +181,6 @@ jobs:
           paths:
             - snapshots
       - store_reports
-      - comment_to_pr
   deploy:
     executor: node
     steps:
