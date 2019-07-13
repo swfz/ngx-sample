@@ -13,7 +13,7 @@ failed_diff_images=$(cat mochawesome.json \
 comment_body=$(cat <<EOS
 Cypress Test Failed. \n
 See Summary Report. \n
-${artifact_url_base}/cypress-html/mochawesome.html
+${artifact_url_base}/cypress-html/mochawesome.html \n
 ${failed_diff_images}
 EOS
 )
