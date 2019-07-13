@@ -5,9 +5,8 @@ pr_number=$(echo ${CI_PULL_REQUEST} | awk -F/ '{print $(NF-0)}')
 
 # stateがfailedでmessageに'images are different'というメッセージが含まれるもののdiffスクリーンショット
 failed_diff_images=$(cat mochawesome.json \
-  | jq -r '.suites.suites[]|select(.tests[].state=="failed").tests[]|select(.state=="failed" and (.err|has("message")) and (.err.message|match("images are different"))).fullTitle' \
-  | awk '{print "cypress-snapshots/diff/" $1 ".ts/" $2 "-diff.png"}' \
-  | xargs -i echo "![{}](${artifact_url_base}{})"
+  | jq '.suites.suites[]|select(.tests[].state=="failed")|(.title|gsub(" ";"-"))+".ts/"+(.tests[]|select(.state=="failed" and (.err|has("message")) and (.err.message|match("images are different"))).title|gsub(" ";"-"))+"-diff.png"' \
+  | xargs -i echo "- {} \n ![{}](${artifact_url_base}{})\n"
 )
 
 comment_body=$(cat <<EOS
