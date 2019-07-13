@@ -1,17 +1,20 @@
 #!/bin/bash
 
+artifact_url_base="https://circle-artifacts.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/0/"
 pr_number=$(echo ${CI_PULL_REQUEST} | awk -F/ '{print $(NF-0)}')
 
 # stateがfailedでmessageに'images are different'というメッセージが含まれるもののdiffスクリーンショット
 failed_diff_images=$(cat mochawesome.json \
   | jq -r '.suites.suites[]|select(.tests[].state=="failed").tests[]|select(.state=="failed" and (.err|has("message")) and (.err.message|match("images are different"))).fullTitle' \
   | awk '{print "cypress-snapshots/diff/" $1 ".ts/" $2 "-diff.png"}' \
-  | xargs -i echo "![{}](https://circle-artifacts.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/0/{})"
+  | xargs -i echo "![{}](${artifact_url_base}{})"
 )
 
+artifact_url="
 comment_body=$(cat <<EOS
-Test Failed.
-See Summary Report ${artifact_url}
+Cypress Test Failed. \n
+See Summary Report. \n
+${artifact_url_base}/cypress-html/mochawesome.html
 ${failed_diff_images}
 EOS
 )
