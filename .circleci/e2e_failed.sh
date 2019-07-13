@@ -10,7 +10,6 @@ failed_diff_images=$(cat mochawesome.json \
   | xargs -i echo "![{}](${artifact_url_base}{})"
 )
 
-artifact_url="
 comment_body=$(cat <<EOS
 Cypress Test Failed. \n
 See Summary Report. \n
