@@ -19,3 +19,17 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 require('cypress-xpath');
+
+import addContext from 'mochawesome/addContext';
+Cypress.on('test:after:run', (test, runnable) => {
+  console.log(runnable);
+  addContext({test}, {value: 'addContext!!!!!!!!!!!!!!'});
+  if(test.stat === 'failed'){
+    addContext({test}, `${runnable.parent.title}`);
+  }
+});
+
+Cypress.on('fail', (error, runnable) => {
+  console.log(error);
+  console.log(runnable);
+});
