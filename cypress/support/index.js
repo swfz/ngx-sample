@@ -14,8 +14,18 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-require('cypress-xpath');
+require("cypress-xpath");
+
+import addContext from "mochawesome/addContext";
+Cypress.on("test:after:run", (test, runnable) => {
+  addContext({ test }, {
+    title: 'filename',
+    value: {
+      filename: Cypress.spec.name
+    }
+  });
+});

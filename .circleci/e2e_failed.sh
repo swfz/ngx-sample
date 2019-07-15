@@ -1,17 +1,18 @@
 #!/bin/bash
 
+artifact_url_base="https://circle-artifacts.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/0/"
 pr_number=$(echo ${CI_PULL_REQUEST} | awk -F/ '{print $(NF-0)}')
 
 # stateがfailedでmessageに'images are different'というメッセージが含まれるもののdiffスクリーンショット
 failed_diff_images=$(cat mochawesome.json \
-  | jq -r '.suites.suites[]|select(.tests[].state=="failed").tests[]|select(.state=="failed" and (.err|has("message")) and (.err.message|match("images are different"))).fullTitle' \
-  | awk '{print "cypress-snapshots/diff/" $1 ".ts/" $2 "-diff.png"}' \
-  | xargs -i echo "![{}](https://circle-artifacts.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/0/{})"
+  | jq -r '.suites.suites[].tests[]|select(.state=="failed")|(.context|fromjson.value.filename)+"/"+(.err.message|gsub("Error: ";"")|gsub(" images are different";"")+"-diff.png")' \
+  | xargs -i echo "- {} \n ![{}](${artifact_url_base}cypress-snapshots/diff/{})\n"
 )
 
 comment_body=$(cat <<EOS
-Test Failed.
-See Summary Report ${artifact_url}
+Cypress Test Failed. \n
+See Summary Report. \n
+[cypress-html/mochawesome.html](${artifact_url_base}/cypress-html/mochawesome.html) \n
 ${failed_diff_images}
 EOS
 )
