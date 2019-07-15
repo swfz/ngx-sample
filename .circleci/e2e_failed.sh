@@ -1,6 +1,6 @@
 #!/bin/bash
 
-artifact_url_base="https://circle-artifacts.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/0/"
+artifact_url_base="https://${CIRCLE_BUILD_NUM}-${REPO_ID}-gh.circle-artifacts.com/0/"
 pr_number=$(echo ${CI_PULL_REQUEST} | awk -F/ '{print $(NF-0)}')
 
 # stateがfailedでmessageに'images are different'というメッセージが含まれるもののdiffスクリーンショット
