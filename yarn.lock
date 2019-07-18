@@ -1425,17 +1425,17 @@ acorn@^6.0.1, acorn@^6.0.4, acorn@^6.0.5, acorn@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
 
-ag-grid-angular@21.0.1:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-21.0.1.tgz#b45789a5ec38f1d3305e25663b44fd0624570285"
+ag-grid-angular@21.1.0:
+  version "21.1.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-21.1.0.tgz#2a377958435ed865dd1ff2f6cf365d42ddd95dce"
 
-ag-grid-community@21.0.1:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.0.1.tgz#8cf6096de7e9ae6144bf5aced89b03814ea7b034"
+ag-grid-community@21.1.0:
+  version "21.1.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.1.0.tgz#d8dba9486c2ef1879f9d97496183711b406258c2"
 
-ag-grid-enterprise@21.0.1:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-21.0.1.tgz#a84796a25c9754c2535c9ea47d3146e57e0b2960"
+ag-grid-enterprise@21.1.0:
+  version "21.1.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-21.1.0.tgz#d89111b44e2f1adaf73ca6c0eda1fd055f88f9a5"
 
 agent-base@4, agent-base@^4.1.0, agent-base@~4.2.1:
   version "4.2.1"
