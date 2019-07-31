@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  gaCode: 'UA-73628530-3'
 };

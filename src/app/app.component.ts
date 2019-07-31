@@ -8,8 +8,10 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
   public isDev: boolean;
+  public gaCode: string;
 
   constructor() {
     this.isDev = !environment.production;
+    this.gaCode = environment.gaCode;
   }
 }
