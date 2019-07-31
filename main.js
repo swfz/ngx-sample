@@ -393,6 +393,7 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.isDev = !_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].production;
+        this.gaCode = _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].gaCode;
     }
     return AppComponent;
 }());
@@ -5020,7 +5021,9 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: false,
+    gaCode: 'UA-73628530-3'
+    // gaCode: ''
 };
 
 
