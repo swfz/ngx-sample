@@ -1,12 +1,10 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  OnInit,
-  Renderer2
-} from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { environment } from '../environments/environment';
 import { DOCUMENT } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+declare const gtag: Function;
 
 type WindowWithDataLayer = Window & { dataLayer: unknown[] };
 
@@ -20,10 +18,11 @@ export class AppComponent implements OnInit {
   public gaCode: string;
 
   private windowWithDataLayer!: WindowWithDataLayer;
+  private navigationEndSubscription!: Subscription;
 
   constructor(
     private renderer: Renderer2,
-    private elementRef: ElementRef,
+    private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.isDev = !environment.production;
@@ -32,6 +31,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.navigationEndSubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        console.log(event);
+        gtag('config', environment.gaCode, { page_path: event.url });
+      }
+    });
     this.windowWithDataLayer.dataLayer = [];
     const s1 = this.renderer.createElement('script');
     s1.type = 'text/javascript';
