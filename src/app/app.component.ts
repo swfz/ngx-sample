@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
 
     const s2 = this.renderer.createElement('script');
     s2.type = 'text/javascript';
-    // s2.text = `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '${this.gaCode}');`;
     s2.text = `function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '${this.gaCode}');`;
     this.renderer.appendChild(this.document.head, s2);
   }
