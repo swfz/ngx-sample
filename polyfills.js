@@ -1485,8 +1485,18 @@ $export($export.S, 'Reflect', { set: set });
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * @license Angular v0.10.0
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values = (this && this.__values) || function (o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+};
+/**
+ * @license Angular v0.10.1
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -1574,6 +1584,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 enumerable: true,
                 configurable: true
             });
+            // tslint:disable-next-line:require-internal-with-underscore
             Zone.__load_patch = function (name, fn) {
                 if (patches.hasOwnProperty(name)) {
                     if (checkDuplicate) {
@@ -1776,6 +1787,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             };
             return Zone;
         }());
+        // tslint:disable-next-line:require-internal-with-underscore
         Zone.__symbol__ = __symbol__;
         var DELEGATE_ZS = {
             name: '',
@@ -1933,6 +1945,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     this.handleError(targetZone, err);
                 }
             };
+            // tslint:disable-next-line:require-internal-with-underscore
             ZoneDelegate.prototype._updateTaskCount = function (type, count) {
                 var counts = this._taskCounts;
                 var prev = counts[type];
@@ -1954,9 +1967,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         }());
         var ZoneTask = /** @class */ (function () {
             function ZoneTask(type, source, callback, options, scheduleFn, cancelFn) {
+                // tslint:disable-next-line:require-internal-with-underscore
                 this._zone = null;
                 this.runCount = 0;
+                // tslint:disable-next-line:require-internal-with-underscore
                 this._zoneDelegates = null;
+                // tslint:disable-next-line:require-internal-with-underscore
                 this._state = 'notScheduled';
                 this.type = type;
                 this.source = source;
@@ -2005,6 +2021,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 configurable: true
             });
             ZoneTask.prototype.cancelScheduleRequest = function () { this._transitionTo(notScheduled, scheduling); };
+            // tslint:disable-next-line:require-internal-with-underscore
             ZoneTask.prototype._transitionTo = function (toState, fromState1, fromState2) {
                 if (this._state === fromState1 || this._state === fromState2) {
                     this._state = toState;
@@ -2305,26 +2322,20 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     }
                     if (queue.length == 0 && state == REJECTED) {
                         promise[symbolState] = REJECTED_NO_CATCH;
-                        var uncaughtPromiseError = void 0;
-                        if (value instanceof Error || (value && value.message)) {
-                            uncaughtPromiseError = value;
+                        try {
+                            // try to print more readable error log
+                            throw new Error('Uncaught (in promise): ' + readableObjectToString(value) +
+                                (value && value.stack ? '\n' + value.stack : ''));
                         }
-                        else {
-                            try {
-                                // try to print more readable error log
-                                throw new Error('Uncaught (in promise): ' + readableObjectToString(value) +
-                                    (value && value.stack ? '\n' + value.stack : ''));
-                            }
-                            catch (err) {
-                                uncaughtPromiseError = err;
-                            }
+                        catch (err) {
+                            var error = err;
+                            error.rejection = value;
+                            error.promise = promise;
+                            error.zone = Zone.current;
+                            error.task = Zone.currentTask;
+                            _uncaughtPromiseErrors.push(error);
+                            api.scheduleMicroTask(); // to make sure that it is running
                         }
-                        uncaughtPromiseError.rejection = value;
-                        uncaughtPromiseError.promise = promise;
-                        uncaughtPromiseError.zone = Zone.current;
-                        uncaughtPromiseError.task = Zone.currentTask;
-                        _uncaughtPromiseErrors.push(uncaughtPromiseError);
-                        api.scheduleMicroTask(); // to make sure that it is running
                     }
                 }
             }
@@ -2406,6 +2417,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 return resolvePromise(new this(null), REJECTED, error);
             };
             ZoneAwarePromise.race = function (values) {
+                var e_1, _a;
                 var resolve;
                 var reject;
                 var promise = new this(function (res, rej) {
@@ -2414,16 +2426,26 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 });
                 function onResolve(value) { resolve(value); }
                 function onReject(error) { reject(error); }
-                for (var _i = 0, values_1 = values; _i < values_1.length; _i++) {
-                    var value = values_1[_i];
-                    if (!isThenable(value)) {
-                        value = this.resolve(value);
+                try {
+                    for (var values_1 = __values(values), values_1_1 = values_1.next(); !values_1_1.done; values_1_1 = values_1.next()) {
+                        var value = values_1_1.value;
+                        if (!isThenable(value)) {
+                            value = this.resolve(value);
+                        }
+                        value.then(onResolve, onReject);
                     }
-                    value.then(onResolve, onReject);
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (values_1_1 && !values_1_1.done && (_a = values_1.return)) _a.call(values_1);
+                    }
+                    finally { if (e_1) throw e_1.error; }
                 }
                 return promise;
             };
             ZoneAwarePromise.all = function (values) {
+                var e_2, _a;
                 var resolve;
                 var reject;
                 var promise = new this(function (res, rej) {
@@ -2450,9 +2472,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     valueIndex++;
                 };
                 var this_1 = this;
-                for (var _i = 0, values_2 = values; _i < values_2.length; _i++) {
-                    var value = values_2[_i];
-                    _loop_2(value);
+                try {
+                    for (var values_2 = __values(values), values_2_1 = values_2.next(); !values_2_1.done; values_2_1 = values_2.next()) {
+                        var value = values_2_1.value;
+                        _loop_2(value);
+                    }
+                }
+                catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                finally {
+                    try {
+                        if (values_2_1 && !values_2_1.done && (_a = values_2.return)) _a.call(values_2);
+                    }
+                    finally { if (e_2) throw e_2.error; }
                 }
                 // Make the unresolvedCount zero-based again.
                 unresolvedCount -= 2;
@@ -4856,7 +4887,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
      * found in the LICENSE file at https://angular.io/license
      */
 }));
-//# sourceMappingURL=zone_rollup.umd.js.map
 
 
 /***/ }),
