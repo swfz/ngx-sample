@@ -6494,9 +6494,9 @@ ng-packagr@5.4.3:
     terser "^4.1.2"
     update-notifier "^3.0.0"
 
-ngx-bootstrap@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-5.1.0.tgz#4a3d1b9ab099a4f8c01e8760c947873cb8505569"
+ngx-bootstrap@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-5.1.1.tgz#aab63b218611eeeaed0c9e224f2033a992ac6e57"
 
 nice-try@^1.0.4:
   version "1.0.5"
