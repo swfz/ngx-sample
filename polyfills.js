@@ -1496,7 +1496,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
     };
 };
 /**
- * @license Angular v0.10.1
+ * @license Angular v0.10.2
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -2444,7 +2444,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
                 }
                 return promise;
             };
-            ZoneAwarePromise.all = function (values) {
+            ZoneAwarePromise.all = function (values) { return ZoneAwarePromise.allWithCallback(values); };
+            ZoneAwarePromise.allSettled = function (values) {
+                var P = this && this.prototype instanceof ZoneAwarePromise ? this : ZoneAwarePromise;
+                return P.allWithCallback(values, {
+                    thenCallback: function (value) { return ({ status: 'fulfilled', value: value }); },
+                    errorCallback: function (err) { return ({ status: 'rejected', reason: err }); }
+                });
+            };
+            ZoneAwarePromise.allWithCallback = function (values, callback) {
                 var e_2, _a;
                 var resolve;
                 var reject;
@@ -2461,13 +2469,29 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
                         value = this_1.resolve(value);
                     }
                     var curValueIndex = valueIndex;
-                    value.then(function (value) {
-                        resolvedValues[curValueIndex] = value;
-                        unresolvedCount--;
-                        if (unresolvedCount === 0) {
-                            resolve(resolvedValues);
-                        }
-                    }, reject);
+                    try {
+                        value.then(function (value) {
+                            resolvedValues[curValueIndex] = callback ? callback.thenCallback(value) : value;
+                            unresolvedCount--;
+                            if (unresolvedCount === 0) {
+                                resolve(resolvedValues);
+                            }
+                        }, function (err) {
+                            if (!callback) {
+                                reject(err);
+                            }
+                            else {
+                                resolvedValues[curValueIndex] = callback.errorCallback(err);
+                                unresolvedCount--;
+                                if (unresolvedCount === 0) {
+                                    resolve(resolvedValues);
+                                }
+                            }
+                        });
+                    }
+                    catch (thenErr) {
+                        reject(thenErr);
+                    }
                     unresolvedCount++;
                     valueIndex++;
                 };
@@ -3712,111 +3736,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    /*
-     * This is necessary for Chrome and Chrome mobile, to enable
-     * things like redefining `createdCallback` on an element.
-     */
-    var zoneSymbol$1 = Zone.__symbol__;
-    var _defineProperty = Object[zoneSymbol$1('defineProperty')] = Object.defineProperty;
-    var _getOwnPropertyDescriptor = Object[zoneSymbol$1('getOwnPropertyDescriptor')] =
-        Object.getOwnPropertyDescriptor;
-    var _create = Object.create;
-    var unconfigurablesKey = zoneSymbol$1('unconfigurables');
-    function propertyPatch() {
-        Object.defineProperty = function (obj, prop, desc) {
-            if (isUnconfigurable(obj, prop)) {
-                throw new TypeError('Cannot assign to read only property \'' + prop + '\' of ' + obj);
-            }
-            var originalConfigurableFlag = desc.configurable;
-            if (prop !== 'prototype') {
-                desc = rewriteDescriptor(obj, prop, desc);
-            }
-            return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
-        };
-        Object.defineProperties = function (obj, props) {
-            Object.keys(props).forEach(function (prop) { Object.defineProperty(obj, prop, props[prop]); });
-            return obj;
-        };
-        Object.create = function (obj, proto) {
-            if (typeof proto === 'object' && !Object.isFrozen(proto)) {
-                Object.keys(proto).forEach(function (prop) {
-                    proto[prop] = rewriteDescriptor(obj, prop, proto[prop]);
-                });
-            }
-            return _create(obj, proto);
-        };
-        Object.getOwnPropertyDescriptor = function (obj, prop) {
-            var desc = _getOwnPropertyDescriptor(obj, prop);
-            if (desc && isUnconfigurable(obj, prop)) {
-                desc.configurable = false;
-            }
-            return desc;
-        };
-    }
-    function _redefineProperty(obj, prop, desc) {
-        var originalConfigurableFlag = desc.configurable;
-        desc = rewriteDescriptor(obj, prop, desc);
-        return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
-    }
-    function isUnconfigurable(obj, prop) {
-        return obj && obj[unconfigurablesKey] && obj[unconfigurablesKey][prop];
-    }
-    function rewriteDescriptor(obj, prop, desc) {
-        // issue-927, if the desc is frozen, don't try to change the desc
-        if (!Object.isFrozen(desc)) {
-            desc.configurable = true;
-        }
-        if (!desc.configurable) {
-            // issue-927, if the obj is frozen, don't try to set the desc to obj
-            if (!obj[unconfigurablesKey] && !Object.isFrozen(obj)) {
-                _defineProperty(obj, unconfigurablesKey, { writable: true, value: {} });
-            }
-            if (obj[unconfigurablesKey]) {
-                obj[unconfigurablesKey][prop] = true;
-            }
-        }
-        return desc;
-    }
-    function _tryDefineProperty(obj, prop, desc, originalConfigurableFlag) {
-        try {
-            return _defineProperty(obj, prop, desc);
-        }
-        catch (error) {
-            if (desc.configurable) {
-                // In case of errors, when the configurable flag was likely set by rewriteDescriptor(), let's
-                // retry with the original flag value
-                if (typeof originalConfigurableFlag == 'undefined') {
-                    delete desc.configurable;
-                }
-                else {
-                    desc.configurable = originalConfigurableFlag;
-                }
-                try {
-                    return _defineProperty(obj, prop, desc);
-                }
-                catch (error) {
-                    var descJson = null;
-                    try {
-                        descJson = JSON.stringify(desc);
-                    }
-                    catch (error) {
-                        descJson = desc.toString();
-                    }
-                    console.log("Attempting to configure '" + prop + "' with descriptor '" + descJson + "' on object '" + obj + "' and got error, giving up: " + error);
-                }
-            }
-            else {
-                throw error;
-            }
-        }
-    }
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
     var globalEventHandlersEventNames = [
         'abort',
         'animationcancel',
@@ -4146,7 +4065,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
         api.wrapWithCurrentZone = wrapWithCurrentZone;
         api.filterProperties = filterProperties;
         api.attachOriginToPatched = attachOriginToPatched;
-        api._redefineProperty = _redefineProperty;
+        api._redefineProperty = Object.defineProperty;
         api.patchCallbacks = patchCallbacks;
         api.getGlobalObjects = function () { return ({ globalSources: globalSources, zoneSymbolEventNames: zoneSymbolEventNames$1, eventNames: eventNames, isBrowser: isBrowser, isMix: isMix, isNode: isNode, TRUE_STR: TRUE_STR,
             FALSE_STR: FALSE_STR, ZONE_SYMBOL_PREFIX: ZONE_SYMBOL_PREFIX, ADD_EVENT_LISTENER_STR: ADD_EVENT_LISTENER_STR, REMOVE_EVENT_LISTENER_STR: REMOVE_EVENT_LISTENER_STR }); };
@@ -4158,6 +4077,116 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    /*
+     * This is necessary for Chrome and Chrome mobile, to enable
+     * things like redefining `createdCallback` on an element.
+     */
+    var zoneSymbol$1;
+    var _defineProperty;
+    var _getOwnPropertyDescriptor;
+    var _create;
+    var unconfigurablesKey;
+    function propertyPatch() {
+        zoneSymbol$1 = Zone.__symbol__;
+        _defineProperty = Object[zoneSymbol$1('defineProperty')] = Object.defineProperty;
+        _getOwnPropertyDescriptor = Object[zoneSymbol$1('getOwnPropertyDescriptor')] =
+            Object.getOwnPropertyDescriptor;
+        _create = Object.create;
+        unconfigurablesKey = zoneSymbol$1('unconfigurables');
+        Object.defineProperty = function (obj, prop, desc) {
+            if (isUnconfigurable(obj, prop)) {
+                throw new TypeError('Cannot assign to read only property \'' + prop + '\' of ' + obj);
+            }
+            var originalConfigurableFlag = desc.configurable;
+            if (prop !== 'prototype') {
+                desc = rewriteDescriptor(obj, prop, desc);
+            }
+            return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
+        };
+        Object.defineProperties = function (obj, props) {
+            Object.keys(props).forEach(function (prop) { Object.defineProperty(obj, prop, props[prop]); });
+            return obj;
+        };
+        Object.create = function (obj, proto) {
+            if (typeof proto === 'object' && !Object.isFrozen(proto)) {
+                Object.keys(proto).forEach(function (prop) {
+                    proto[prop] = rewriteDescriptor(obj, prop, proto[prop]);
+                });
+            }
+            return _create(obj, proto);
+        };
+        Object.getOwnPropertyDescriptor = function (obj, prop) {
+            var desc = _getOwnPropertyDescriptor(obj, prop);
+            if (desc && isUnconfigurable(obj, prop)) {
+                desc.configurable = false;
+            }
+            return desc;
+        };
+    }
+    function _redefineProperty(obj, prop, desc) {
+        var originalConfigurableFlag = desc.configurable;
+        desc = rewriteDescriptor(obj, prop, desc);
+        return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
+    }
+    function isUnconfigurable(obj, prop) {
+        return obj && obj[unconfigurablesKey] && obj[unconfigurablesKey][prop];
+    }
+    function rewriteDescriptor(obj, prop, desc) {
+        // issue-927, if the desc is frozen, don't try to change the desc
+        if (!Object.isFrozen(desc)) {
+            desc.configurable = true;
+        }
+        if (!desc.configurable) {
+            // issue-927, if the obj is frozen, don't try to set the desc to obj
+            if (!obj[unconfigurablesKey] && !Object.isFrozen(obj)) {
+                _defineProperty(obj, unconfigurablesKey, { writable: true, value: {} });
+            }
+            if (obj[unconfigurablesKey]) {
+                obj[unconfigurablesKey][prop] = true;
+            }
+        }
+        return desc;
+    }
+    function _tryDefineProperty(obj, prop, desc, originalConfigurableFlag) {
+        try {
+            return _defineProperty(obj, prop, desc);
+        }
+        catch (error) {
+            if (desc.configurable) {
+                // In case of errors, when the configurable flag was likely set by rewriteDescriptor(), let's
+                // retry with the original flag value
+                if (typeof originalConfigurableFlag == 'undefined') {
+                    delete desc.configurable;
+                }
+                else {
+                    desc.configurable = originalConfigurableFlag;
+                }
+                try {
+                    return _defineProperty(obj, prop, desc);
+                }
+                catch (error) {
+                    var descJson = null;
+                    try {
+                        descJson = JSON.stringify(desc);
+                    }
+                    catch (error) {
+                        descJson = desc.toString();
+                    }
+                    console.log("Attempting to configure '" + prop + "' with descriptor '" + descJson + "' on object '" + obj + "' and got error, giving up: " + error);
+                }
+            }
+            else {
+                throw error;
+            }
+        }
+    }
     /**
      * @license
      * Copyright Google Inc. All Rights Reserved.
@@ -4463,9 +4492,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var __values =
      * found in the LICENSE file at https://angular.io/license
      */
     (function (_global) {
-        _global[Zone.__symbol__('legacyPatch')] = function () {
+        var symbolPrefix = _global['__Zone_symbol_prefix'] || '__zone_symbol__';
+        function __symbol__(name) { return symbolPrefix + name; }
+        _global[__symbol__('legacyPatch')] = function () {
             var Zone = _global['Zone'];
-            Zone.__load_patch('defineProperty', function () { propertyPatch(); });
+            Zone.__load_patch('defineProperty', function (global, Zone, api) {
+                api._redefineProperty = _redefineProperty;
+                propertyPatch();
+            });
             Zone.__load_patch('registerElement', function (global, Zone, api) {
                 registerElementPatch(global, api);
             });
