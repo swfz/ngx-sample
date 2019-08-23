@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "packagr": "ng-packagr -p ng-package.json",
     "ghpages": "ng build --prod --aot --no-progress --base-href '/ngx-sample/' && ngh -S -m '[skip ci] deploy to GitHub pages' --dir dist/",
-    "ngh": "ngh -S -m '[skip ci] deploy to GitHub pages' --dir dist/",
+    "ngh": "ngh -m '[skip ci] deploy to GitHub pages' --dir dist/",
     "prettier": "prettier --single-quote --write './**/*.{scss,ts,html}'",
     "prettier:check": "prettier --single-quote --check './**/*.{scss,ts,html}'",
     "e2e": "ng e2e",
