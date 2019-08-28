@@ -43,7 +43,7 @@
     "@briebug/cypress-schematic": "2.0.0",
     "@briebug/jest-schematic": "1.7.0",
     "@types/jest": "24.0.18",
-    "@types/lodash": "4.14.137",
+    "@types/lodash": "4.14.138",
     "ag-grid-angular": "21.1.0",
     "ag-grid-community": "21.1.1",
     "ag-grid-enterprise": "21.1.1",
