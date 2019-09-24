@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    private apiSampleService: ApiSampleService,
+    // private apiSampleService: ApiSampleService,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.isDev = !environment.production;
@@ -42,9 +42,12 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         console.log(event);
         this.windowWithGtag.gtag('config', environment.gaCode, {
-          page_path: event.url
+          page_path: event.url,
+          custom_map: {
+            dimension1: 'custom_id'
+          },
+          custom_id: 'User1'
         });
-        this.windowWithGtag.gtag('set', { user_id: `'2'` });
       }
     });
     const s1 = this.renderer.createElement('script');
