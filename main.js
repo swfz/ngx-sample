@@ -395,29 +395,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(renderer, router, document) {
+    function AppComponent(renderer, router, 
+    // private apiSampleService: ApiSampleService,
+    document) {
         this.renderer = renderer;
         this.router = router;
         this.document = document;
         this.isDev = !_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].production;
         this.gaCode = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode;
-        this.windowWithDataLayer = window;
+        this.windowWithGtag = window;
     }
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // this.apiSampleService.fetchUsers();
+        // const users = await this.apiSampleService.users$.toPromise();
+        // console.log(users);
+        // console.log(Math.floor(Math.random() * users.length));
+        // const user = users[Math.floor(Math.random() * Math.floor(users.length))];
+        // console.log(user);
         this.navigationEndSubscription = this.router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
                 console.log(event);
-                gtag('config', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode, { page_path: event.url });
+                _this.windowWithGtag.gtag('config', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode, {
+                    page_path: event.url,
+                    custom_map: {
+                        dimension1: 'custom_id'
+                    },
+                    custom_id: 'User1'
+                });
             }
         });
-        this.windowWithDataLayer.dataLayer = [];
         var s1 = this.renderer.createElement('script');
         s1.type = 'text/javascript';
-        s1.src = 'https://www.googletagmanager.com/gtag/js?id=UA-73628530-3';
+        s1.src = "https://www.googletagmanager.com/gtag/js?id=" + _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode;
         this.renderer.appendChild(this.document.head, s1);
         var s2 = this.renderer.createElement('script');
         s2.type = 'text/javascript';
-        s2.text = "function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '" + this.gaCode + "');";
+        s2.text = "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '" + this.gaCode + "');";
         this.renderer.appendChild(this.document.head, s2);
     };
     return AppComponent;
