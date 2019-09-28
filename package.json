@@ -42,7 +42,7 @@
     "@angular/router": "8.2.8",
     "@briebug/cypress-schematic": "2.0.0",
     "@briebug/jest-schematic": "1.7.0",
-    "@types/gtag.js": "^0.0.3",
+    "@types/gtag.js": "0.0.3",
     "@types/jest": "24.0.18",
     "@types/lodash": "4.14.141",
     "ag-grid-angular": "21.1.0",
