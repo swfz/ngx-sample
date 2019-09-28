@@ -100,7 +100,7 @@
     "reveal.js": "3.8.0",
     "rxjs-tslint": "0.1.7",
     "start-server-and-test": "1.10.2",
-    "ts-loader": "6.1.0",
+    "ts-loader": "6.1.2",
     "ts-node": "8.4.1",
     "tslint": "5.20.0",
     "typescript": "3.5.3",
