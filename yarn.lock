@@ -1172,10 +1172,10 @@
     "@schematics/angular" "^7.2.3"
     rxjs "^6.3.3"
 
-"@briebug/jest-schematic@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@briebug/jest-schematic/-/jest-schematic-2.0.0.tgz#5e2be8c8d78ac7c3d80cbc10bbaba26c395b4395"
-  integrity sha512-HRwks1qa1sb0xVDAhaWySLr1ijJTGo8qR4WX3KjkkUH2tlbrVTd5YP4scnJpRdg4sxMflwVmoVlZAIzDVpwi9A==
+"@briebug/jest-schematic@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@briebug/jest-schematic/-/jest-schematic-2.1.0.tgz#2122392721d846ce653b5c8a394e509949d567de"
+  integrity sha512-iCEtxPR5njL3ZHlc3TIfj1Y7stZ0IW7ZM7A5j5pph5BTjCoJ8dTSFCrSu/KMd0jHaHgv7LiSTcsyL5HE8+fXmA==
   dependencies:
     "@angular-devkit/core" "^8.2.0"
     "@angular-devkit/schematics" "^8.2.0"
