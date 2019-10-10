@@ -9,3 +9,5 @@
   <li><a routerLink="/reactive-form">リアクティブフォーム</a></li>
   <li><a routerLink="/rxjs" routerLinkActive="active"> Rxjs実験 </a></li>
 </ul>
+
+<input appFilterKeyupEvents [intervalMs]="500" (filteredText)="filteredText($event)" type="text">

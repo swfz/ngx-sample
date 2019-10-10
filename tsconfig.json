@@ -20,6 +20,14 @@
       "es2016",
       "dom"
     ],
-    "module": "es2015"
+    "module": "es2015",
+    "paths": {
+      "filter-keyup-events": [
+        "dist/filter-keyup-events"
+      ],
+      "filter-keyup-events/*": [
+        "dist/filter-keyup-events/*"
+      ]
+    }
   }
 }

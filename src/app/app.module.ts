@@ -61,6 +61,7 @@ import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterKeyupEventsModule } from '../../projects/filter-keyup-events/src/lib/filter-keyup-events.module';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MessageModule,
     MessagesModule,
+    FilterKeyupEventsModule,
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
