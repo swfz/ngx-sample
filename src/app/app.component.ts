@@ -15,34 +15,24 @@ type WindowWithGtag = Window & { gtag: Gtag };
 })
 export class AppComponent implements OnInit {
   public isDev: boolean;
-  public gaCode: string;
 
   private windowWithGtag!: WindowWithGtag;
-  private navigationEndSubscription!: Subscription;
 
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    // private apiSampleService: ApiSampleService,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.isDev = !environment.production;
-    this.gaCode = environment.gaCode;
     this.windowWithGtag = window as WindowWithGtag;
   }
 
   ngOnInit() {
-    // this.apiSampleService.fetchUsers();
-    // const users = await this.apiSampleService.users$.toPromise();
-    // console.log(users);
-    // console.log(Math.floor(Math.random() * users.length));
-    // const user = users[Math.floor(Math.random() * Math.floor(users.length))];
-    // console.log(user);
-    this.navigationEndSubscription = this.router.events.subscribe(event => {
+    this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log(event);
+        // console.log(event);
         this.windowWithGtag.gtag('config', environment.gaCode, {
-          page_path: event.url,
+          page_path: event.urlAfterRedirects,
           custom_map: {
             dimension1: 'custom_id'
           },
@@ -57,7 +47,7 @@ export class AppComponent implements OnInit {
 
     const s2 = this.renderer.createElement('script');
     s2.type = 'text/javascript';
-    s2.text = `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '${this.gaCode}');`;
+    s2.text = `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '${environment.gaCode}');`;
     this.renderer.appendChild(this.document.head, s2);
   }
 }
