@@ -395,29 +395,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(renderer, router, 
-    // private apiSampleService: ApiSampleService,
-    document) {
+    function AppComponent(renderer, router, document) {
         this.renderer = renderer;
         this.router = router;
         this.document = document;
         this.isDev = !_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].production;
-        this.gaCode = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode;
         this.windowWithGtag = window;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.apiSampleService.fetchUsers();
-        // const users = await this.apiSampleService.users$.toPromise();
-        // console.log(users);
-        // console.log(Math.floor(Math.random() * users.length));
-        // const user = users[Math.floor(Math.random() * Math.floor(users.length))];
-        // console.log(user);
-        this.navigationEndSubscription = this.router.events.subscribe(function (event) {
+        this.router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                console.log(event);
+                // console.log(event);
                 _this.windowWithGtag.gtag('config', _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode, {
-                    page_path: event.url,
+                    page_path: event.urlAfterRedirects,
                     custom_map: {
                         dimension1: 'custom_id'
                     },
@@ -431,7 +422,7 @@ var AppComponent = /** @class */ (function () {
         this.renderer.appendChild(this.document.head, s1);
         var s2 = this.renderer.createElement('script');
         s2.type = 'text/javascript';
-        s2.text = "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '" + this.gaCode + "');";
+        s2.text = "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', '" + _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].gaCode + "');";
         this.renderer.appendChild(this.document.head, s2);
     };
     return AppComponent;
