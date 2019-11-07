@@ -41,7 +41,7 @@
     "@angular/platform-server": "8.2.13",
     "@angular/router": "8.2.13",
     "@briebug/cypress-schematic": "2.0.0",
-    "@briebug/jest-schematic": "2.1.0",
+    "@briebug/jest-schematic": "2.1.1",
     "@types/gtag.js": "0.0.3",
     "@types/jest": "24.0.22",
     "@types/lodash": "4.14.145",
