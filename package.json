@@ -44,7 +44,7 @@
     "@briebug/jest-schematic": "2.1.1",
     "@types/gtag.js": "0.0.3",
     "@types/jest": "24.0.22",
-    "@types/lodash": "4.14.145",
+    "@types/lodash": "4.14.146",
     "ag-grid-angular": "21.1.0",
     "ag-grid-community": "21.1.1",
     "ag-grid-enterprise": "21.1.1",
