@@ -6869,9 +6869,10 @@ mocha@5.2.0:
     mkdirp "0.5.1"
     supports-color "5.4.0"
 
-mochawesome-merge@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/mochawesome-merge/-/mochawesome-merge-2.0.1.tgz#c690433acc78fd769effe4db1a107508351e2dc5"
+mochawesome-merge@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/mochawesome-merge/-/mochawesome-merge-2.1.0.tgz#fc23aedc6fe36de6835869df3db04e9ce4121755"
+  integrity sha512-9t/losbbA4tBDwjOo9OPoyv39gfFcsqX2NmLIcYmTVhsZxm0ahy8UDiFsxsF+TFKFbXOnny4qBOqp5VHeF/e6Q==
   dependencies:
     fs-extra "^7.0.1"
     minimatch "^3.0.4"
