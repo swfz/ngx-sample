@@ -71,7 +71,7 @@
     "@angular/cli": "8.3.18",
     "@angular/compiler-cli": "8.2.13",
     "@angular/language-service": "8.2.13",
-    "@cypress/webpack-preprocessor": "4.1.0",
+    "@cypress/webpack-preprocessor": "4.1.1",
     "@types/jasmine": "3.4.6",
     "@types/jasminewd2": "2.0.8",
     "@types/moment": "2.13.0",
