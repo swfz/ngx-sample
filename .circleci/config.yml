@@ -109,24 +109,6 @@ jobs:
           root: /home/circleci/project
           paths:
             - dist
-  lint:
-    executor: node
-    steps:
-      - checkout
-      - run: echo "Start Lint"
-      - restore_npm
-      - run: npm install
-      - save_npm
-      - run: npx ng lint --exclude 'node_modules/**'
-  prettier:
-    executor: node
-    steps:
-      - checkout
-      - run: echo "Start Prettier Check"
-      - restore_npm
-      - run: npm install
-      - save_npm
-      - run: npm run prettier:check
   test:
     executor: node
     steps:
@@ -201,16 +183,11 @@ jobs:
       - attach_workspace:
           at: /home/circleci/project
       - run: npm run ngh
-  comment-cypress-result:
-    executor: cypress-cjk
-    steps:
-      - run: env
 
 workflows:
   version: 2.1
   workflow:
     jobs:
-      - comment-cypress-result
       - e2e-feature:
           requires:
             - e2e-master
@@ -219,14 +196,7 @@ workflows:
               ignore:
                 - master
       - e2e-master
-      - test
-      - lint
-      - prettier
-      - build:
-          requires:
-           - test
-           - lint
-           - prettier
+      - build
       - deploy:
           requires:
             - build

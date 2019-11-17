@@ -1,4 +1,4 @@
-name: build
+name: ci
 on: [push]
 jobs:
   prettier:
@@ -14,7 +14,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
 
       - name: npm install, prettier
         run: |
@@ -36,7 +36,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
 
       - name: npm install, lint
         run: |
@@ -58,7 +58,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
 
       - name: npm install, test
         run: |
@@ -66,5 +66,4 @@ jobs:
           npm run test
         env:
           CI: true
-
 
