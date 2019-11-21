@@ -74,6 +74,10 @@ commands:
           path: "cypress/snapshots"
           destination: cypress-snapshots
           when: always
+      - store_artifacts:
+          path: "allure-results"
+          destination: allure-results
+          when: always
   comment_to_pr:
     steps:
       - run:
