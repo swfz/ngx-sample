@@ -55,6 +55,9 @@ commands:
           name: 'generate html report'
           command: 'npm run ci:e2e:report:html'
           when: always
+      - run:
+          name: 'generate allure report'
+          command: 'npx allure-commandline serve allure-results -o allure-report'
       - store_test_results:
           path: "cypress/results"
           when: always
@@ -75,8 +78,8 @@ commands:
           destination: cypress-snapshots
           when: always
       - store_artifacts:
-          path: "allure-results"
-          destination: allure-results
+          path: "allure-report"
+          destination: allure-report
           when: always
   comment_to_pr:
     steps:
