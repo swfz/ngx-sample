@@ -44,7 +44,8 @@ commands:
 
   install_dependencies:
     steps:
-      - run: apt-get install -y fonts-noto-cjk jq default-jre
+      - run: apt install -y default-jre
+      - run: apt-get install -y fonts-noto-cjk jq
   store_reports:
     steps:
       - run:
