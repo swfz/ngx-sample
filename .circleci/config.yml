@@ -58,7 +58,7 @@ commands:
           when: always
       - run:
           name: 'generate allure report'
-          command: 'npx allure-commandline serve allure-results -o allure-report'
+          command: 'npx allure-commandline generate allure-results -o allure-report'
       - store_test_results:
           path: "cypress/results"
           when: always
