@@ -52,7 +52,7 @@
     "allure-commandline": "^2.13.0",
     "angular-cli-ghpages": "0.6.0",
     "angular-google-auth2": "1.0.8",
-    "bluebird": "3.7.1",
+    "bluebird": "3.7.2",
     "bootstrap": "4.3.1",
     "chart.js": "2.9.3",
     "core-js": "2.6.10",
