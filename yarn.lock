@@ -1166,10 +1166,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@briebug/cypress-schematic@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@briebug/cypress-schematic/-/cypress-schematic-3.0.1.tgz#b8f0c4f0bdfd9bcde96f4c3139375ebd8f35a56c"
-  integrity sha512-/u9piSia6eoGkfL7INH7KwBGg5M1SpUFcojclOGz6mSnSMOJMGt8y88AWe6JU3qKn3WX7sywO/goJFjL6SlE1w==
+"@briebug/cypress-schematic@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@briebug/cypress-schematic/-/cypress-schematic-3.0.2.tgz#53fa9398e695677a88cc3a044915b8063fc8e5d3"
+  integrity sha512-8ysBRZ4OAiCcC5hVMukmauRX/yaZjagmv6UVV48J6cfbDG57KWuYVOAE1A87gOr2gu+vsY3DD2ymOJfPshHXbA==
   dependencies:
     "@angular-devkit/core" "^8.3.15"
     "@angular-devkit/schematics" "^8.3.15"
