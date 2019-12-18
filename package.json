@@ -95,7 +95,7 @@
     "mocha-multi-reporters": "1.1.7",
     "mochawesome": "4.1.0",
     "mochawesome-merge": "2.1.0",
-    "mochawesome-report-generator": "4.0.1",
+    "mochawesome-report-generator": "4.1.0",
     "moment": "2.24.0",
     "moment-range": "4.0.2",
     "ng-packagr": "5.7.1",
