@@ -15,11 +15,12 @@ export class CapturingInterceptor implements HttpInterceptor {
   constructor(private logger: LogService) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler) {
-    return next
-      .handle(req)
-      .pipe(
-        tap(event => this.sendMessage(event), error => this.sendMessage(error))
-      );
+    return next.handle(req).pipe(
+      tap(
+        event => this.sendMessage(event),
+        error => this.sendMessage(error)
+      )
+    );
   }
 
   private sendMessage(event: HttpEvent<unknown> | HttpErrorResponse): void {

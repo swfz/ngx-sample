@@ -82,10 +82,9 @@ export class CacheService {
   getUsers() {
     const apiUrl = 'https://jsonplaceholder.typicode.com/users';
     if (!this._users) {
-      this._users = this.http.get(apiUrl).pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
+      this._users = this.http
+        .get(apiUrl)
+        .pipe(shareReplay(), catchError(this.handleError));
     }
 
     return this._users;
@@ -95,10 +94,7 @@ export class CacheService {
     const apiUrl = 'https://jsonplaceholder.typicode.com/users';
     return (this._users = this.http
       .get(apiUrl, this.formatGetParams(condition))
-      .pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      ));
+      .pipe(shareReplay(), catchError(this.handleError)));
   }
 
   handleError(error: any) {
