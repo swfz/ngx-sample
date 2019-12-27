@@ -1371,9 +1371,7 @@ var CapturingInterceptor = /** @class */ (function () {
     }
     CapturingInterceptor.prototype.intercept = function (req, next) {
         var _this = this;
-        return next
-            .handle(req)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (event) { return _this.sendMessage(event); }, function (error) { return _this.sendMessage(error); }));
+        return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (event) { return _this.sendMessage(event); }, function (error) { return _this.sendMessage(error); }));
     };
     CapturingInterceptor.prototype.sendMessage = function (event) {
         console.log(event);
@@ -4863,7 +4861,9 @@ var CacheService = /** @class */ (function () {
     CacheService.prototype.getUsers = function () {
         var apiUrl = 'https://jsonplaceholder.typicode.com/users';
         if (!this._users) {
-            this._users = this.http.get(apiUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
+            this._users = this.http
+                .get(apiUrl)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
         }
         return this._users;
     };
