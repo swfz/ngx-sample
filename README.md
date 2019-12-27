@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/swfz/ngx-sample/tree/master.svg?style=svg)](https://circleci.com/gh/swfz/ngx-sample/tree/master)
+![GitHubActions](https://github.com/swfz/ngx-sample/workflows/ci/badge.svg)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/swfz/ngx-sample.svg?color=blue&style=popout)
 ![GitHub top language](https://img.shields.io/github/languages/top/swfz/ngx-sample.svg?style=popout)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/swfz/ngx-sample/@angular/core.svg?color=cc3399&style=popout)
