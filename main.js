@@ -2558,7 +2558,7 @@ var GetParamsComponent = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/pages/index.ts ***!
   \********************************/
-/*! exports provided: TopComponent, MomentRangeComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent */
+/*! exports provided: TopComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent, MomentRangeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3739,7 +3739,7 @@ __webpack_require__.r(__webpack_exports__);
 var styles_SlideComponent = [_slide_component_scss_shim_ngstyle__WEBPACK_IMPORTED_MODULE_0__["styles"]];
 var RenderType_SlideComponent = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵcrt"]({ encapsulation: 0, styles: styles_SlideComponent, data: {} });
 
-function View_SlideComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 0, "link", [["href", "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/moon.css"], ["id", "theme"], ["rel", "stylesheet"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 2, "div", [["class", "reveal"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](2, 0, null, null, 1, "div", [["class", "slides"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](3, 0, null, null, 0, "section", [["data-markdown", "/assets/test.md"], ["data-separator", "^---"]], null, null, null, null, null))], null, null); }
+function View_SlideComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 0, "link", [["href", "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/moon.css"], ["id", "theme"], ["rel", "stylesheet"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 2, "div", [["class", "reveal"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](2, 0, null, null, 1, "div", [["class", "slides"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](3, 0, null, null, 0, "section", [["data-markdown", "/assets/test.md"], ["data-separator", "^---"]], null, null, null, null, null))], null, null); }
 function View_SlideComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-slide", [], null, null, null, View_SlideComponent_0, RenderType_SlideComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 4243456, null, 0, _slide_component__WEBPACK_IMPORTED_MODULE_2__["SlideComponent"], [], null, null)], null, null); }
 var SlideComponentNgFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵccf"]("app-slide", _slide_component__WEBPACK_IMPORTED_MODULE_2__["SlideComponent"], View_SlideComponent_Host_0, {}, {}, []);
 
