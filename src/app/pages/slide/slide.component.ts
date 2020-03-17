@@ -1,8 +1,9 @@
 import { Component, AfterViewInit } from '@angular/core';
 
 interface RevealInWindow {
-  Reveal: any;
+  Reveal: RevealStatic;
 }
+
 @Component({
   selector: 'app-slide',
   templateUrl: './slide.component.html',

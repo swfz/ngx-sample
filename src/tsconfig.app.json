@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "",
-    "types": ["node", "gtag.js"]
+    "types": ["node", "gtag.js", "reveal"]
   },
   "files": [
     "main.ts",
