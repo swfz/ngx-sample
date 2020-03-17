@@ -1690,6 +1690,11 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@fullcalendar/core@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.4.0.tgz#79dbc0cca836ce628a07e739a456da11ff141373"
+  integrity sha512-PC4mmXHJHAlXmUEmZVnePyA8yYCOBdxBNq8yjJqedEtT1X0x36yTFz/Y0Ux6bniICZDqYtk0xoxe6jaxi++e0g==
+
 "@hapi/address@^2.1.2":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -9420,10 +9425,10 @@ pretty-format@^25.1.0:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
-primeng@8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-8.1.1.tgz#3b1f95f503f1bd70834caea775dbfd2e4e322b5c"
-  integrity sha512-8dP8A3qkmOvDTe97kCeFvoCk6oPNDdgMTdT4UBzhC4ua5wM7i7pjYXuKzAXm3oEFf+iSEB6WqzzfSqyZdbEA+w==
+primeng@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-9.0.0.tgz#f4732d83f49aa8e53843762cfaed27065156869d"
+  integrity sha512-gR9uvEc9/1BXV9tfMt9dggvCAlNZjhrlarbfLPViY6Hqqr588WhOOvU40Gm8rh3sbXkfisuc6Rvhu7ePQXscHA==
 
 private@^0.1.6, private@^0.1.8:
   version "0.1.8"

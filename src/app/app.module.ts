@@ -59,7 +59,7 @@ import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.
 import { WipComponent } from './pages/wip/wip.component';
 import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/primeng';
+import { MessagesModule } from 'primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
