@@ -2558,7 +2558,7 @@ var GetParamsComponent = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/pages/index.ts ***!
   \********************************/
-/*! exports provided: TopComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent, MomentRangeComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent */
+/*! exports provided: TopComponent, MomentRangeComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
