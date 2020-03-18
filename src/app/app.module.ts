@@ -11,9 +11,10 @@ import {
   AlertModule,
   TabsModule,
   PopoverModule,
-  CollapseModule,
-  BsDatepickerModule
+  CollapseModule
 } from 'ngx-bootstrap';
+
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 import { httpInterceptorProviders } from './http-interceptors';
 
