@@ -14,7 +14,7 @@ import {
   CollapseModule
 } from 'ngx-bootstrap';
 
-import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { httpInterceptorProviders } from './http-interceptors';
 
