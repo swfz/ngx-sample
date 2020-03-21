@@ -4,16 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
-import { AgGridModule } from 'ag-grid-angular/main';
+import { AgGridModule } from 'ag-grid-angular';
 import { ChartModule } from 'primeng/chart';
 
 import {
   AlertModule,
   TabsModule,
   PopoverModule,
-  CollapseModule,
-  BsDatepickerModule
+  CollapseModule
 } from 'ngx-bootstrap';
+
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { httpInterceptorProviders } from './http-interceptors';
 
@@ -59,7 +60,7 @@ import { NonScrollGridComponent } from './pages/non-scroll-grid/non-scroll-grid.
 import { WipComponent } from './pages/wip/wip.component';
 import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/primeng';
+import { MessagesModule } from 'primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

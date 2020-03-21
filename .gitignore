@@ -43,5 +43,8 @@ Thumbs.db
 
 cypress/snapshots/*
 cypress/videos/*
+cypress/results/*
+cypress/tmp-e2e-json/*
 mochawesome-report/*
 mochawesome.json
+allure-results/*

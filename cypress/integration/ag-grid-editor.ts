@@ -30,12 +30,8 @@ describe('ag-grid-editor', () => {
     cy.xpath('//div[@col-id="price"]')
       .last()
       .dblclick();
-    cy.xpath('//div[@col-id="price"]')
+    cy.xpath('//div[@col-id="price"]//input')
       .last()
-      .children()
-      .first()
-      .children()
-      .first()
       .type('3000{enter}');
     cy.xpath('//div[@col-id="price"]')
       .last()

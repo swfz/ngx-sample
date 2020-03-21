@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import * as moment from 'moment/moment';
-import { ICellEditorAngularComp } from '../../../../node_modules/ag-grid-angular/src/interfaces';
+// import { ICellEditorAngularComp } from '../../../../node_modules/ag-grid-angular/src/interfaces';
 import { BsDatepickerDirective } from 'ngx-bootstrap';
 import { GridApi, ICellEditorParams } from 'ag-grid-community';
 import { AgEditorComponent } from 'ag-grid-angular';

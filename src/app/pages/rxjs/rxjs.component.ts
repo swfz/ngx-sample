@@ -40,7 +40,7 @@ export interface IInputText {
 export class RxjsComponent implements OnInit {
   public aaa!: Observable<number>;
 
-  @ViewChild('input', { static: false })
+  @ViewChild('input')
   text!: HTMLInputElement;
 
   private events$!: Subject<IEvent>;

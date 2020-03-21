@@ -8,7 +8,8 @@
     "types": [
       "jest",
       "node",
-      "gtag.js"
+      "gtag.js",
+      "reveal"
     ]
   },
   "files": [
