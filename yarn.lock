@@ -18,7 +18,7 @@
     "@angular-devkit/core" "9.0.6"
     rxjs "6.5.3"
 
-"@angular-devkit/build-angular@~0.900.6":
+"@angular-devkit/build-angular@0.900.6":
   version "0.900.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.900.6.tgz#946bfe6656a12f58f66de0e6b8e8b9aa0f48a319"
   integrity sha512-EQ4K4i7FBQyy+qY+kTBxJkxaHzYAf+qSC5ktK1rzXCe17+FK/sf2k4YtHwxB9mbBLB1ZXj0JnysssgzeoG0s+w==
@@ -1690,7 +1690,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@fullcalendar/core@^4.4.0":
+"@fullcalendar/core@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.4.0.tgz#79dbc0cca836ce628a07e739a456da11ff141373"
   integrity sha512-PC4mmXHJHAlXmUEmZVnePyA8yYCOBdxBNq8yjJqedEtT1X0x36yTFz/Y0Ux6bniICZDqYtk0xoxe6jaxi++e0g==
@@ -2460,7 +2460,7 @@ acorn@^7.1.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.0.tgz#949d36f2c292535da602283586c2477c57eb2d6c"
   integrity sha512-kL5CuoXA/dgxlBbVrflsflzQ3PAas7RYZB52NOm/6839iVYJgKMJ3cQJD+t2i5+qFa8h3MDpEOJiS64E8JLnSQ==
 
-ag-grid-angular@^23.0.0:
+ag-grid-angular@23.0.0:
   version "23.0.0"
   resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.0.0.tgz#49011f9caec58926a59433a58ce5d5be3bfccb3c"
   integrity sha512-hMh5xNEtktyX3KERA3JuuRMT3nJOzAW34T1pKzpjVPTjHHUSiHgvwU59nmPYaMAJ3zk/t1HmyZicVrkl/ILnng==
@@ -3750,7 +3750,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@^5.1.2:
+codelyzer@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.2.1.tgz#44fd431e128009f38c761828c33ebacba9549d32"
   integrity sha512-awBZXFcJUyC5HMYXiHzjr3D24tww2l1D1OqtfA9vUhEtYr32a65A+Gblm/OvsO+HuKLYzn8EDMw1inSM3VbxWA==
@@ -8144,7 +8144,7 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-ng-packagr@^9.0.0:
+ng-packagr@9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-9.0.3.tgz#5467b7f84595c0e738444e5694614418545b6609"
   integrity sha512-6TmJJWbrU6CtCwoXUvVWukWc1TMpRsDB39cQkk4zPVMY9Qsubh5gZs0LGbJ7b7dGPu3Cr2LAlaSK8BxedccPhQ==
