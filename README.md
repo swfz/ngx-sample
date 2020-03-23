@@ -15,4 +15,3 @@ Angular Sample Collection
 
 [GitHubPages](https://swfz.github.io/ngx-sample/)
 
-
