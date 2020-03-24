@@ -8,12 +8,12 @@ commands:
       prefix: &cache_key_prefix_parameter
         description: cache key prefix
         type: string
-        default: ngx-sample-v8
+        default: ngx-sample-v9
     steps:
       - run: &echo_env echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
+            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-
   save_npm:
@@ -97,7 +97,7 @@ executors:
       - IMAGE_NAME: node
   cypress-cjk:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.16.1
     environment:
       - CYPRESS_CACHE_FOLDER: /tmp/.cache/Cypress
       ## this enables colors in the output
@@ -150,22 +150,23 @@ jobs:
     steps:
       - install_dependencies
       - checkout
-      - run:
-          name: 'masterとの比較用checkout'
-          command: |
-            git checkout master
-            git reset --hard origin/master
+      # 実行環境のテストのため一時的にコメントアウト
+      # - run:
+      #     name: 'masterとの比較用checkout'
+      #     command: |
+      #       git checkout master
+      #       git reset --hard origin/master
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm:
           with_cypress: true
       - run:
           name: 'server start'
-          command: 'npm run ci:e2e:server'
+          command: 'yarn run ci:e2e:server'
           background: true
       - run:
           name: 'cypress'
-          command: 'npm run ci:e2e:run:base'
+          command: 'yarn run ci:e2e:run:base'
       - persist_to_workspace:
           root: cypress
           paths:
