@@ -150,11 +150,12 @@ jobs:
     steps:
       - install_dependencies
       - checkout
-      - run:
-          name: 'masterとの比較用checkout'
-          command: |
-            git checkout master
-            git reset --hard origin/master
+      # 実行環境のテストのため一時的にコメントアウト
+      # - run:
+      #     name: 'masterとの比較用checkout'
+      #     command: |
+      #       git checkout master
+      #       git reset --hard origin/master
       - restore_npm
       - run: npm install
       - save_npm:
