@@ -50,11 +50,11 @@ commands:
     steps:
       - run:
           name: 'merge report'
-          command: 'npm run ci:e2e:report:json'
+          command: 'yarn run ci:e2e:report:json'
           when: always
       - run:
           name: 'generate html report'
-          command: 'npm run ci:e2e:report:html'
+          command: 'yarn run ci:e2e:report:html'
           when: always
       - run:
           name: 'generate allure report'
@@ -110,7 +110,7 @@ jobs:
       - checkout
       - run: echo "Start Build"
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm
       - run: npx ng build --aot --no-progress --base-href '/ngx-sample/'
       - persist_to_workspace:
@@ -122,27 +122,27 @@ jobs:
     steps:
       - checkout
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm
-      - run: npm run test
+      - run: yarn run test
   e2e-feature:
     executor: cypress-cjk
     steps:
       - install_dependencies
       - checkout
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm:
           with_cypress: true
       - attach_workspace:
           at: cypress
       - run:
           name: 'server start'
-          command: 'npm run ci:e2e:server'
+          command: 'yarn run ci:e2e:server'
           background: true
       - run:
           name: 'cypress'
-          command: 'npm run ci:e2e:run:actual'
+          command: 'yarn run ci:e2e:run:actual'
       - store_reports
       - comment_to_pr
   e2e-master:
@@ -156,16 +156,16 @@ jobs:
             git checkout master
             git reset --hard origin/master
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm:
           with_cypress: true
       - run:
           name: 'server start'
-          command: 'npm run ci:e2e:server'
+          command: 'yarn run ci:e2e:server'
           background: true
       - run:
           name: 'cypress'
-          command: 'npm run ci:e2e:run:base'
+          command: 'yarn run ci:e2e:run:base'
       - persist_to_workspace:
           root: cypress
           paths:
@@ -180,7 +180,7 @@ jobs:
             - "ec:ae:80:b6:bf:07:34:c5:76:1e:26:08:31:fe:c1:ba"
       - checkout
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm:
           with_cypress: true
       - run:
@@ -190,7 +190,7 @@ jobs:
             git config --global user.name $GITHUB_NAME
       - attach_workspace:
           at: /home/circleci/project
-      - run: npm run ngh
+      - run: yarn run ngh
 
 workflows:
   version: 2.1
