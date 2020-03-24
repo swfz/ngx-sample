@@ -13,7 +13,7 @@ commands:
       - run: &echo_env echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-
   save_npm:
