@@ -13,7 +13,7 @@ commands:
       - run: &echo_env echo "$IMAGE_NAME" > /tmp/env_image_name.txt
       - restore_cache:
           keys:
-            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "package.json" }}
+            - &cache_key << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-{{ .Branch }}-
             - << parameters.prefix >>-{{ checksum "/tmp/env_image_name.txt" }}-
   save_npm:
@@ -157,16 +157,16 @@ jobs:
       #       git checkout master
       #       git reset --hard origin/master
       - restore_npm
-      - run: npm install
+      - run: yarn
       - save_npm:
           with_cypress: true
       - run:
           name: 'server start'
-          command: 'npm run ci:e2e:server'
+          command: 'yarn run ci:e2e:server'
           background: true
       - run:
           name: 'cypress'
-          command: 'npm run ci:e2e:run:base'
+          command: 'yarn run ci:e2e:run:base'
       - persist_to_workspace:
           root: cypress
           paths:
