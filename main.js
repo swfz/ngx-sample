@@ -2495,7 +2495,7 @@ var GoogleOauthComponent = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/pages/index.ts ***!
   \********************************/
-/*! exports provided: TopComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent, MomentRangeComponent */
+/*! exports provided: MomentRangeComponent, TopComponent, GetParamsComponent, RxjsComponent, FormatFocusoutComponent, ValidationComponent, RecursiveTemplateComponent, ResponseCacheComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
