@@ -2,7 +2,8 @@ describe('viewchildren', () => {
   const urlBase = 'http://localhost:4200/';
 
   it('viewchildren', () => {
-    cy.visit(`${urlBase}viewchildren`);
+    cy.visit(`${urlBase}focus`);
+    // cy.visit(`${urlBase}viewchildren`);
 
     // cy.get('div.popover-content').should('not.be.visible');
 
