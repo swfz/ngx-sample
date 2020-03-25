@@ -114,7 +114,7 @@ jobs:
       - save_npm
       - run: npx ng build --aot --no-progress --base-href '/ngx-sample/'
       - persist_to_workspace:
-          root: /home/circleci/project
+          root: /root/project
           paths:
             - dist
   test:
@@ -190,7 +190,7 @@ jobs:
             git config --global user.email $GITHUB_EMAIL
             git config --global user.name $GITHUB_NAME
       - attach_workspace:
-          at: /home/circleci/project
+          at: /root/project
       - run: npm run ngh
 
 workflows:
