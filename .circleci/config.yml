@@ -150,15 +150,15 @@ jobs:
     steps:
       - install_dependencies
       - checkout
-      - run:
-          name: 'masterとの比較用checkout'
-          command: |
-            git checkout master
-            git reset --hard origin/master
-      - restore_npm
+#      - run:
+#          name: 'masterとの比較用checkout'
+#          command: |
+#            git checkout master
+#            git reset --hard origin/master
+#      - restore_npm
       - run: npm install
-      - save_npm:
-          with_cypress: true
+#      - save_npm:
+#          with_cypress: true
       - run:
           name: 'server start'
           command: 'npm run ci:e2e:server'
