@@ -6,7 +6,7 @@ describe('viewchildren', () => {
 
     cy.get('div.popover-content').should('not.be.visible');
 
-    cy.contains('all open').click();
+    // cy.contains('all open').click();
 
     cy.get('div.popover-content')
       .eq(0)
@@ -20,7 +20,7 @@ describe('viewchildren', () => {
 
     cy.compareSnapshot('viewchildren-popover-open', 0.0);
 
-    cy.contains('all hide').click();
+    // cy.contains('all hide').click();
 
     cy.get('div.popover-content').should('not.be.visible');
   });
