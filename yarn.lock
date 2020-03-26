@@ -2748,15 +2748,15 @@ ag-grid-angular@23.0.2:
   resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.0.2.tgz#9e5a6fd0cc5a82352762cae7abe2a4e7d822cd65"
   integrity sha512-4K/fd5b3NS5Ppe+xdnKnq3hXTzNm96wXn0p6jgS8xfUTekDMLB5vx8PPmWeQ/y8BUBIlLc4sKREovMMgY8nT/Q==
 
-ag-grid-community@23.0.0:
-  version "23.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.0.0.tgz#fe524842b0a71a9acecca988c54a5b4539281bdf"
-  integrity sha512-Lyu37OzPXn1OAYgfGyi12Xy725AKDqYH5fuMVmmKcqZ3o5FnJnD8P7I4/j78dAJFMqQtNlfX0/xmfapb9T3FkQ==
+ag-grid-community@23.0.2:
+  version "23.0.2"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.0.2.tgz#81fc92ce9e47c75e854337a1e2d8ef950c3a1d51"
+  integrity sha512-UaD4lEVKKVCA2rrgMJJV328sCp5rdR9hgOh6oMUpZRXCke/3m/r2odjGjzvfT7yeLClj6ZdZuCkM4NmEuCZ8KA==
 
-ag-grid-enterprise@23.0.0:
-  version "23.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-23.0.0.tgz#aaccb264c9da85a182aef73931e3b82193cff13b"
-  integrity sha512-mhICkjqhdHgeZdfMz9axPIThUcWbyfrI+qMkLj+te3DFYjyCVJzWKYM9SCp4aTF8C51CfRy3aMLmdpVX2mTdwg==
+ag-grid-enterprise@23.0.2:
+  version "23.0.2"
+  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-23.0.2.tgz#5b3b1367854504eb1be60fe2e4151a5b698b9c02"
+  integrity sha512-e8vincVRbzc1kSj97iT30VXOodwLRZbhpZSb92Qeqo3CGhtOXLf+8az3alIbksObwmoMSz/Xk1hazXVATfzwTg==
 
 agent-base@6:
   version "6.0.0"
