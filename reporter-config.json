@@ -4,7 +4,7 @@
     "mochaFile": "cypress/results/[hash].xml"
   },
   "mochawesomeReporterOptions": {
-    "reportDir": "cypress/tmp-e2e-json",
+    "files": ["cypress/tmp-e2e-json/*.json"],
     "overwrite": false,
     "html": false,
     "json": true
