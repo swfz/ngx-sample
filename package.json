@@ -46,7 +46,7 @@
     "@types/gtag.js": "0.0.3",
     "@types/jest": "25.1.4",
     "@types/lodash": "4.14.149",
-    "ag-grid-angular": "23.0.0",
+    "ag-grid-angular": "23.0.2",
     "ag-grid-community": "23.0.0",
     "ag-grid-enterprise": "23.0.0",
     "allure-commandline": "2.13.0",
