@@ -91,7 +91,7 @@ commands:
 executors:
   node:
     docker:
-      - image: circleci/node:10.19.0-stretch-browsers
+      - image: circleci/node:10.20.0-stretch-browsers
     environment:
       - CYPRESS_CACHE_FOLDER: /tmp/.cache/Cypress
       - IMAGE_NAME: node
