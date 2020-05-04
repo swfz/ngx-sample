@@ -96,7 +96,7 @@
     "mochawesome": "5.0.0",
     "mochawesome-merge": "2.1.0",
     "mochawesome-report-generator": "4.1.0",
-    "moment": "2.24.0",
+    "moment": "2.25.3",
     "moment-range": "4.0.2",
     "ng-packagr": "9.1.2",
     "prettier": "1.19.1",
