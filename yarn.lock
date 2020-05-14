@@ -2890,10 +2890,10 @@ acorn@^7.1.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.0.tgz#949d36f2c292535da602283586c2477c57eb2d6c"
   integrity sha512-kL5CuoXA/dgxlBbVrflsflzQ3PAas7RYZB52NOm/6839iVYJgKMJ3cQJD+t2i5+qFa8h3MDpEOJiS64E8JLnSQ==
 
-ag-grid-angular@23.1.0:
-  version "23.1.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.1.0.tgz#94265c92e0d88ce6fde885b61a40a4793ec4e186"
-  integrity sha512-cXKHzG4vXQ2M6SUrqpr8kidWrYCUN7tPyFzhpetJtpiCAuOXQhG0oNXpGCYi5rGu7Oz3RSidN+Z5ENvoVfTGxw==
+ag-grid-angular@23.1.1:
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.1.1.tgz#1afefb06a4f017f2a34f891cbc007d11341f14be"
+  integrity sha512-vaqE2+6effzVBcC5kQhvEPZHCco85G8A4o71OLkQXjOMbUMJOxPT0/CNghfn89qdwA/mLPFuco5FN/tLXkBGMQ==
 
 ag-grid-community@23.1.1:
   version "23.1.1"
