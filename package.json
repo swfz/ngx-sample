@@ -44,7 +44,7 @@
     "@briebug/jest-schematic": "2.1.1",
     "@fullcalendar/core": "4.4.0",
     "@types/gtag.js": "0.0.3",
-    "@types/jest": "25.2.2",
+    "@types/jest": "25.2.3",
     "@types/lodash": "4.14.151",
     "ag-grid-angular": "23.1.1",
     "ag-grid-community": "23.1.1",
