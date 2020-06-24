@@ -2505,10 +2505,10 @@ acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.2.0.tgz#17ea7e40d7c8640ff54a694c889c26f31704effe"
   integrity sha512-apwXVmYVpQ34m/i71vrApRrRKCWQnZZF1+npOD0WV5xZFfwWOmKGQ2RWlfdy9vWITsenisM8M0Qeq8agcFHNiQ==
 
-ag-grid-angular@23.2.0:
-  version "23.2.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.2.0.tgz#9a69e34039409dc8d174be57b081c8c81a143f92"
-  integrity sha512-SVypFoZVhZOOCbJK11CGzQNv2enpYjBad8IGcWvbIOvWTgBsxA4V4fWNzqVzQKzd90fcuEEJx1D3MFJ42c7HVA==
+ag-grid-angular@23.2.1:
+  version "23.2.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.2.1.tgz#332e46845a2b6171b8b4b0d53f16f53f11255a66"
+  integrity sha512-SxP7IeLkjlqmh9nDBGy2uYpnc09DkGjjUNxrUrvYogMDnITcx1cKkQry4ayH9eNhq6pvRNcmzNlXPWN8JoAu7Q==
   dependencies:
     tslib "^1.10.0"
 
