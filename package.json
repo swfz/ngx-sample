@@ -107,7 +107,7 @@
     "ts-node": "8.10.2",
     "tslint": "5.20.1",
     "typescript": "3.8.3",
-    "wait-on": "5.0.1"
+    "wait-on": "5.0.3"
   },
   "jest": {
     "preset": "jest-preset-angular",
