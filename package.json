@@ -45,7 +45,7 @@
     "@fullcalendar/core": "4.4.2",
     "@types/gtag.js": "0.0.3",
     "@types/jest": "25.2.3",
-    "@types/lodash": "4.14.157",
+    "@types/lodash": "4.14.159",
     "ag-grid-angular": "23.2.1",
     "ag-grid-community": "23.2.1",
     "ag-grid-enterprise": "23.2.1",
