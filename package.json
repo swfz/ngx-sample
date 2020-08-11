@@ -58,7 +58,7 @@
     "core-js": "2.6.11",
     "cypress": "4.5.0",
     "font-awesome": "4.7.0",
-    "license-webpack-plugin": "2.2.0",
+    "license-webpack-plugin": "2.3.0",
     "mocha-allure-reporter": "1.4.0",
     "ngx-bootstrap": "5.5.0",
     "node-sass": "4.14.1",
