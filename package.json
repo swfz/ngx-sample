@@ -91,7 +91,7 @@
     "jest-preset-angular": "7.1.1",
     "karma-cli": "2.0.0",
     "mocha": "7.2.0",
-    "mocha-junit-reporter": "1.23.3",
+    "mocha-junit-reporter": "2.0.0",
     "mocha-multi-reporters": "1.5.1",
     "mochawesome": "6.2.1",
     "mochawesome-merge": "2.1.0",
