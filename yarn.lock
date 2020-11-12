@@ -1452,15 +1452,15 @@
     "@schematics/angular" "^8.3.23"
     rxjs "6.4.0"
 
-"@briebug/jest-schematic@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@briebug/jest-schematic/-/jest-schematic-2.2.0.tgz#ac28ca0100f6d642fb0cc24abf48eaa96e4918a9"
-  integrity sha512-GAE9xlhBQP8zp2LHsvRiJAx+kUIy1ZMIFPBqqdiRrf7181QKFwj4tpt0PQU8NTj1CQwXYYkwZQM+ob+dFa01QQ==
+"@briebug/jest-schematic@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@briebug/jest-schematic/-/jest-schematic-3.1.0.tgz#06bd0d8d339d9acaefb243859ab358af31589dad"
+  integrity sha512-ys/CggnFmspfmcf2SG0b4zYDjNzBs1/YhU0S5NA2YGmEE8onFNXw6aC5bVs63I0ZgHgvyvkhlOEr81XXvuzIiA==
   dependencies:
     "@angular-devkit/core" "^10.0.6"
     "@angular-devkit/schematics" "^10.0.6"
     "@schematics/angular" "^10.0.6"
-    "@schuchard/schematics-core" "0.4.0"
+    "@schuchard/schematics-core" "^0.4.0"
     rxjs "6.5.5"
 
 "@cnakazawa/watch@^1.0.3":
@@ -1972,10 +1972,10 @@
     semver "7.1.3"
     semver-intersect "1.4.0"
 
-"@schuchard/schematics-core@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@schuchard/schematics-core/-/schematics-core-0.4.0.tgz#27ac1b5578fcb7d9c8f90b75f488f7538f73eee2"
-  integrity sha512-PWR/Red9+fz5y6QZtbShDeBOU9QXZh6I0Bd6xx5Cm1bBjQcjBWfAZ+s34/PyjfM/tTcJGLkunELiCn72a82WBg==
+"@schuchard/schematics-core@^0.4.0":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@schuchard/schematics-core/-/schematics-core-0.4.1.tgz#8d9c31adaee9c37313312f65655889e8a3e0c9be"
+  integrity sha512-wZHlXjw4nDARMh76MXXv23uwY2zOvmAvK4vnmkyP5L0Q4IMh5vyE/4k1vB66nhRPkUnBEu5IYN385wQQJJwtlA==
   dependencies:
     "@angular-devkit/core" "8.3.20"
     "@angular-devkit/schematics" "8.3.20"
@@ -1985,7 +1985,7 @@
     inquirer "7.0.3"
     inquirer-autocomplete-prompt "1.0.1"
     inquirer-fuzzy-path "2.2.0"
-    lodash "4.17.15"
+    lodash "4.17.19"
     rxjs "6.4.0"
     strip-json-comments "3.0.1"
     typescript "~3.7.2"
@@ -8198,7 +8198,7 @@ lodash@4.17.15, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.10, lodash@^4.17.11,
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
-lodash@^4.17.19:
+lodash@4.17.19, lodash@^4.17.19:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
