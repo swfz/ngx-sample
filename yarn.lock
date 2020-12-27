@@ -8067,10 +8067,10 @@ license-webpack-plugin@2.1.4:
     "@types/webpack-sources" "^0.1.5"
     webpack-sources "^1.2.0"
 
-license-webpack-plugin@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/license-webpack-plugin/-/license-webpack-plugin-2.3.1.tgz#08eddb2f776c7c64c02f308a00e017d6e824d0b6"
-  integrity sha512-yhqTmlYIEpZWA122lf6E0G8+rkn0AzoQ1OpzUKKs/lXUqG1plmGnwmkuuPlfggzJR5y6DLOdot/Tv00CC51CeQ==
+license-webpack-plugin@2.3.9:
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/license-webpack-plugin/-/license-webpack-plugin-2.3.9.tgz#3bf822587ad05048fabe6220b66b9fa99ee177fd"
+  integrity sha512-Sr6JP6dKD+GgkRGm8Zxd3j7XQ9xt1IZMKwfTEVttmhxRTkT95TXfS0pKS8WkgQblVQWLNo+FKEBY3As5bzeUNw==
   dependencies:
     "@types/webpack-sources" "^0.1.5"
     webpack-sources "^1.2.0"
