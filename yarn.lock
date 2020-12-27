@@ -28,6 +28,14 @@
     "@angular-devkit/core" "9.1.0"
     rxjs "6.5.4"
 
+"@angular-devkit/architect@^0.1001.0":
+  version "0.1001.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1001.7.tgz#b3d75cddf5c5a2677cebba1d7b7eaffe73748d37"
+  integrity sha512-uFYIvMdewU44GbIyRfsUHNMLkx+C0kokpnj7eH5NbJfbyFpCfd3ijBHh+voPdPsDRWs9lLgjbxfHpswSPj4D8w==
+  dependencies:
+    "@angular-devkit/core" "10.1.7"
+    rxjs "6.6.2"
+
 "@angular-devkit/build-angular@0.901.11":
   version "0.901.11"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.901.11.tgz#7e4ac252412e5a59e6a727852053415cfa73e067"
@@ -126,21 +134,32 @@
     rxjs "6.6.2"
     source-map "0.7.3"
 
-"@angular-devkit/core@8.3.20", "@angular-devkit/core@^8.3.15":
+"@angular-devkit/core@10.1.7":
+  version "10.1.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-10.1.7.tgz#c4c4332d738075bf1346aa040c78756e3144ba4b"
+  integrity sha512-RRyDkN2FByA+nlnRx/MzUMK1FXwj7+SsrzJcvZfWx4yA5rfKmJiJryXQEzL44GL1aoaXSuvOYu3H72wxZADN8Q==
+  dependencies:
+    ajv "6.12.4"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.2"
+    source-map "0.7.3"
+
+"@angular-devkit/core@10.2.1", "@angular-devkit/core@^10.1.0":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-10.2.1.tgz#3ae38be4ca56c745788481b3577173ac2007e9e0"
+  integrity sha512-dzlF9Gl7KNt9sPYT2HYq6ySZYwKzkyYR5mrBj3DZOD0OQsoc21LvLkWAHNSL2iYGdHJQS1oJDNs8iRYxYIOY3w==
+  dependencies:
+    ajv "6.12.4"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.2"
+    source-map "0.7.3"
+
+"@angular-devkit/core@8.3.20":
   version "8.3.20"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.20.tgz#8a9e17e706905efab9875c16690e1d9328c9d5dd"
   integrity sha512-UCfW/BJBJnioJU34QennQhA4o+rLoCXWiSrI2LM7yw8/MEM9I8KbqRETP1My3HjHkQnvP+Qh3noedpcu3Nnt8A==
-  dependencies:
-    ajv "6.10.2"
-    fast-json-stable-stringify "2.0.0"
-    magic-string "0.25.3"
-    rxjs "6.4.0"
-    source-map "0.7.3"
-
-"@angular-devkit/core@8.3.25":
-  version "8.3.25"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.25.tgz#8133a18be811424f10a10f37c712165b0f69f3fc"
-  integrity sha512-l7Gqy1tMrTpRmPVlovcFX8UA3mtXRlgO8kcSsbJ9MKRKNTCcxlfsWEYY5igyDBUVh6ADkgSIu0nuk31ZGTe0lw==
   dependencies:
     ajv "6.10.2"
     fast-json-stable-stringify "2.0.0"
@@ -190,20 +209,21 @@
     ora "5.0.0"
     rxjs "6.6.2"
 
-"@angular-devkit/schematics@8.3.20", "@angular-devkit/schematics@^8.3.15":
+"@angular-devkit/schematics@10.2.1", "@angular-devkit/schematics@^10.1.0":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-10.2.1.tgz#1d1aaf3875c9ed5eb3ad97af993af39fe9ed10a9"
+  integrity sha512-0oMhB1eM7hg5Xf4U7r193zrNTGyxfzl2okBsLJPuVmkb3KCBGQOyHYmU5HjDNadPc5iCFc+Xo2+DSDvXGuLmaA==
+  dependencies:
+    "@angular-devkit/core" "10.2.1"
+    ora "5.0.0"
+    rxjs "6.6.2"
+
+"@angular-devkit/schematics@8.3.20":
   version "8.3.20"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.20.tgz#80e7c31ebfd8f7f8500bfa1cae5c39980b962d6a"
   integrity sha512-sDHZakh4e3A5WenR9zr1x6Va9GNRqQlRhqT3xcbkG88v2M0YqEt7dHB7YwnOhm7zSxiWQM8PdWEQHiQ4iu9NyQ==
   dependencies:
     "@angular-devkit/core" "8.3.20"
-    rxjs "6.4.0"
-
-"@angular-devkit/schematics@8.3.25":
-  version "8.3.25"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.25.tgz#692eaa0fc14bc09c315d93966c781a97ca524f77"
-  integrity sha512-/p1MkfursfLy+JRGXlJGPEmX55lrFCsR/2khWAVXZcMaFR3QlR/b6/zvB8I2pHFfr0/XWnYTT/BsF7rJjO3RmA==
-  dependencies:
-    "@angular-devkit/core" "8.3.25"
     rxjs "6.4.0"
 
 "@angular-devkit/schematics@9.1.11":
@@ -1442,15 +1462,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@briebug/cypress-schematic@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@briebug/cypress-schematic/-/cypress-schematic-3.3.0.tgz#2382aa9a1dc70624d8266b602f7ce0c8a018850a"
-  integrity sha512-Gux/dZrmurmggcYKmCMJp6qrhRryRKQ+1b/CgqB+qLxC3me+BvXvvw1+5k1OsCN5M2/RJn04wbeHf/LZ/xC1YA==
+"@briebug/cypress-schematic@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@briebug/cypress-schematic/-/cypress-schematic-4.4.0.tgz#264ae33038225e95cee061f6996a4f5a424dfa45"
+  integrity sha512-63jMXFprwXCyxSdQU4MFPIKNTnVzPPsdUNaZgiJIUlMOsN9TMXRu/biz4MkcSwP8mJ1LHKTkkBSkE/5SfhbtfA==
   dependencies:
-    "@angular-devkit/core" "^8.3.15"
-    "@angular-devkit/schematics" "^8.3.15"
-    "@schematics/angular" "^8.3.23"
-    rxjs "6.4.0"
+    "@angular-devkit/architect" "^0.1001.0"
+    "@angular-devkit/core" "^10.1.0"
+    "@angular-devkit/schematics" "^10.1.0"
+    "@schematics/angular" "^10.1.0"
+    cypress "^6.0.0"
+    rxjs "6.6.2"
 
 "@briebug/jest-schematic@2.2.0":
   version "2.2.0"
@@ -1914,13 +1936,14 @@
     "@angular-devkit/schematics" "10.1.4"
     jsonc-parser "2.3.0"
 
-"@schematics/angular@^8.3.23":
-  version "8.3.25"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-8.3.25.tgz#11252399e30e2ddb94323e5e438bb69839fb9464"
-  integrity sha512-/vEPtE+fvgsWPml/MVqzmlGPBujadPPNwaTuuj5Uz1aVcKeEYzLkbN8YQOpml4vxZHCF8RDwNdGiU4SZg63Jfg==
+"@schematics/angular@^10.1.0":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-10.2.1.tgz#cd523c9c9491e5ed9701f6b92f2b0593eedff56e"
+  integrity sha512-hmhZ6zPJshP1ATYc/EzJPwaFas0D+T6eeWEFyHAgIV2GmNdJNyBdKHQtizGRQBpfWvBdI4/krvX+a71VnkU8oA==
   dependencies:
-    "@angular-devkit/core" "8.3.25"
-    "@angular-devkit/schematics" "8.3.25"
+    "@angular-devkit/core" "10.2.1"
+    "@angular-devkit/schematics" "10.2.1"
+    jsonc-parser "2.3.0"
 
 "@schematics/update@0.901.11":
   version "0.901.11"
@@ -3124,6 +3147,11 @@ binary-extensions@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
 
+blob-util@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/blob-util/-/blob-util-2.0.2.tgz#3b4e3c281111bb7f11128518006cdc60b403a1eb"
+  integrity sha512-T7JQa+zsXXEa6/8ZhHcQEW1UFfVM49Ts65uBkFL6fz2QmrElqmbajIDJvuA0tEhRe5eIjpV9ZF+0RfZR9voJFQ==
+
 block-stream@*:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -3881,6 +3909,16 @@ cli-table3@0.5.1, cli-table3@~0.5.1:
   optionalDependencies:
     colors "^1.1.2"
 
+cli-table3@~0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
+  integrity sha512-gnB85c3MGC7Nm9I/FkiasNBOKjOiO1RNuXXarQms37q4QMpWdlbBgD/VnOStA2faG1dpXMv31RFApjX1/QdgWQ==
+  dependencies:
+    object-assign "^4.1.0"
+    string-width "^4.2.0"
+  optionalDependencies:
+    colors "^1.1.2"
+
 cli-truncate@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/cli-truncate/-/cli-truncate-0.2.1.tgz#9f15cfbb0705005369216c626ac7d05ab90dd574"
@@ -4074,6 +4112,11 @@ commander@^4.0.0, commander@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
+commander@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
 common-tags@1.8.0, common-tags@^1.8.0:
   version "1.8.0"
@@ -4656,6 +4699,50 @@ cypress@^4.12.0:
     request-progress "^3.0.0"
     supports-color "^7.1.0"
     tmp "~0.1.0"
+    untildify "^4.0.0"
+    url "^0.11.0"
+    yauzl "^2.10.0"
+
+cypress@^6.0.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.2.0.tgz#1a8a7dd5bd08db3064551a9f12072963cc9337bf"
+  integrity sha512-m/rkcogYM9MTy8rbsZgyS5wT2L/J+B5V2bY2ztkDNMyqhk/oZgUF4KTWVLzkW2I+scg0iAddca95tLlt7XnAtw==
+  dependencies:
+    "@cypress/listr-verbose-renderer" "^0.4.1"
+    "@cypress/request" "^2.88.5"
+    "@cypress/xvfb" "^1.2.4"
+    "@types/sinonjs__fake-timers" "^6.0.1"
+    "@types/sizzle" "^2.3.2"
+    arch "^2.1.2"
+    blob-util "2.0.2"
+    bluebird "^3.7.2"
+    cachedir "^2.3.0"
+    chalk "^4.1.0"
+    check-more-types "^2.24.0"
+    cli-table3 "~0.6.0"
+    commander "^5.1.0"
+    common-tags "^1.8.0"
+    debug "^4.1.1"
+    eventemitter2 "^6.4.2"
+    execa "^4.0.2"
+    executable "^4.1.1"
+    extract-zip "^1.7.0"
+    fs-extra "^9.0.1"
+    getos "^3.2.1"
+    is-ci "^2.0.0"
+    is-installed-globally "^0.3.2"
+    lazy-ass "^1.6.0"
+    listr "^0.14.3"
+    lodash "^4.17.19"
+    log-symbols "^4.0.0"
+    minimist "^1.2.5"
+    moment "^2.27.0"
+    ospath "^1.2.2"
+    pretty-bytes "^5.4.1"
+    ramda "~0.26.1"
+    request-progress "^3.0.0"
+    supports-color "^7.2.0"
+    tmp "~0.2.1"
     untildify "^4.0.0"
     url "^0.11.0"
     yauzl "^2.10.0"
@@ -5425,6 +5512,21 @@ execa@^4.0.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
+execa@^4.0.2:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
+  integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
+  dependencies:
+    cross-spawn "^7.0.0"
+    get-stream "^5.0.0"
+    human-signals "^1.1.1"
+    is-stream "^2.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^4.0.0"
+    onetime "^5.1.0"
+    signal-exit "^3.0.2"
+    strip-final-newline "^2.0.0"
+
 executable@4.1.1, executable@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/executable/-/executable-4.1.1.tgz#41532bff361d3e57af4d763b70582db18f5d133c"
@@ -5890,6 +5992,16 @@ fs-extra@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.0.tgz#b6afc31036e247b2466dc99c29ae797d5d4580a3"
   integrity sha512-pmEYSk3vYsG/bF651KPUXZ+hvjpgWYw/Gc7W9NFUe3ZVLczKKWIij3IKpOrQcdw4TILtibFslZ0UmR8Vvzig4g==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
+
+fs-extra@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
+  integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
   dependencies:
     at-least-node "^1.0.0"
     graceful-fs "^4.2.0"
@@ -10313,6 +10425,11 @@ pretty-bytes@5.3.0, pretty-bytes@^5.3.0:
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.3.0.tgz#f2849e27db79fb4d6cfe24764fc4134f165989f2"
   integrity sha512-hjGrh+P926p4R4WbaB6OckyRtO0F0/lQBiT+0gnxjV+5kjPBrfVBFCsCLbMqVQeydvIoouYTCmmEURiH3R1Bdg==
 
+pretty-bytes@^5.4.1:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.5.0.tgz#0cecda50a74a941589498011cf23275aa82b339e"
+  integrity sha512-p+T744ZyjjiaFlMUZZv6YPC5JrkNj8maRmPaQCWFJFplUAzpIUTRaTcS+7wmZtUoFXHtESJb23ISliaWyz3SHA==
+
 pretty-format@^24.0.0:
   version "24.8.0"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-24.8.0.tgz#8dae7044f58db7cb8be245383b565a963e3c27f2"
@@ -12216,6 +12333,13 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+supports-color@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
+  integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
+  dependencies:
+    has-flag "^4.0.0"
+
 supports-hyperlinks@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/supports-hyperlinks/-/supports-hyperlinks-2.1.0.tgz#f663df252af5f37c5d49bbd7eeefa9e0b9e59e47"
@@ -12466,6 +12590,13 @@ tmp@^0.0.33:
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
   dependencies:
     os-tmpdir "~1.0.2"
+
+tmp@~0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.2.1.tgz#8457fc3037dcf4719c251367a1af6500ee1ccf14"
+  integrity sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==
+  dependencies:
+    rimraf "^3.0.0"
 
 tmpl@1.0.x:
   version "1.0.4"
