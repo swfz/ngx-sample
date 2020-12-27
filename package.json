@@ -43,7 +43,7 @@
     "@briebug/cypress-schematic": "3.3.0",
     "@briebug/jest-schematic": "2.2.0",
     "@fullcalendar/core": "4.4.2",
-    "@types/gtag.js": "0.0.3",
+    "@types/gtag.js": "0.0.4",
     "@types/jest": "26.0.15",
     "@types/lodash": "4.14.165",
     "ag-grid-angular": "23.2.1",
