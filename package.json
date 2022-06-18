@@ -99,7 +99,7 @@
     "moment": "2.29.1",
     "moment-range": "4.0.2",
     "ng-packagr": "9.1.5",
-    "prettier": "1.19.1",
+    "prettier": "2.7.1",
     "reveal.js": "3.9.2",
     "rxjs-tslint": "0.1.8",
     "start-server-and-test": "1.11.7",
