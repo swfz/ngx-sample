@@ -42,7 +42,7 @@
     "@angular/router": "9.1.13",
     "@briebug/cypress-schematic": "3.3.0",
     "@briebug/jest-schematic": "2.2.0",
-    "@fullcalendar/core": "4.4.2",
+    "@fullcalendar/core": "5.11.3",
     "@types/gtag.js": "0.0.8",
     "@types/jest": "26.0.19",
     "@types/lodash": "4.14.179",
