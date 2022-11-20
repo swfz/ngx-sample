@@ -209,10 +209,12 @@
   resolved "https://registry.npmjs.org/@angular/animations/-/animations-9.1.13.tgz"
   integrity sha512-ane1eeQmsP7fcAiLgRhle7YIDgE88WDMMvzqJYhSxwLzXNF/hwqNeskmNcjo8bLt9h/yTIjrCQbycLCHJfU8UQ==
 
-"@angular/cdk@9.2.4":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-9.2.4.tgz"
-  integrity sha512-iw2+qHMXHYVC6K/fttHeNHIieSKiTEodVutZoOEcBu9rmRTGbLB26V/CRsfIRmA1RBk+uFYWc6UQZnMC3RdnJQ==
+"@angular/cdk@15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-15.0.0.tgz#584bc424eff1856db3f517b22a0f1cb81cb854dc"
+  integrity sha512-a4AUGfd1iNEGR5A9jmwzEfdRDpOh9KWypFqo85ivC3/KDW4+Z5AGxZpzwqAsRz2WQVdK+8biaz83VBQTMC5IOw==
+  dependencies:
+    tslib "^2.3.0"
   optionalDependencies:
     parse5 "^5.0.0"
 
